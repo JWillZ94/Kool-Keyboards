@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "img": "https://assets.logitech.com/assets/55167/k800-us-gallery.png",
+    "name": "keyboard 1",
+    "size": "big",
+    "color": "blue"
+  },
+  {
+    "id": "2",
+    "img": "http://www.stickpng.com/assets/images/580b57fbd9996e24bc43bfce.png",
+    "name": "keyboard 2",
+    "size": "small",
+    "color": "red"
+  }
+]

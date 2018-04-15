@@ -1,0 +1,17 @@
+.title {
+  text-align: center;
+}
+
+.nav-item {
+  text-align: center;
+  list-style: none;
+  position: relative;
+  right: 600px;
+  padding-bottom: 1rem;
+  font-size: 1.1em;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+}

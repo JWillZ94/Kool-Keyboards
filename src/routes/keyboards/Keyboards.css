@@ -1,0 +1,27 @@
+.items-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1em;
+}
+
+.items {
+  list-style-type: none;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.image {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.fa-angle-left, .fa-angle-right {
+  font-size: 3em;
+  color: darkgray;
+  cursor: pointer;
+}
+
+.fa-angle-left:hover, .fa-angle-right:hover {
+  color: black;
+}
