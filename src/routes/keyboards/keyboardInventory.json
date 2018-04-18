@@ -2,15 +2,49 @@
   {
     "id": "1",
     "img": "https://assets.logitech.com/assets/55167/k800-us-gallery.png",
+    "condition": "new",
+    "feature": "cordless",
+    "type": ["gaming", "spill-resistant"],
+    "interface": ["USB", "PS/2", "Infrared"],
+    "brand": "dbsjhdbs",
     "name": "keyboard 1",
-    "size": "big",
-    "color": "blue"
+    "price": "300",
+    "rating": 4.2
   },
   {
     "id": "2",
     "img": "http://www.stickpng.com/assets/images/580b57fbd9996e24bc43bfce.png",
+    "condition": "used",
+    "feature": "cordless",
+    "type": ["apple", "lightweight"],
+    "interface": ["Wireless", "Bluetooth"],
+    "brand": "dbsjhdbs",
     "name": "keyboard 2",
-    "size": "small",
-    "color": "red"
+    "price": "150",
+    "rating": 3.5
+  },
+  {
+    "id": "3",
+    "img": "https://assets.logitech.com/assets/55167/k800-us-gallery.png",
+    "condition": "used",
+    "feature": "ergonomic",
+    "type": ["gaming", "lightweight"],
+    "interface": ["USB", "Bluetooth", "Infrared"],
+    "brand": "dbsjhdbs",
+    "name": "keyboard 3",
+    "price": "250",
+    "rating": 1.2
+  },
+  {
+    "id": "4",
+    "img": "https://assets.logitech.com/assets/55167/k800-us-gallery.png",
+    "condition": "refurbished",
+    "feature": "",
+    "type": ["spill-resistant", "windows"],
+    "interface": ["PS/2", "Wireless"],
+    "brand": "dbsjhdbs",
+    "name": "keyboard 4",
+    "price": "200",
+    "rating": 5.0
   }
 ]

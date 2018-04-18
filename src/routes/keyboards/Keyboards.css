@@ -1,3 +1,13 @@
+.items-menu {
+  display: flex;
+  justify-content: space-around;
+}
+
+.items-sort {
+  border: 1px black solid;
+  /* width: 400px; */
+}
+
 .items-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -14,6 +24,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
+  cursor: pointer;
+}
+
+.kb-name {
+  cursor: pointer;
 }
 
 .fa-angle-left, .fa-angle-right {
@@ -24,4 +39,21 @@
 
 .fa-angle-left:hover, .fa-angle-right:hover {
   color: black;
+}
+
+#modal {
+  position: relative;
+  z-index: 999;
+}
+
+.modal {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  height: 50%;
+  width: 50%;
+  top: 25%;
+  left: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

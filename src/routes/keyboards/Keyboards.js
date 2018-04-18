@@ -1,48 +1,44 @@
 import React, { Component } from 'react';
 import './Keyboards.css';
-import { Link } from 'react-router-dom';
 import data from './keyboardInventory';
-import KeyboardDetail from '../keyboard-detail/KeyboardDetail';
+import Sort from './components/Sort';
+import Condition from './components/Condition';
+import Feature from './components/Feature';
+import Type from './components/Type';
+import KbInterface from './components/KbInterface';
+import Brand from './components/Brand';
+import Price from './components/Price';
+import Items from './components/Items';
+import Modal from './components/Modal';
 
 class Keyboards extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      active: false
+      data: data
     }
-
-    this.showArrows = this.showArrows.bind(this);
-  }
-
-  showArrows() {
-    const currentState = this.state.active;
-    this.setState({
-      active: !currentState
-    });
   }
 
   render() {
-    const items = data.map(kb =>
-      <li key={kb.id} className="items">
-        <div className="image" onMouseEnter={this.showArrows} onMouseLeave={this.showArrows}>
-          <i className={this.state.active ? 'fa fa-angle-left' : null}></i>
-          <Link to="/keyboard-detail">
-            <img src={kb.img} alt="image" width="300" />
-          </Link>
-          <i className={this.state.active ? 'fa fa-angle-right' : null}></i>
-        </div>
-        <h2>
-          <Link to="/keyboard-detail">{kb.name}</Link>
-        </h2>
-        <h3>{kb.size}</h3>
-        <h4>{kb.color}</h4>
-      </li>
-    );
     return (
       <div>
         <h1>Keyboards</h1>
-        <ul className="items-list">{items}</ul>
+        <div className="items-menu">
+          <div>
+            <Sort />
+            <Condition />
+            <Feature />
+            <Type />
+            <KbInterface />
+            <Brand />
+            <Price />
+          </div>
+          <ul className="items-list">
+            <Items />
+          </ul>
+          <Modal />
+        </div>
       </div>
     );
   }
