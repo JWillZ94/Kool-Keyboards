@@ -1,41 +1,24 @@
 import React, { Component } from 'react';
-import data from '../keyboardInventory';
 
 class Condition extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      data: data,
-    }
 
     this.filterNew = this.filterNew.bind(this);
     this.filterUsed = this.filterUsed.bind(this);
     this.filterRefurbished = this.filterRefurbished.bind(this);
   }
 
-  filterNew() {
-    this.setState({
-      data: data.filter(i => {
-        return i.condition === 'new';
-      })
-    });
+  filterNew(e) {
+    this.props.onChooseNew(e.target.value);
   }
 
-  filterUsed() {
-    this.setState({
-      data: data.filter(i => {
-        return i.condition === 'used';
-      })
-    });
+  filterUsed(e) {
+    this.props.onChooseUsed(e.target.value);
   }
 
-  filterRefurbished() {
-    this.setState({
-      data: data.filter(i => {
-        return i.condition === 'refurbished';
-      })
-    });
+  filterRefurbished(e) {
+    this.props.onChooseRefurbished(e.target.value);
   }
 
   render() {

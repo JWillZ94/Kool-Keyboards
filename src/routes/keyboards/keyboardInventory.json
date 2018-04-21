@@ -20,7 +20,7 @@
     "interface": ["Wireless", "Bluetooth"],
     "brand": "dbsjhdbs",
     "name": "keyboard 2",
-    "price": "150",
+    "price": "15",
     "rating": 3.5
   },
   {
@@ -46,5 +46,41 @@
     "name": "keyboard 4",
     "price": "200",
     "rating": 5.0
+  },
+  {
+    "id": "5",
+    "img": "https://assets.logitech.com/assets/55167/k800-us-gallery.png",
+    "condition": "new",
+    "feature": "",
+    "type": ["spill-resistant", "gaming"],
+    "interface": ["PS/2", "Bluetooth"],
+    "brand": "dbsjhdbs",
+    "name": "keyboard 5",
+    "price": "115",
+    "rating": 3.0
+  },
+  {
+    "id": "6",
+    "img": "https://assets.logitech.com/assets/55167/k800-us-gallery.png",
+    "condition": "refurbished",
+    "feature": "",
+    "type": ["spill-resistant", "windows"],
+    "interface": ["PS/2", "Wireless"],
+    "brand": "dbsjhdbs",
+    "name": "keyboard 6",
+    "price": "200",
+    "rating": 5.0
+  },
+  {
+    "id": "7",
+    "img": "https://assets.logitech.com/assets/55167/k800-us-gallery.png",
+    "condition": "used",
+    "feature": "",
+    "type": ["spill-resistant", "windows"],
+    "interface": ["PS/2", "Wireless"],
+    "brand": "dbsjhdbs",
+    "name": "keyboard 7",
+    "price": "75",
+    "rating": 2.7
   }
 ]

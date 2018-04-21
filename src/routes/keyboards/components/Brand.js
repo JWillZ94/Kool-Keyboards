@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
-import data from '../keyboardInventory';
 
 class Brand extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      data: data,
-    }
-  }
-
   render() {
     return (
       <div>

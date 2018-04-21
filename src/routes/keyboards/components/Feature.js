@@ -1,32 +1,19 @@
 import React, { Component } from 'react';
-import data from '../keyboardInventory';
 
 class Feature extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      data: data
-    }
-
     this.filterErgo = this.filterErgo.bind(this);
     this.filterCordless = this.filterCordless.bind(this);
   }
 
-  filterErgo() {
-    this.setState({
-      data: data.filter(i => {
-        return i.feature === 'ergonomic';
-      })
-    });
+  filterErgo(e) {
+    this.props.onChooseErgo(e.target.value);
   }
 
-  filterCordless() {
-    this.setState({
-      data: data.filter(i => {
-        return i.feature === 'cordless';
-      })
-    });
+  filterCordless(e) {
+    this.props.onChooseCordless(e.target.value);
   }
 
   render() {

@@ -1,56 +1,35 @@
 import React, { Component } from 'react';
-import data from '../keyboardInventory';
 
 class Type extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      data: data,
-    }
+    this.filterType = this.filterType.bind(this);
+  }
+
+  filterType(e) {
+    this.props.onChooseType(e.target.checked);
   }
 
   render() {
+    const labels = ['apple', 'backlit', 'full-size', 'gaming', 'large-print', 'mechanical', 'spill-resistant', 'ultra-thin', 'windows'];
+
+    const typeCheckbox = labels.map(label =>
+      <div key={label}>
+        <input
+          type="checkbox"
+          onChange={this.filterType}
+          value={this.props.val}
+          checked={ this.props.active ? console.log(`${label} yes`) : console.log(`${label} no`) }
+        />
+        <label>{label}</label>
+      </div>
+    );
+
     return (
       <div>
-        <div>Type:
-          <div>
-            <input type="checkbox" />
-            <label>Apple</label>
-          </div>
-          <div>
-            <input type="checkbox" />
-            <label>Backlit</label>
-          </div>
-          <div>
-            <input type="checkbox" />
-            <label>Full Size</label>
-          </div>
-          <div>
-            <input type="checkbox" />
-            <label>Gaming</label>
-          </div>
-          <div>
-            <input type="checkbox" />
-            <label>Large Print</label>
-          </div>
-          <div>
-            <input type="checkbox" />
-            <label>Mechanical</label>
-          </div>
-          <div>
-            <input type="checkbox" />
-            <label>Spill Resistant</label>
-          </div>
-          <div>
-            <input type="checkbox" />
-            <label>Ultra Thin</label>
-          </div>
-          <div>
-            <input type="checkbox" />
-            <label>Windows</label>
-          </div>
-        </div>
+        Type:
+        {typeCheckbox}
       </div>
     );
   }
