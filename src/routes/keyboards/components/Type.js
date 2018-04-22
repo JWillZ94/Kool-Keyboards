@@ -4,32 +4,120 @@ class Type extends Component {
   constructor(props) {
     super(props);
 
-    this.filterType = this.filterType.bind(this);
+    this.filterTypeApple = this.filterTypeApple.bind(this);
+    this.filterTypeBacklit = this.filterTypeBacklit.bind(this);
+    this.filterTypeFullSize = this.filterTypeFullSize.bind(this);
+    this.filterTypeGaming = this.filterTypeGaming.bind(this);
+    this.filterTypeLargePrint = this.filterTypeLargePrint.bind(this);
+    this.filterTypeMechanical = this.filterTypeMechanical.bind(this);
+    this.filterTypeSpillResistant = this.filterTypeSpillResistant.bind(this);
+    this.filterTypeUltraThin = this.filterTypeUltraThin.bind(this);
+    this.filterTypeWindows = this.filterTypeWindows.bind(this);
   }
 
-  filterType(e) {
-    this.props.onChooseType(e.target.checked);
+  filterTypeApple(e) {
+    this.props.filterTypeApple(e.target.checked);
+  }
+
+  filterTypeBacklit(e) {
+    this.props.filterTypeBacklit(e.target.checked);
+  }
+
+  filterTypeFullSize(e) {
+    this.props.filterTypeFullSize(e.target.checked);
+  }
+
+  filterTypeGaming(e) {
+    this.props.filterTypeGaming(e.target.checked);
+  }
+
+  filterTypeLargePrint(e) {
+    this.props.filterTypeLargePrint(e.target.checked);
+  }
+
+  filterTypeMechanical(e) {
+    this.props.filterTypeMechanical(e.target.checked);
+  }
+
+  filterTypeSpillResistant(e) {
+    this.props.filterTypeSpillResistant(e.target.checked);
+  }
+
+  filterTypeUltraThin(e) {
+    this.props.filterTypeUltraThin(e.target.checked);
+  }
+
+  filterTypeWindows(e) {
+    this.props.filterTypeWindows(e.target.checked);
   }
 
   render() {
-    const labels = ['apple', 'backlit', 'full-size', 'gaming', 'large-print', 'mechanical', 'spill-resistant', 'ultra-thin', 'windows'];
-
-    const typeCheckbox = labels.map(label =>
-      <div key={label}>
-        <input
-          type="checkbox"
-          onChange={this.filterType}
-          value={this.props.val}
-          checked={ this.props.active ? console.log(`${label} yes`) : console.log(`${label} no`) }
-        />
-        <label>{label}</label>
-      </div>
-    );
-
     return (
       <div>
         Type:
-        {typeCheckbox}
+        <div>
+          <input
+            type="checkbox"
+            onChange={this.filterTypeApple}
+          />
+          <label>Apple</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            onChange={this.filterTypeBacklit}
+          />
+          <label>Backlit</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            onChange={this.filterTypeFullSize}
+          />
+          <label>Full Size</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            onChange={this.filterTypeGaming}
+          />
+          <label>Gaming</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            onChange={this.filterTypeLargePrint}
+          />
+          <label>Large Print</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            onChange={this.filterTypeMechanical}
+          />
+          <label>Mechanical</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            onChange={this.filterTypeSpillResistant}
+          />
+          <label>Spill Resistant</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            onChange={this.filterTypeUltraThin}
+          />
+          <label>Ultra Thin</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            onChange={this.filterTypeWindows}
+          />
+          <label>Windows</label>
+        </div>
       </div>
     );
   }

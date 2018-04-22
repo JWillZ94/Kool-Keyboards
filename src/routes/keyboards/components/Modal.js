@@ -16,6 +16,7 @@ class Modal extends Component {
     return this.props.showModal ? (
       <KeyboardDetail>
         <div className="modal">
+          <p>{this.props.data[0].name}</p>
           <button>Add to Cart</button>
           <button onClick={this.hideModal}>X</button>
         </div>

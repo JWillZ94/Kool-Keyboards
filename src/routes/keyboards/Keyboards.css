@@ -57,3 +57,7 @@
   align-items: center;
   justify-content: center;
 }
+
+.range {
+  cursor: pointer;
+}

@@ -21,8 +21,7 @@ class Keyboards extends Component {
       showModal: false,
       val: '',
       active: false,
-      low: 0,
-      high: 0
+      activeTypeBoxes: []
     }
 
     this.showArrows = this.showArrows.bind(this);
@@ -40,9 +39,21 @@ class Keyboards extends Component {
     this.filterErgo = this.filterErgo.bind(this);
     this.filterCordless = this.filterCordless.bind(this);
 
-    this.filterType = this.filterType.bind(this);
+    this.filterTypeApple = this.filterTypeApple.bind(this);
+    this.filterTypeBacklit = this.filterTypeBacklit.bind(this);
+    this.filterTypeFullSize = this.filterTypeFullSize.bind(this);
+    this.filterTypeGaming = this.filterTypeGaming.bind(this);
+    this.filterTypeLargePrint = this.filterTypeLargePrint.bind(this);
+    this.filterTypeMechanical = this.filterTypeMechanical.bind(this);
+    this.filterTypeSpillResistant = this.filterTypeSpillResistant.bind(this);
+    this.filterTypeUltraThin = this.filterTypeUltraThin.bind(this);
+    this.filterTypeWindows = this.filterTypeWindows.bind(this);
 
-    this.filterPrice = this.filterPrice.bind(this);
+    this.filterBelow25 = this.filterBelow25.bind(this);
+    this.filter25To50 = this.filter25To50.bind(this);
+    this.filter50To100 = this.filter50To100.bind(this);
+    this.filter100To200 = this.filter100To200.bind(this);
+    this.filter200AndUp = this.filter200AndUp.bind(this);
   }
 
   showArrows() {
@@ -151,9 +162,44 @@ class Keyboards extends Component {
     });
   }
 
-  filterType() {
-    this.setState(prevState => ({
-      active: !prevState.active,
+  filterTypeApple() {
+    this.setState({
+      data: data.filter(i => {
+        for (var j = 0; j < i.type.length; j++) {
+          if (i.type[j] === 'apple') {
+            return i;
+          }
+        }
+      })
+    });
+  }
+
+  filterTypeBacklit() {
+    this.setState({
+      data: data.filter(i => {
+        for (var j = 0; j < i.type.length; j++) {
+          if (i.type[j] === 'backlit') {
+            return i;
+          }
+        }
+      })
+    });
+  }
+
+  filterTypeFullSize() {
+    this.setState({
+      data: data.filter(i => {
+        for (var j = 0; j < i.type.length; j++) {
+          if (i.type[j] === 'full-size') {
+            return i;
+          }
+        }
+      })
+    });
+  }
+
+  filterTypeGaming() {
+    this.setState({
       data: data.filter(i => {
         for (var j = 0; j < i.type.length; j++) {
           if (i.type[j] === 'gaming') {
@@ -161,17 +207,107 @@ class Keyboards extends Component {
           }
         }
       })
-    }));
+    });
   }
 
-  filterPrice(low, high) {
+  filterTypeLargePrint() {
     this.setState({
-      low: low,
-      high: high,
       data: data.filter(i => {
-        return i.price >= this.state.low && i.price <= this.state.high;
+        for (var j = 0; j < i.type.length; j++) {
+          if (i.type[j] === 'large-print') {
+            return i;
+          }
+        }
       })
-    })
+    });
+  }
+
+  filterTypeMechanical() {
+    this.setState({
+      data: data.filter(i => {
+        for (var j = 0; j < i.type.length; j++) {
+          if (i.type[j] === 'mechanical') {
+            return i;
+          }
+        }
+      })
+    });
+  }
+
+  filterTypeSpillResistant() {
+    this.setState({
+      data: data.filter(i => {
+        for (var j = 0; j < i.type.length; j++) {
+          if (i.type[j] === 'spill-resistant') {
+            return i;
+          }
+        }
+      })
+    });
+  }
+
+  filterTypeUltraThin() {
+    this.setState({
+      data: data.filter(i => {
+        for (var j = 0; j < i.type.length; j++) {
+          if (i.type[j] === 'ultra-thin') {
+            return i;
+          }
+        }
+      })
+    });
+  }
+
+  filterTypeWindows() {
+    this.setState({
+      data: data.filter(i => {
+        for (var j = 0; j < i.type.length; j++) {
+          if (i.type[j] === 'windows') {
+            return i;
+          }
+        }
+      })
+    });
+  }
+
+  filterBelow25() {
+    this.setState({
+      data: data.filter(i => {
+        return i.price >= 0 && i.price <= 24;
+      })
+    });
+  }
+
+  filter25To50() {
+    this.setState({
+      data: data.filter(i => {
+        return i.price >= 25 && i.price <= 50;
+      })
+    });
+  }
+
+  filter50To100() {
+    this.setState({
+      data: data.filter(i => {
+        return i.price >= 50 && i.price <= 100;
+      })
+    });
+  }
+
+  filter100To200() {
+    this.setState({
+      data: data.filter(i => {
+        return i.price >= 100 && i.price <= 200;
+      })
+    });
+  }
+
+  filter200AndUp() {
+    this.setState({
+      data: data.filter(i => {
+        return i.price >= 200 && i.price <= Infinity;
+      })
+    });
   }
 
   render() {
@@ -187,10 +323,26 @@ class Keyboards extends Component {
               onChooseRefurbished={this.filterRefurbished}
             />
             <Feature onChooseErgo={this.filterErgo} onChooseCordless={this.filterCordless} />
-            <Type val={this.state.val} active={this.state.active} onChooseType={this.filterType} />
+            <Type
+              filterTypeApple={this.filterTypeApple}
+              filterTypeBacklit={this.filterTypeBacklit}
+              filterTypeFullSize={this.filterTypeFullSize}
+              filterTypeGaming={this.filterTypeGaming}
+              filterTypeLargePrint={this.filterTypeLargePrint}
+              filterTypeMechanical={this.filterTypeMechanical}
+              filterTypeSpillResistant={this.filterTypeSpillResistant}
+              filterTypeUltraThin={this.filterTypeUltraThin}
+              filterTypeWindows={this.filterTypeWindows}
+            />
             <KbInterface />
             <Brand />
-            <Price low={this.state.low} high={this.state.high} priceRange={this.filterPrice} />
+            <Price
+              filterBelow25={this.filterBelow25}
+              filter25To50={this.filter25To50}
+              filter50To100={this.filter50To100}
+              filter100To200={this.filter100To200}
+              filter200AndUp={this.filter200AndUp}
+            />
           </div>
           <ul className="items-list">
             <Items
