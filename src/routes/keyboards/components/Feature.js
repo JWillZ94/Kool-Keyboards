@@ -21,8 +21,10 @@ class Feature extends Component {
       <div>
         <div>Feature:
           <div>
+            <button onClick={this.filterErgo}>None</button>
             <button onClick={this.filterErgo}>Ergonomic</button>
             <button onClick={this.filterCordless}>Cordless</button>
+            <button onClick={this.filterCordless}>Both</button>
           </div>
         </div>
       </div>

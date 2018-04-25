@@ -4,18 +4,26 @@ class Items extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      showArrows: null
+    }
+
     this.showArrows = this.showArrows.bind(this);
     this.hideArrows = this.hideArrows.bind(this);
 
     this.showModal = this.showModal.bind(this);
   }
 
-  showArrows(e) {
-    this.props.onAreaEnter(e.target.value);
+  showArrows(index) {
+    this.setState({
+      showArrows: index
+    });
   }
 
-  hideArrows(e) {
-    this.props.onAreaLeave(e.target.value);
+  hideArrows() {
+    this.setState({
+      showArrows: null
+    });
   }
 
   showModal(e) {
@@ -23,12 +31,12 @@ class Items extends Component {
   }
 
   render() {
-    return this.props.data.map(kb =>
-      <li key={kb.id} className="items">
+    return this.props.data.map((kb, i) =>
+      <li key={kb.id} index={i} className="items">
         <div className="image" onMouseEnter={this.showArrows} onMouseLeave={this.hideArrows} onClick={this.showModal}>
-          <i className={this.props.showArrows ? 'fa fa-angle-left' : null}></i>
+          <i className={this.state.showArrows === i ? 'fa fa-angle-left' : null}></i>
           <img src={kb.img} alt="" width="300" />
-          <i className={this.props.showArrows ? 'fa fa-angle-right' : null}></i>
+          <i className={this.state.showArrows === i ? 'fa fa-angle-right' : null}></i>
         </div>
         <h2 className="kb-name" onClick={this.showModal}>{kb.name}</h2>
         <h3>Price: ${kb.price}</h3>

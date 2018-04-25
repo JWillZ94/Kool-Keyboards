@@ -40,6 +40,7 @@ class Price extends Component {
         <p className="range" onClick={this.filter50To100}>$50 to $100</p>
         <p className="range" onClick={this.filter100To200}>$100 to $200</p>
         <p className="range" onClick={this.filter200AndUp}>$200 & Above</p>
+        <p className="range" onClick={this.filter200AndUp}>Any Price</p>
       </div>
     );
   }

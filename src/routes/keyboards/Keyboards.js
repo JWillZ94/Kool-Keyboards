@@ -17,55 +17,29 @@ class Keyboards extends Component {
 
     this.state = {
       data: data,
-      showArrows: false,
+      dataSorts: [],
+      condition: 'Any',
+      feature: 'None',
+      type: 'Any',
+      priceRange: 'None',
       showModal: false,
       val: '',
       active: false,
       activeTypeBoxes: []
     }
 
-    this.showArrows = this.showArrows.bind(this);
-    this.hideArrows = this.hideArrows.bind(this);
-
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
 
     this.sortItems = this.sortItems.bind(this);
 
-    this.filterNew = this.filterNew.bind(this);
-    this.filterUsed = this.filterUsed.bind(this);
-    this.filterRefurbished = this.filterRefurbished.bind(this);
+    this.filterConditions = this.filterConditions.bind(this);
 
-    this.filterErgo = this.filterErgo.bind(this);
-    this.filterCordless = this.filterCordless.bind(this);
+    this.filterFeature = this.filterFeature.bind(this);
 
-    this.filterTypeApple = this.filterTypeApple.bind(this);
-    this.filterTypeBacklit = this.filterTypeBacklit.bind(this);
-    this.filterTypeFullSize = this.filterTypeFullSize.bind(this);
-    this.filterTypeGaming = this.filterTypeGaming.bind(this);
-    this.filterTypeLargePrint = this.filterTypeLargePrint.bind(this);
-    this.filterTypeMechanical = this.filterTypeMechanical.bind(this);
-    this.filterTypeSpillResistant = this.filterTypeSpillResistant.bind(this);
-    this.filterTypeUltraThin = this.filterTypeUltraThin.bind(this);
-    this.filterTypeWindows = this.filterTypeWindows.bind(this);
+    this.filterType = this.filterType.bind(this);
 
-    this.filterBelow25 = this.filterBelow25.bind(this);
-    this.filter25To50 = this.filter25To50.bind(this);
-    this.filter50To100 = this.filter50To100.bind(this);
-    this.filter100To200 = this.filter100To200.bind(this);
-    this.filter200AndUp = this.filter200AndUp.bind(this);
-  }
-
-  showArrows() {
-    this.setState({
-      showArrows: true
-    });
-  }
-
-  hideArrows() {
-    this.setState({
-      showArrows: false
-    });
+    this.filterPriceRange = this.filterPriceRange.bind(this);
   }
 
   showModal() {
@@ -122,31 +96,76 @@ class Keyboards extends Component {
     }
   }
 
-  filterNew() {
-    this.setState({
-      data: data.filter(i => {
-        return i.condition === 'new';
-      })
-    });
+  filterConditions() {
+    switch(this.state.condition) {
+      case 'Any':
+        this.setState({
+          data: data
+        });
+        break;
+      case 'New':
+        this.setState({
+          data: data.filter(i => {
+            return i.condition === 'new';
+          })
+        });
+        break;
+      case 'Used':
+        this.setState({
+          data: data.filter(i => {
+            return i.condition === 'used';
+          })
+        });
+        break;
+      case 'Refurbished':
+        this.setState({
+          data: data.filter(i => {
+            return i.condition === 'refurbished';
+          })
+        });
+        break;
+      default:
+        this.setState({
+          data: data
+        });
+    }
   }
 
-  filterUsed() {
-    this.setState({
-      data: data.filter(i => {
-        return i.condition === 'used';
-      })
-    });
-  }
-
-  filterRefurbished() {
-    this.setState({
-      data: data.filter(i => {
-        return i.condition === 'refurbished';
-      })
-    });
-  }
-
-  filterErgo() {
+  filterFeature() {
+    switch(this.state.feature) {
+      case 'None':
+        this.setState({
+          data: data.filter(i => {
+            return i.feature === 'none';
+          })
+        });
+        break;
+      case 'Ergonomic':
+        this.setState({
+          data: data.filter(i => {
+            return i.feature === 'ergonomic';
+          })
+        });
+        break;
+      case 'Cordless':
+        this.setState({
+          data: data.filter(i => {
+            return i.feature === 'cordless';
+          })
+        });
+        break;
+      case 'Both':
+        this.setState({
+          data: data.filter(i => {
+            return i.feature === 'ergonomic' && 'cordless'; // must turn into array
+          })
+        });
+        break;
+      default:
+        this.setState({
+          data: data
+        });
+    }
     this.setState({
       data: data.filter(i => {
         return i.feature === 'ergonomic';
@@ -154,15 +173,7 @@ class Keyboards extends Component {
     });
   }
 
-  filterCordless() {
-    this.setState({
-      data: data.filter(i => {
-        return i.feature === 'cordless';
-      })
-    });
-  }
-
-  filterTypeApple() {
+  filterType() {
     this.setState({
       data: data.filter(i => {
         for (var j = 0; j < i.type.length; j++) {
@@ -174,138 +185,10 @@ class Keyboards extends Component {
     });
   }
 
-  filterTypeBacklit() {
-    this.setState({
-      data: data.filter(i => {
-        for (var j = 0; j < i.type.length; j++) {
-          if (i.type[j] === 'backlit') {
-            return i;
-          }
-        }
-      })
-    });
-  }
-
-  filterTypeFullSize() {
-    this.setState({
-      data: data.filter(i => {
-        for (var j = 0; j < i.type.length; j++) {
-          if (i.type[j] === 'full-size') {
-            return i;
-          }
-        }
-      })
-    });
-  }
-
-  filterTypeGaming() {
-    this.setState({
-      data: data.filter(i => {
-        for (var j = 0; j < i.type.length; j++) {
-          if (i.type[j] === 'gaming') {
-            return i;
-          }
-        }
-      })
-    });
-  }
-
-  filterTypeLargePrint() {
-    this.setState({
-      data: data.filter(i => {
-        for (var j = 0; j < i.type.length; j++) {
-          if (i.type[j] === 'large-print') {
-            return i;
-          }
-        }
-      })
-    });
-  }
-
-  filterTypeMechanical() {
-    this.setState({
-      data: data.filter(i => {
-        for (var j = 0; j < i.type.length; j++) {
-          if (i.type[j] === 'mechanical') {
-            return i;
-          }
-        }
-      })
-    });
-  }
-
-  filterTypeSpillResistant() {
-    this.setState({
-      data: data.filter(i => {
-        for (var j = 0; j < i.type.length; j++) {
-          if (i.type[j] === 'spill-resistant') {
-            return i;
-          }
-        }
-      })
-    });
-  }
-
-  filterTypeUltraThin() {
-    this.setState({
-      data: data.filter(i => {
-        for (var j = 0; j < i.type.length; j++) {
-          if (i.type[j] === 'ultra-thin') {
-            return i;
-          }
-        }
-      })
-    });
-  }
-
-  filterTypeWindows() {
-    this.setState({
-      data: data.filter(i => {
-        for (var j = 0; j < i.type.length; j++) {
-          if (i.type[j] === 'windows') {
-            return i;
-          }
-        }
-      })
-    });
-  }
-
-  filterBelow25() {
+  filterPriceRange() {
     this.setState({
       data: data.filter(i => {
         return i.price >= 0 && i.price <= 24;
-      })
-    });
-  }
-
-  filter25To50() {
-    this.setState({
-      data: data.filter(i => {
-        return i.price >= 25 && i.price <= 50;
-      })
-    });
-  }
-
-  filter50To100() {
-    this.setState({
-      data: data.filter(i => {
-        return i.price >= 50 && i.price <= 100;
-      })
-    });
-  }
-
-  filter100To200() {
-    this.setState({
-      data: data.filter(i => {
-        return i.price >= 100 && i.price <= 200;
-      })
-    });
-  }
-
-  filter200AndUp() {
-    this.setState({
-      data: data.filter(i => {
-        return i.price >= 200 && i.price <= Infinity;
       })
     });
   }
@@ -316,41 +199,27 @@ class Keyboards extends Component {
         <h1>Keyboards</h1>
         <div className="items-menu">
           <div>
+            <button>Show All</button>
             <Sort val={this.state.val} onChooseSort={this.sortItems} />
-            <Condition
-              onChooseNew={this.filterNew}
-              onChooseUsed={this.filterUsed}
-              onChooseRefurbished={this.filterRefurbished}
-            />
-            <Feature onChooseErgo={this.filterErgo} onChooseCordless={this.filterCordless} />
+            <ul className="sort-list conditions-list">
+              Conditions:
+              <Condition filterConditions={this.filterConditions} />
+              {this.state.condition}
+            </ul>
+            <Feature filterFeature={this.filterFeature} />
             <Type
-              filterTypeApple={this.filterTypeApple}
-              filterTypeBacklit={this.filterTypeBacklit}
-              filterTypeFullSize={this.filterTypeFullSize}
-              filterTypeGaming={this.filterTypeGaming}
-              filterTypeLargePrint={this.filterTypeLargePrint}
-              filterTypeMechanical={this.filterTypeMechanical}
-              filterTypeSpillResistant={this.filterTypeSpillResistant}
-              filterTypeUltraThin={this.filterTypeUltraThin}
-              filterTypeWindows={this.filterTypeWindows}
+              filterType={this.filterType}
             />
             <KbInterface />
             <Brand />
             <Price
-              filterBelow25={this.filterBelow25}
-              filter25To50={this.filter25To50}
-              filter50To100={this.filter50To100}
-              filter100To200={this.filter100To200}
-              filter200AndUp={this.filter200AndUp}
+              filterPriceRange={this.filterPriceRange}
             />
           </div>
           <ul className="items-list">
             <Items
               data={this.state.data}
               showModal={this.state.showModal}
-              showArrows={this.state.showArrows}
-              onAreaEnter={this.showArrows}
-              onAreaLeave={this.hideArrows}
               onClickItem={this.showModal}
             />
           </ul>

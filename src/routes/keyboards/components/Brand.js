@@ -21,6 +21,7 @@ class Brand extends Component {
             <input type="checkbox" />
             <label>Corsair</label>
           </div>
+          <button>Clear</button>
         </div>
       </div>
     );

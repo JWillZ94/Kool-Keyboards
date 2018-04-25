@@ -4,34 +4,28 @@ class Condition extends Component {
   constructor(props) {
     super(props);
 
-    this.filterNew = this.filterNew.bind(this);
-    this.filterUsed = this.filterUsed.bind(this);
-    this.filterRefurbished = this.filterRefurbished.bind(this);
+    this.state = {
+      active: 0
+    }
   }
 
-  filterNew(e) {
-    this.props.onChooseNew(e.target.value);
-  }
+  filterConditions(props, condition, i) {
+    this.setState({
+      active: i
+    });
 
-  filterUsed(e) {
-    this.props.onChooseUsed(e.target.value);
-  }
-
-  filterRefurbished(e) {
-    this.props.onChooseRefurbished(e.target.value);
+    this.props.filterConditions(condition);
   }
 
   render() {
-    return (
-      <div>
-        <div>Condition:
-          <div className="conditions">
-            <button onClick={this.filterNew}>New</button>
-            <button onClick={this.filterUsed}>Used</button>
-            <button onClick={this.filterRefurbished}>Refurbished</button>
-          </div>
-        </div>
-      </div>
+    const conditions = ['Any', 'New', 'Used', 'Refurbished'];
+
+    return conditions.map((condition, i) =>
+      <li className="conditions" key={condition}>
+        <button className={this.state.active === i ? 'active-button' : null} onClick={this.filterConditions.bind(this, i, i)}>
+          {condition}
+        </button>
+      </li>
     );
   }
 }

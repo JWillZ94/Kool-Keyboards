@@ -3,6 +3,10 @@
   justify-content: space-around;
 }
 
+.active-button {
+  font-size: 1.2em;
+}
+
 .items-sort {
   border: 1px black solid;
   /* width: 400px; */

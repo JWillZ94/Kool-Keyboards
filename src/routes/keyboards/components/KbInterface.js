@@ -25,6 +25,7 @@ class KbInterface extends Component {
             <input type="checkbox" />
             <label>Wireless</label>
           </div>
+          <button>Clear</button>
         </div>
       </div>
     );
