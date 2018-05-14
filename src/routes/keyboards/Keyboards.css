@@ -12,6 +12,10 @@
   /* width: 400px; */
 }
 
+.sort-section {
+  border: 1px black solid;
+}
+
 .items-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -60,6 +64,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
 }
 
 .range {

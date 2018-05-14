@@ -8,15 +8,14 @@ class Items extends Component {
       showArrows: null
     }
 
-    this.showArrows = this.showArrows.bind(this);
     this.hideArrows = this.hideArrows.bind(this);
 
     this.showModal = this.showModal.bind(this);
   }
 
-  showArrows(index) {
+  showArrows(props, kb) {
     this.setState({
-      showArrows: index
+      showArrows: kb
     });
   }
 
@@ -31,17 +30,35 @@ class Items extends Component {
   }
 
   render() {
-    return this.props.data.map((kb, i) =>
-      <li key={kb.id} index={i} className="items">
-        <div className="image" onMouseEnter={this.showArrows} onMouseLeave={this.hideArrows} onClick={this.showModal}>
-          <i className={this.state.showArrows === i ? 'fa fa-angle-left' : null}></i>
+    const items = this.props.data.map(kb =>
+      <li key={kb.id} className="items">
+        <div
+          className="image"
+          onMouseEnter={this.showArrows.bind(this, null, kb)}
+          onMouseLeave={this.hideArrows}
+          onClick={this.showModal}
+        >
+          <i className={this.state.showArrows === kb ? 'fa fa-angle-left' : null}></i>
           <img src={kb.img} alt="" width="300" />
-          <i className={this.state.showArrows === i ? 'fa fa-angle-right' : null}></i>
+          <i className={this.state.showArrows === kb ? 'fa fa-angle-right' : null}></i>
         </div>
         <h2 className="kb-name" onClick={this.showModal}>{kb.name}</h2>
         <h3>Price: ${kb.price}</h3>
         <h3>Rating: {kb.rating}/5</h3>
+        <p>Condition: {kb.condition}</p>
+        <p>Feature: {kb.feature}</p>
+        <p>Type: {kb.type}</p>
+        <p>Interface: {kb.interface}</p>
+        <p>Brand: {kb.brand}</p>
       </li>
+    );
+
+    return (
+      <div>
+        <ul className="items-list">
+          {items}
+        </ul>
+      </div>
     );
   }
 }

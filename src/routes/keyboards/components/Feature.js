@@ -4,29 +4,37 @@ class Feature extends Component {
   constructor(props) {
     super(props);
 
-    this.filterErgo = this.filterErgo.bind(this);
-    this.filterCordless = this.filterCordless.bind(this);
+    this.state = {
+      active: 'None'
+    }
   }
 
-  filterErgo(e) {
-    this.props.onChooseErgo(e.target.value);
-  }
-
-  filterCordless(e) {
-    this.props.onChooseCordless(e.target.value);
+  filterFeature(props, feature) {
+    this.setState({
+      active: feature
+    });
+    this.props.filterFeature(feature);
   }
 
   render() {
+    const features = ['None', 'Ergonomic', 'Cordless', 'Any'];
+
+    const featureButtons = features.map(feature =>
+      <li key={feature}>
+        <button
+          className={this.state.active === feature ? 'active-button' : null}
+          onClick={this.filterFeature.bind(this, 'None', feature)}
+        >{feature}</button>
+      </li>
+    );
+
     return (
-      <div>
-        <div>Feature:
-          <div>
-            <button onClick={this.filterErgo}>None</button>
-            <button onClick={this.filterErgo}>Ergonomic</button>
-            <button onClick={this.filterCordless}>Cordless</button>
-            <button onClick={this.filterCordless}>Both</button>
-          </div>
-        </div>
+      <div className="sort-section">
+        Feature:
+        <ul>
+          {featureButtons}
+        </ul>
+        {this.props.feature}
       </div>
     );
   }

@@ -17,19 +17,20 @@ class Keyboards extends Component {
 
     this.state = {
       data: data,
-      dataSorts: [],
-      condition: 'Any',
-      feature: 'None',
-      type: 'Any',
-      priceRange: 'None',
-      showModal: false,
       val: '',
-      active: false,
-      activeTypeBoxes: []
+      condition: 'Any',
+      feature: 'Any',
+      type: 'Any',
+      activeTypeBoxes: [],
+      priceRange: 'Any Price',
+      showModal: false,
+      active: false
     }
 
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
+
+    this.showAll = this.showAll.bind(this);
 
     this.sortItems = this.sortItems.bind(this);
 
@@ -51,6 +52,16 @@ class Keyboards extends Component {
   hideModal() {
     this.setState({
       showModal: false
+    });
+  }
+
+  showAll() {
+    this.setState({
+      data: data,
+      val: '',
+      condition: 'Any',
+      feature: 'Any',
+      priceRange: 'Any Price'
     });
   }
 
@@ -96,8 +107,11 @@ class Keyboards extends Component {
     }
   }
 
-  filterConditions() {
-    switch(this.state.condition) {
+  filterConditions(condition) {
+    this.setState({
+      condition: condition
+    });
+    switch(condition) {
       case 'Any':
         this.setState({
           data: data
@@ -131,8 +145,11 @@ class Keyboards extends Component {
     }
   }
 
-  filterFeature() {
-    switch(this.state.feature) {
+  filterFeature(feature) {
+    this.setState({
+      feature: feature
+    });
+    switch(feature) {
       case 'None':
         this.setState({
           data: data.filter(i => {
@@ -154,10 +171,43 @@ class Keyboards extends Component {
           })
         });
         break;
-      case 'Both':
+      case 'Any':
+        this.setState({
+          data: data
+        });
+        break;
+      default:
+        this.setState({
+          data: data
+        });
+    }
+  }
+
+  filterType(type, activeTypeBoxes) {
+    this.setState({
+      type: type,
+      activeTypeBoxes: activeTypeBoxes
+    });
+    switch(type) {
+      case 'Apple':
         this.setState({
           data: data.filter(i => {
-            return i.feature === 'ergonomic' && 'cordless'; // must turn into array
+            for (var j = 0; j < i.type.length; j++) {
+              if (i.type[j] === 'apple') {
+                return i;
+              }
+            }
+          })
+        });
+        break;
+      case 'Backlit':
+        this.setState({
+          data: data.filter(i => {
+            for (var j = 0; j < i.type.length; j++) {
+              if (i.type[j] === 'backlit') {
+                return i;
+              }
+            }
           })
         });
         break;
@@ -166,31 +216,58 @@ class Keyboards extends Component {
           data: data
         });
     }
-    this.setState({
-      data: data.filter(i => {
-        return i.feature === 'ergonomic';
-      })
-    });
   }
 
-  filterType() {
+  filterPriceRange(priceRange) {
     this.setState({
-      data: data.filter(i => {
-        for (var j = 0; j < i.type.length; j++) {
-          if (i.type[j] === 'apple') {
-            return i;
-          }
-        }
-      })
+      priceRange: priceRange
     });
-  }
-
-  filterPriceRange() {
-    this.setState({
-      data: data.filter(i => {
-        return i.price >= 0 && i.price <= 24;
-      })
-    });
+    switch(priceRange) {
+      case 'Under $25':
+        this.setState({
+          data: data.filter(i => {
+            return i.price >= 0 && i.price <= 24;
+          })
+        });
+        break;
+      case '$25 to $50':
+        this.setState({
+          data: data.filter(i => {
+            return i.price >= 25 && i.price <= 50;
+          })
+        });
+        break;
+      case '$50 to $100':
+        this.setState({
+          data: data.filter(i => {
+            return i.price >= 50 && i.price <= 100;
+          })
+        });
+        break;
+      case '$100 to $200':
+        this.setState({
+          data: data.filter(i => {
+            return i.price >= 100 && i.price <= 200;
+          })
+        });
+        break;
+      case '$200 & Above':
+        this.setState({
+          data: data.filter(i => {
+            return i.price >= 200 && i.price <= Infinity;
+          })
+        });
+        break;
+      case 'Any Price':
+        this.setState({
+          data: data
+        });
+        break;
+      default:
+        this.setState({
+          data: data
+        });
+    }
   }
 
   render() {
@@ -199,30 +276,20 @@ class Keyboards extends Component {
         <h1>Keyboards</h1>
         <div className="items-menu">
           <div>
-            <button>Show All</button>
+            <button onClick={this.showAll}>Show All</button>
             <Sort val={this.state.val} onChooseSort={this.sortItems} />
-            <ul className="sort-list conditions-list">
-              Conditions:
-              <Condition filterConditions={this.filterConditions} />
-              {this.state.condition}
-            </ul>
-            <Feature filterFeature={this.filterFeature} />
-            <Type
-              filterType={this.filterType}
-            />
-            <KbInterface />
-            <Brand />
-            <Price
-              filterPriceRange={this.filterPriceRange}
-            />
+            <Condition condition={this.state.condition} filterConditions={this.filterConditions} />
+            <Feature feature={this.state.feature} filterFeature={this.filterFeature} />
+            <Type type={this.state.type} activeTypeBoxes={this.state.activeTypeBoxes} filterType={this.filterType} />
+            <KbInterface className="sort-section" />
+            <Brand className="sort-section" />
+            <Price priceRange={this.state.priceRange} filterPriceRange={this.filterPriceRange} />
           </div>
-          <ul className="items-list">
-            <Items
-              data={this.state.data}
-              showModal={this.state.showModal}
-              onClickItem={this.showModal}
-            />
-          </ul>
+          <Items
+            data={this.state.data}
+            showModal={this.state.showModal}
+            onClickItem={this.showModal}
+          />
           <Modal data={this.state.data} showModal={this.state.showModal} onCloseModal={this.hideModal} />
         </div>
       </div>

@@ -5,28 +5,42 @@ class Condition extends Component {
     super(props);
 
     this.state = {
-      active: 0
+      active: 'Any'
     }
   }
 
-  filterConditions(props, condition, i) {
-    this.setState({
-      active: i
-    });
-
+  filterConditions(props, condition) {
     this.props.filterConditions(condition);
+
+    this.setState({
+      active: condition
+    });
   }
 
   render() {
     const conditions = ['Any', 'New', 'Used', 'Refurbished'];
 
-    return conditions.map((condition, i) =>
+    const conditionButtons = conditions.map((condition, i) =>
       <li className="conditions" key={condition}>
-        <button className={this.state.active === i ? 'active-button' : null} onClick={this.filterConditions.bind(this, i, i)}>
+        <button
+          className={this.state.active === condition ? 'active-button' : null}
+          onClick={this.filterConditions.bind(this, 'Any', condition)}
+        >
           {condition}
         </button>
       </li>
     );
+
+    return (
+      <div className="sort-section">
+        Condition:
+        <ul>
+          {conditionButtons}
+        </ul>
+        {this.props.condition}
+      </div>
+    );
+
   }
 }
 

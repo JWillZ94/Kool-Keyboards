@@ -4,43 +4,35 @@ class Price extends Component {
   constructor(props) {
     super(props);
 
-    this.filterBelow25 = this.filterBelow25.bind(this);
-    this.filter25To50 = this.filter25To50.bind(this);
-    this.filter50To100 = this.filter50To100.bind(this);
-    this.filter100To200 = this.filter100To200.bind(this);
-    this.filter200AndUp = this.filter200AndUp.bind(this);
+    this.state = {
+      active: 'Any Price'
+    }
   }
 
-  filterBelow25(e) {
-    this.props.filterBelow25(e.target.value);
-  }
-
-  filter25To50(e) {
-    this.props.filter25To50(e.target.value);
-  }
-
-  filter50To100(e) {
-    this.props.filter50To100(e.target.value);
-  }
-
-  filter100To200(e) {
-    this.props.filter100To200(e.target.value);
-  }
-
-  filter200AndUp(e) {
-    this.props.filter200AndUp(e.target.value);
+  filterPriceRange(props, range) {
+    this.setState({
+      active: range
+    });
+    this.props.filterPriceRange(range);
   }
 
   render() {
+    const priceRanges = ['Under $25', '$25 to $50', '$50 to $100', '$100 to $200', '$200 & Above', 'Any Price'];
+
+    const priceRangeOption = priceRanges.map(range =>
+      <li
+        className={this.state.active === range ? 'active-button range' : 'range'}
+        key={range} onClick={this.filterPriceRange.bind(this, 'Any Price', range)}
+      >{range}</li>
+    );
+
     return (
-      <div>
+      <div className="sort-section">
         Price Ranges:
-        <p className="range" onClick={this.filterBelow25}>Under $25</p>
-        <p className="range" onClick={this.filter25To50}>$25 to $50</p>
-        <p className="range" onClick={this.filter50To100}>$50 to $100</p>
-        <p className="range" onClick={this.filter100To200}>$100 to $200</p>
-        <p className="range" onClick={this.filter200AndUp}>$200 & Above</p>
-        <p className="range" onClick={this.filter200AndUp}>Any Price</p>
+        <ul>
+          {priceRangeOption}
+        </ul>
+        {this.props.priceRange}
       </div>
     );
   }
