@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Keyboards.css';
 import data from './keyboardInventory';
+import myCart from '../cart/myCart';
 import Sort from './components/Sort';
 import Condition from './components/Condition';
 import Feature from './components/Feature';
@@ -23,8 +24,9 @@ class Keyboards extends Component {
       type: 'Any',
       activeTypeBoxes: [],
       priceRange: 'Any Price',
-      showModal: false,
-      active: false
+      showModal: null,
+      active: false,
+      addToCart: null
     }
 
     this.showModal = this.showModal.bind(this);
@@ -41,11 +43,13 @@ class Keyboards extends Component {
     this.filterType = this.filterType.bind(this);
 
     this.filterPriceRange = this.filterPriceRange.bind(this);
+
+    this.addToCart = this.addToCart.bind(this);
   }
 
-  showModal() {
+  showModal(id) {
     this.setState({
-      showModal: true
+      showModal: id
     });
   }
 
@@ -270,6 +274,13 @@ class Keyboards extends Component {
     }
   }
 
+  addToCart(id) {
+    this.setState({
+      addToCart: id
+    });
+    return myCart.push(id);
+  }
+
   render() {
     return (
       <div>
@@ -289,8 +300,10 @@ class Keyboards extends Component {
             data={this.state.data}
             showModal={this.state.showModal}
             onClickItem={this.showModal}
+            addToCart={this.addToCart}
           />
           <Modal data={this.state.data} showModal={this.state.showModal} onCloseModal={this.hideModal} />
+          {myCart}
         </div>
       </div>
     );

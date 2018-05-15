@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import KeyboardDetail from '../../keyboard-detail/KeyboardDetail';
-import items from './Items';
+import data from '../keyboardInventory';
 
 class Modal extends Component {
   constructor(props) {
@@ -20,11 +20,19 @@ class Modal extends Component {
       <KeyboardDetail>
         <div className="modal">
           {
-            items.map(kbInfo =>
-              <li key={kbInfo.id}>
-                {kbInfo.name}
-                {kbInfo.price}
-              </li>
+            this.props.data.map(kb =>
+              kb.id === this.props.showModal ? (
+                <li key={kb.id}>
+                  <h2>{kb.name}</h2>
+                  <h3>{kb.price}</h3>
+                  <h3>Rating: {kb.rating}/5</h3>
+                  <p>Condition: {kb.condition}</p>
+                  <p>Feature: {kb.feature}</p>
+                  <p>Type: {kb.type}</p>
+                  <p>Interface: {kb.interface}</p>
+                  <p>Brand: {kb.brand}</p>
+                </li>
+              ) : null
             )
           }
           <button>Add to Cart</button>

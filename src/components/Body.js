@@ -3,6 +3,7 @@ import Home from '../routes/home/Home';
 import Keyboards from '../routes/keyboards/Keyboards';
 import RegisterLogin from '../routes/register-login/RegisterLogin';
 import KeyboardDetail from '../routes/keyboard-detail/KeyboardDetail';
+import Cart from '../routes/cart/Cart';
 import { HashRouter, Route, NavLink } from 'react-router-dom';
 
 const Body = () => (
@@ -18,6 +19,9 @@ const Body = () => (
         <li className="nav-item">
           <NavLink to="/register-login" className="nav-link">Register/Log-In</NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink to="/cart" className="nav-link">My Cart</NavLink>
+        </li>
       </ul>
 
       <hr />
@@ -26,6 +30,7 @@ const Body = () => (
       <Route path="/keyboards" component={Keyboards} />
       <Route path="/register-login" component={RegisterLogin} />
       <Route path="/keyboard-detail" component={KeyboardDetail} />
+      <Route path="/cart" component={Cart} />
     </div>
   </HashRouter>
 );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Cart from '../../cart/Cart';
 
 class Items extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Items extends Component {
     this.hideArrows = this.hideArrows.bind(this);
 
     this.showModal = this.showModal.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   showArrows(props, kb) {
@@ -25,8 +27,12 @@ class Items extends Component {
     });
   }
 
-  showModal(e) {
-    this.props.onClickItem(e.target.value);
+  showModal(id) {
+    this.props.onClickItem(id);
+  }
+
+  addToCart(id) {
+    this.props.addToCart(id);
   }
 
   render() {
@@ -36,13 +42,13 @@ class Items extends Component {
           className="image"
           onMouseEnter={this.showArrows.bind(this, null, kb)}
           onMouseLeave={this.hideArrows}
-          onClick={this.showModal}
+          onClick={() => this.showModal(kb.id)}
         >
           <i className={this.state.showArrows === kb ? 'fa fa-angle-left' : null}></i>
           <img src={kb.img} alt="" width="300" />
           <i className={this.state.showArrows === kb ? 'fa fa-angle-right' : null}></i>
         </div>
-        <h2 className="kb-name" onClick={this.showModal}>{kb.name}</h2>
+        <h2 className="kb-name" onClick={() => this.showModal(kb.id)}>{kb.name}</h2>
         <h3>Price: ${kb.price}</h3>
         <h3>Rating: {kb.rating}/5</h3>
         <p>Condition: {kb.condition}</p>
@@ -50,6 +56,7 @@ class Items extends Component {
         <p>Type: {kb.type}</p>
         <p>Interface: {kb.interface}</p>
         <p>Brand: {kb.brand}</p>
+        <button onClick={() => this.addToCart(kb.id)}>Add to Cart</button>
       </li>
     );
 
@@ -58,6 +65,7 @@ class Items extends Component {
         <ul className="items-list">
           {items}
         </ul>
+        <Cart />
       </div>
     );
   }
