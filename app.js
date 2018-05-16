@@ -24,15 +24,15 @@ db.once('open', () => {
 
 // Routes ==============================
 
-Kb = require('./routes/keyboardDataRoute');
-app.use('/kbs', Kb);
+const kbs = require('./routes/keyboardDataRoute');
+app.use('/kbs', kbs);
 
 // Server ==============================
 
 const port = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
-  res.send({ express: 'here we are' });
+  res.json({ "hey": 6 });
 });
 
 app.listen(port, () => {

@@ -1,19 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Kb = require('../model/keyboardData');
+Kb = require('../model/keyboardData');
 
 router.get('/', (req, res) => {
-  Kb.find((kbs, err) => {
+  Kb.find((err, kbs) => {
     if (err) {
       throw err;
     }
-    res.json(kbs);
+    res.json({ kbs: kbs });
   });
 });
 
-router.get('/', (req, res) => {
-  Kb.findById(req.params.id, (kb, err) => {
+router.get('/:id', (req, res) => {
+  Kb.findById(req.params.id, (err, kb) => {
     if (err) {
       throw err;
     }
@@ -21,4 +21,4 @@ router.get('/', (req, res) => {
   });
 });
 
-module.exports = Kb; 
+module.exports = router;
