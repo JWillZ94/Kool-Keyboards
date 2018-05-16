@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "client": "cd client && npm run start",
+    "client": "npm run start",
     "server": "nodemon app.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },

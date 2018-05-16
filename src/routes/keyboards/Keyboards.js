@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Keyboards.css';
-import data from './keyboardInventory';
 import myCart from '../cart/myCart';
 import Sort from './components/Sort';
 import Condition from './components/Condition';
@@ -17,7 +16,7 @@ class Keyboards extends Component {
     super(props);
 
     this.state = {
-      data: data,
+      data: '',
       val: '',
       condition: 'Any',
       feature: 'Any',
@@ -46,6 +45,11 @@ class Keyboards extends Component {
 
     this.addToCart = this.addToCart.bind(this);
   }
+
+  // componentDidMount() {
+  //   this.callApi()
+  //     .then(res => this.setState({  }))
+  // }
 
   showModal(id) {
     this.setState({
@@ -303,7 +307,6 @@ class Keyboards extends Component {
             addToCart={this.addToCart}
           />
           <Modal data={this.state.data} showModal={this.state.showModal} onCloseModal={this.hideModal} />
-          {myCart}
         </div>
       </div>
     );
