@@ -8,14 +8,6 @@ class RegisterLogin extends Component {
         <form>
           <h1>Register</h1>
           <div>
-            <label for="first_name">First Name</label>
-            <input type="text" name="first_name"/>
-          </div>
-          <div>
-            <label for="last_name">Last Name</label>
-            <input type="text" name="last_name"/>
-          </div>
-          <div>
             <label for="username">Username</label>
             <input type="text" name="username"/>
           </div>
@@ -26,6 +18,18 @@ class RegisterLogin extends Component {
           <div>
             <label for="password2">Confirm Password</label>
             <input type="password" name="password2"/>
+          </div>
+          <div>
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name"/>
+          </div>
+          <div>
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name"/>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" name="email"/>
           </div>
           <div>
             <button type="submit">Submit</button>

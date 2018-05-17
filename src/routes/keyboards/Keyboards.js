@@ -17,6 +17,7 @@ class Keyboards extends Component {
 
     this.state = {
       data: [],
+      user: null,
       val: '',
       condition: 'Any',
       feature: 'Any',
@@ -48,9 +49,7 @@ class Keyboards extends Component {
 
   componentDidMount() {
     fetch('http://localhost:5000/kbs')
-      .then(res => {
-        return res.json();
-      })
+      .then(res => res.json())
       .then(data => this.setState({ data: data.kbs }));
   }
 
@@ -322,6 +321,7 @@ class Keyboards extends Component {
               })
             }
           </ul>
+          {this.state.user}
         </div>
       </div>
     );

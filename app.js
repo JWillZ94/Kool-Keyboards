@@ -12,6 +12,8 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Database ============================
 
@@ -26,6 +28,8 @@ db.once('open', () => {
 
 const kbs = require('./routes/keyboardDataRoute');
 app.use('/kbs', kbs);
+const users = require('./routes/userRoute');
+app.use('/users', users);
 
 // Server ==============================
 
