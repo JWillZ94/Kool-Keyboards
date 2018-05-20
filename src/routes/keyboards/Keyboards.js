@@ -48,10 +48,19 @@ class Keyboards extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:5000/kbs')
-      .then(res => res.json())
-      .then(data => this.setState({ data: data.kbs }));
+    this.callApi()
+      .then(res => this.setState({ data: res.kbs }))
+      .catch(err => console.log(err));
   }
+
+  callApi = async () => {
+    const response = await fetch('http://localhost:5000/kbs');
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.message);
+
+    return body;
+  };
 
   // showModal(id) {
   //   this.setState({

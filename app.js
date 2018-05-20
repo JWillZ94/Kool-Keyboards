@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors());
 
 // Database ============================
 
@@ -36,7 +37,7 @@ app.use('/users', users);
 const port = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
-  res.json({ "hey": 6 });
+  res.send({ hey: 6 });
 });
 
 app.listen(port, () => {
