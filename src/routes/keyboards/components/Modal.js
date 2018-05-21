@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import KeyboardDetail from '../../keyboard-detail/KeyboardDetail';
-import data from '../keyboardInventory';
 
 class Modal extends Component {
   constructor(props) {
@@ -14,7 +13,6 @@ class Modal extends Component {
   }
 
   render() {
-
 
     return this.props.showModal ? (
       <KeyboardDetail>
