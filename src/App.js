@@ -26,10 +26,12 @@ class App extends Component {
     return (
       <div className="app">
         <Title />
-        <p>{this.state.user}</p>
-        <form action="/users/logout" method="get">
-          <button type="submit">Log Out</button>
-        </form>
+        <div className="user-greeting">
+          <p>Hello, {this.state.user}</p>
+          <form action="/users/logout" method="get">
+            <button type="submit">Log Out</button>
+          </form>
+        </div>
         <Body changeUser={this.changeUser} />
       </div>
     );

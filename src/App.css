@@ -1,17 +1,51 @@
 .title {
   text-align: center;
+  margin-top: 6rem;
+  font-size: 3em;
+  color: #333;
+}
+
+.user-greeting {
+  margin-left: 80%;
+}
+
+.navbar {
+  display: flex;
 }
 
 .nav-item {
   text-align: center;
   list-style: none;
-  position: relative;
-  right: 600px;
-  padding-bottom: 1rem;
+  padding: 0 3rem 1rem 0;
   font-size: 1.1em;
 }
 
 .nav-link {
   text-decoration: none;
-  color: black;
+  color: #333;
+  padding: 0.5rem;
+}
+
+.nav-link:hover {
+  animation-name: nav-link-hover;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes nav-link-hover {
+  0% {
+    border: 1px solid white;
+    border-radius: 0;
+    background: white
+  }
+  50% {
+    border: 1px solid gray;
+    border-radius: 5px;
+    background: gray;
+  }
+  100% {
+    border: 1px solid black;
+    border-radius: 15px;
+    background: gray;
+  }
 }
