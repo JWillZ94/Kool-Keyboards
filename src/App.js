@@ -11,6 +11,15 @@ class App extends Component {
     this.state = {
       user: 'no user signed in'
     }
+
+    this.changeUser = this.changeUser.bind(this);
+
+  }
+
+  changeUser(user) {
+    this.setState({
+      user: user
+    });
   }
 
   render() {
@@ -18,7 +27,10 @@ class App extends Component {
       <div className="app">
         <Title />
         <p>{this.state.user}</p>
-        <Body />
+        <form action="/users/logout" method="get">
+          <button type="submit">Log Out</button>
+        </form>
+        <Body changeUser={this.changeUser} />
       </div>
     );
   }
