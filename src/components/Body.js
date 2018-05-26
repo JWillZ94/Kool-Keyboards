@@ -40,7 +40,7 @@ class Body extends Component {
 
           <Route exact path="/" component={Home} />
           <Route path="/keyboards" component={Keyboards} />
-          <Route path="/register-login" changeUser={this.changeUser} component={RegisterLogin} />
+          <Route path="/register-login" render={(props) => <RegisterLogin {...props} changeUser={this.props.changeUser} />} />
           <Route path="/keyboard-detail" component={KeyboardDetail} />
           <Route path="/cart" component={Cart} />
         </div>

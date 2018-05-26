@@ -19,17 +19,17 @@ class Keyboards extends Component {
       data: [],
       priceRange: 'Any Price',
       val: '',
+      showModal: null,
       addToCart: null
       // condition: 'Any',
       // conditionFilter: null,
       // feature: 'Any',
       // type: 'Any',
       // activeTypeBoxes: [],
-      // showModal: null,
       // active: false
     }
 
-    this.showModal = this.showModal.bind(this);
+    this.handleShowModal = this.handleShowModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
 
     this.showAll = this.showAll.bind(this);
@@ -172,7 +172,7 @@ class Keyboards extends Component {
     }
   }
 
-  showModal(id) {
+  handleShowModal(id) {
     this.setState({
       showModal: id
     });
@@ -355,7 +355,7 @@ class Keyboards extends Component {
           <Items
             data={this.state.data}
             showModal={this.state.showModal}
-            onClickItem={this.showModal}
+            handleShowModal={this.handleShowModal}
             addToCart={this.addToCart}
           />
           <Modal data={this.state.data} showModal={this.state.showModal} onCloseModal={this.hideModal} />

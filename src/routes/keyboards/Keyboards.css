@@ -67,6 +67,40 @@
   color: #fff;
 }
 
+.modal-list-item {
+  list-style-type: none;
+  display: flex;
+}
+
+.modal-list-section-1 {
+  padding-right: 50px;
+}
+
+.modal-list-section-2 {
+  padding-left: 30px;
+}
+
+.product-name {
+  text-align: center;
+}
+
+.modal-text {
+  font-size: 0.8em;
+}
+
+.modal-info-list {
+  display: flex;
+  list-style-type: none;
+  position: relative;
+  right: 40px;
+}
+
+.close-modal {
+  position: relative;
+  left: 120px;
+  bottom: 137px;
+}
+
 .range {
   cursor: pointer;
 }

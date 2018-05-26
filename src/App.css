@@ -35,17 +35,17 @@
 @keyframes nav-link-hover {
   0% {
     border: 1px solid white;
-    border-radius: 0;
-    background: white
+    border-radius: 5px;
+    background: #fff;
   }
   50% {
     border: 1px solid gray;
-    border-radius: 5px;
-    background: gray;
+    border-radius: 10px;
+    background: #fff;
   }
   100% {
     border: 1px solid black;
     border-radius: 15px;
-    background: gray;
+    background: #fff;
   }
 }

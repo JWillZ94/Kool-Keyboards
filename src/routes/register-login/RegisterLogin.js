@@ -8,16 +8,14 @@ class RegisterLogin extends Component {
     this.state = {
       users: null,
       username: null,
-      password: null,
+      password1: null,
+      password2: null,
       first_name: null,
       last_name: null,
       email: null
     }
 
-    this.handleLogin = this.handleLogin.bind(this);
-    this.changeUser = this.changeUser.bind(this);
-    this.changeUsername = this.changeUsername.bind(this);
-    this.changePassword = this.changePassword.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   // componentDidMount() {
@@ -36,7 +34,7 @@ class RegisterLogin extends Component {
   // };
 
   handleLogin(props, username, password) {
-    fetch('http://localhost:5000/users', {
+    fetch('http://localhost:5000/users/login', {
       method: 'POST',
       mode: 'cors'
     })
@@ -45,19 +43,9 @@ class RegisterLogin extends Component {
       .catch(err => console.log(err));
   }
 
-  changeUser(props) {
-    this.props.route.changeUser('fred');
-  }
-
-  changeUsername(e) {
+  handleInputChange(e) {
     this.setState({
-      username: e.target.value
-    });
-  }
-
-  changePassword(e) {
-    this.setState({
-      password: e.target.value
+      [e.target.name]: e.target.value
     });
   }
 
@@ -94,22 +82,34 @@ class RegisterLogin extends Component {
             <button type="submit">Submit</button>
           </div>
         </form>
-        <form action="/users/login" method="post">
+        <form onSubmit={this.handleLogin.bind(this, this.state.username, this.state.password)}>
           <h1>Log In</h1>
           <div>
             <label for="username">Username</label>
-            <input type="text" name="username" placeholder="jman94" onChange={this.changeUsername} />
+            <input
+              type="text"
+              name="username"
+              value={this.state.username}
+              onChange={this.handleInputChange}
+              placeholder="jman94"
+            />
           </div>
           <div>
             <label for="password1">Password</label>
-            <input type="password" name="password1" placeholder="123" onChange={this.changePassword} />
+            <input
+              type="password"
+              name="password1"
+              value={this.state.password1}
+              onChange={this.handleInputChange}
+              placeholder="123"
+            />
           </div>
           <div>
-            <button type="submit" onSubmit={this.changeUser}>Submit</button>
+            <button onClick={this.changeUser}>Submit</button>
           </div>
         </form>
         <p>{this.state.username}</p>
-        <p>{this.state.password}</p>
+        <p>{this.state.password1}</p>
       </div>
     );
   }
