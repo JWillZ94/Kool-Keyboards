@@ -6,13 +6,8 @@ class RegisterLogin extends Component {
     super(props);
 
     this.state = {
-      users: null,
-      username: null,
-      password1: null,
-      password2: null,
-      first_name: null,
-      last_name: null,
-      email: null
+      loginUsername: null,
+      loginPassword: null
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -33,20 +28,14 @@ class RegisterLogin extends Component {
   //   return body;
   // };
 
-  handleLogin(props, username, password) {
-    fetch('http://localhost:5000/users/login', {
-      method: 'POST',
-      mode: 'cors'
-    })
-      .then(res => res.json())
-      .then(user => console.log(user + "is successfully logged in!"))
-      .catch(err => console.log(err));
-  }
-
   handleInputChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
+  }
+
+  handleLogin(username, password) {
+    this.props.handleLogin(username, password);
   }
 
   render() {
@@ -82,14 +71,14 @@ class RegisterLogin extends Component {
             <button type="submit">Submit</button>
           </div>
         </form>
-        <form onSubmit={this.handleLogin.bind(this, this.state.username, this.state.password)}>
+        <form onSubmit={this.handleLogin.bind(this, this.state.loginUsername, this.state.loginPassword)}>
           <p>Log In</p>
           <div>
             <label for="username">Username</label>
             <input
               type="text"
-              name="username"
-              value={this.state.username}
+              name="loginUsername"
+              value={this.state.loginUsername}
               onChange={this.handleInputChange}
               placeholder="jman94"
             />
@@ -98,18 +87,18 @@ class RegisterLogin extends Component {
             <label for="password1">Password</label>
             <input
               type="password"
-              name="password1"
-              value={this.state.password1}
+              name="loginPassword"
+              value={this.state.loginPassword}
               onChange={this.handleInputChange}
               placeholder="123"
             />
           </div>
           <div>
-            <button onClick={this.changeUser}>Submit</button>
+            <button>Submit</button>
           </div>
         </form>
-        <p>{this.state.username}</p>
-        <p>{this.state.password1}</p>
+        <p>{this.state.loginUsername}</p>
+        <p>{this.state.loginPassword}</p>
       </div>
     );
   }

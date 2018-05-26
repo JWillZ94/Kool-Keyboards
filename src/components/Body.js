@@ -41,7 +41,16 @@ class Body extends Component {
             <Route path="/keyboards" component={Keyboards} />
             <Route
               path="/register-login"
-              render={(props) => <RegisterLogin {...props} changeUser={this.props.changeUser} />}
+              render={(props) => <RegisterLogin
+                {...props}
+                changeUser={this.props.changeUser}
+                username={this.props.username}
+                password1={this.props.password1}
+                password2={this.props.password2}
+                first_name={this.props.first_name}
+                last_name={this.props.last_name}
+                email={this.props.email} 
+              />}
             />
             <Route path="/keyboard-detail" component={KeyboardDetail} />
             <Route path="/cart" component={Cart} />
