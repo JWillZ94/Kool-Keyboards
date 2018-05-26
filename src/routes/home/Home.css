@@ -1,4 +1,43 @@
-.home {
-  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgWY-v8uWCHp6JDFeHEtlVW8WzkYah5l271_QrH1X9q2ZD2u_8) no-repeat center center fixed;
+.home-cover-1 {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/698808/pexels-photo-698808.jpeg?auto=compress&cs=tinysrgb&h=650&w=940') center;
   background-size: cover;
+  color: #fff;
+  height: 400px;
+  width: 400px;
+  position: relative;
+}
+
+.home-cover-2 {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/1084526/pexels-photo-1084526.jpeg?auto=compress&cs=tinysrgb&h=650&w=940') center;
+  background-size: cover;
+  color: #fff;
+  height: 400px;
+  width: 400px;
+  position: relative;
+}
+
+.home-cover-3 {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/220357/pexels-photo-220357.jpeg?auto=compress&cs=tinysrgb&h=650&w=940') center;
+  background-size: cover;
+  color: #fff;
+  height: 400px;
+  width: 400px;
+  position: relative;
+}
+
+.home-cover-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.featured-products {
+  display: flex !important;
+  justify-content: space-around !important;
+}
+
+.featured-product-info {
+  
 }

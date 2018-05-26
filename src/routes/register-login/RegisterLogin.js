@@ -53,7 +53,7 @@ class RegisterLogin extends Component {
     return (
       <div className="forms">
         <form method="post">
-          <h1>Register</h1>
+          <p>Register</p>
           <div>
             <label for="username">Username</label>
             <input type="text" name="username" />
@@ -83,7 +83,7 @@ class RegisterLogin extends Component {
           </div>
         </form>
         <form onSubmit={this.handleLogin.bind(this, this.state.username, this.state.password)}>
-          <h1>Log In</h1>
+          <p>Log In</p>
           <div>
             <label for="username">Username</label>
             <input

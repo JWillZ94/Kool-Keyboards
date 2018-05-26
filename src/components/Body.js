@@ -36,13 +36,17 @@ class Body extends Component {
             </li>
           </ul>
 
-          <hr />
+          <div className="route-page">
+            <Route exact path="/" component={Home} />
+            <Route path="/keyboards" component={Keyboards} />
+            <Route
+              path="/register-login"
+              render={(props) => <RegisterLogin {...props} changeUser={this.props.changeUser} />}
+            />
+            <Route path="/keyboard-detail" component={KeyboardDetail} />
+            <Route path="/cart" component={Cart} />
+          </div>
 
-          <Route exact path="/" component={Home} />
-          <Route path="/keyboards" component={Keyboards} />
-          <Route path="/register-login" render={(props) => <RegisterLogin {...props} changeUser={this.props.changeUser} />} />
-          <Route path="/keyboard-detail" component={KeyboardDetail} />
-          <Route path="/cart" component={Cart} />
         </div>
       </HashRouter>
     );

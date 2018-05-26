@@ -345,7 +345,7 @@ class Keyboards extends Component {
   render() {
     return (
       <div>
-        <h1>Keyboards</h1>
+        <p>Keyboards</p>
         <div className="items-menu">
           <div>
             <button onClick={this.showAll}>Show All</button>

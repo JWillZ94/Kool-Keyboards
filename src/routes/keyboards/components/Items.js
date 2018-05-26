@@ -48,9 +48,9 @@ class Items extends Component {
           <img src={kb.img} alt="" width="300" />
           <i className={this.state.showArrows === kb ? 'fa fa-angle-right' : null}></i>
         </div>
-        <h2 className="kb-name" onClick={() => this.handleShowModal(kb._id)}>{kb.name}</h2>
-        <h3>Price: ${kb.price}</h3>
-        <h3>Rating: {kb.rating}/5</h3>
+        <p className="kb-name" onClick={() => this.handleShowModal(kb._id)}>{kb.name}</p>
+        <p>Price: ${kb.price}</p>
+        <p>Rating: {kb.rating}/5</p>
         <button onClick={() => this.addToCart(kb._id)}>Add to Cart</button>
       </li>
     );

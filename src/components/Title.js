@@ -4,7 +4,7 @@ class Title extends Component {
   render() {
     return (
       <div>
-        <h1 className="title">Kool Keyboards</h1>
+        <p className="title">Kool Keyboards</p>
       </div>
     );
   }
