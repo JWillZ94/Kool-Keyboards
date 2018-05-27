@@ -6,8 +6,8 @@ class RegisterLogin extends Component {
     super(props);
 
     this.state = {
-      loginUsername: null,
-      loginPassword: null
+      loginUsername: '',
+      loginPassword: ''
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -44,27 +44,27 @@ class RegisterLogin extends Component {
         <form method="post">
           <p>Register</p>
           <div>
-            <label for="username">Username</label>
+            <label htmlFor="username">Username</label>
             <input type="text" name="username" />
           </div>
           <div>
-            <label for="password1">Password</label>
-            <input type="password" name="password1" />
+            <label htmlFor="password1">Password</label>
+            <input htmlFor="password" name="password1" />
           </div>
           <div>
-            <label for="password2">Confirm Password</label>
+            <label htmlFor="password2">Confirm Password</label>
             <input type="password" name="password2"/>
           </div>
           <div>
-            <label for="first_name">First Name</label>
+            <label htmlFor="first_name">First Name</label>
             <input type="text" name="first_name"/>
           </div>
           <div>
-            <label for="last_name">Last Name</label>
+            <label htmlFor="last_name">Last Name</label>
             <input type="text" name="last_name"/>
           </div>
           <div>
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input type="email" name="email"/>
           </div>
           <div>
@@ -74,7 +74,7 @@ class RegisterLogin extends Component {
         <form onSubmit={this.handleLogin.bind(this, this.state.loginUsername, this.state.loginPassword)}>
           <p>Log In</p>
           <div>
-            <label for="username">Username</label>
+            <label htmlFor="username">Username</label>
             <input
               type="text"
               name="loginUsername"
@@ -84,7 +84,7 @@ class RegisterLogin extends Component {
             />
           </div>
           <div>
-            <label for="password1">Password</label>
+            <label htmlFor="password1">Password</label>
             <input
               type="password"
               name="loginPassword"
@@ -94,7 +94,7 @@ class RegisterLogin extends Component {
             />
           </div>
           <div>
-            <button>Submit</button>
+            <button type="submit">Submit</button>
           </div>
         </form>
         <p>{this.state.loginUsername}</p>

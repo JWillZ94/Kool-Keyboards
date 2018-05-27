@@ -11,11 +11,9 @@ class Cart extends Component {
   }
 
   render() {
-    return this.state.myCart.map(item => {
-      <li key={item.id}>
-        {item.name}
-      </li>
-    });
+    return (
+      <p>the cart</p>
+    )
   }
 
 

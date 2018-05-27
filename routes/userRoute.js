@@ -38,8 +38,8 @@ passport.use(new LocalStrategy(
 
 router.post('/login',
   passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login'
+    successRedirect: '/#/',
+    failureRedirect: '/#/register-login'
   })
 );
 
