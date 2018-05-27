@@ -1,15 +1,18 @@
 .title {
   text-align: center;
-  margin-top: 6rem;
+  padding: 6rem 0 6rem 0;
   font-size: 3em;
+  margin: 0;
 }
 
-.user-greeting {
+/* .user-greeting {
   margin-left: 80%;
-}
+} */
 
 .navbar {
   display: flex;
+  max-width: 95%;
+  margin: auto;
 }
 
 .nav-item {

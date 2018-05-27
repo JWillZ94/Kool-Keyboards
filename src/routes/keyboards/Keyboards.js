@@ -29,6 +29,8 @@ class Keyboards extends Component {
       // active: false
     }
 
+    this.getKbs = this.getKbs.bind(this);
+
     this.handleShowModal = this.handleShowModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
 
@@ -47,18 +49,14 @@ class Keyboards extends Component {
 
   componentDidMount() {
     this.getKbs()
-      .then(res => this.setState({ data: res.kbs }))
+      .then(data => this.setState({ data: data.kbs }))
       .catch(err => console.log(err));
   }
 
-  getKbs = async () => {
-    const response = await fetch('http://localhost:5000/kbs');
-    const body = await response.json();
-
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  };
+  getKbs() {
+    return fetch('http://localhost:5000/kbs')
+      .then(res => res.json())
+  }
 
   sortItems(val) {
     const data = this.state.data;
@@ -107,14 +105,17 @@ class Keyboards extends Component {
 
   filterPriceRange(priceRange) {
 
+    const data = this.state.data;
+
     this.setState({
       priceRange: priceRange
     });
+
     switch(priceRange) {
       case 'Under $25':
         this.getKbs()
-          .then(res => this.setState({
-            data: res.kbs.filter(i => {
+          .then(data => this.setState({
+            data: data.kbs.filter(i => {
               return i.price >= 0 && i.price <= 24;
             })
           }))
@@ -122,8 +123,8 @@ class Keyboards extends Component {
         break;
       case '$25 to $50':
         this.getKbs()
-          .then(res => this.setState({
-            data: res.kbs.filter(i => {
+          .then(data => this.setState({
+            data: data.kbs.filter(i => {
               return i.price >= 25 && i.price <= 50;
             })
           }))
@@ -131,8 +132,8 @@ class Keyboards extends Component {
         break;
       case '$50 to $100':
         this.getKbs()
-          .then(res => this.setState({
-            data: res.kbs.filter(i => {
+          .then(data => this.setState({
+            data: data.kbs.filter(i => {
               return i.price >= 50 && i.price <= 100;
             })
           }))
@@ -140,8 +141,8 @@ class Keyboards extends Component {
         break;
       case '$100 to $200':
         this.getKbs()
-          .then(res => this.setState({
-            data: res.kbs.filter(i => {
+          .then(data => this.setState({
+            data: data.kbs.filter(i => {
               return i.price >= 100 && i.price <= 200;
             })
           }))
@@ -149,8 +150,8 @@ class Keyboards extends Component {
         break;
       case '$200 & Above':
         this.getKbs()
-          .then(res => this.setState({
-            data: res.kbs.filter(i => {
+          .then(data => this.setState({
+            data: data.kbs.filter(i => {
               return i.price >= 200 && i.price <= Infinity;
             })
           }))
@@ -158,15 +159,15 @@ class Keyboards extends Component {
         break;
       case 'Any Price':
         this.getKbs()
-          .then(res => this.setState({
-            data: res.kbs
+          .then(data => this.setState({
+            data: data.kbs
           }))
           .catch(err => console.log(err));
         break;
       default:
         this.getKbs()
-          .then(res => this.setState({
-            data: res.kbs
+          .then(data => this.setState({
+            data: data.kbs
           }))
           .catch(err => console.log(err));
     }
@@ -185,12 +186,11 @@ class Keyboards extends Component {
   }
 
   showAll() {
-    const data = this.state.data;
-    this.setState({
-      data: data,
-      val: '',
-      priceRange: 'Any Price'
-    });
+    this.getKbs()
+      .then(data => this.setState({
+        data: data.kbs
+      }))
+      .catch(err => console.log(err));
   }
 
   addToCart(id) {
@@ -345,10 +345,10 @@ class Keyboards extends Component {
   render() {
     return (
       <div>
-        <p>Keyboards</p>
+        <p className="section-title">Keyboards</p>
         <div className="items-menu">
-          <div>
-            <button onClick={this.showAll}>Show All</button>
+          <div className="sort-menu">
+            <button className="btn btn-show-all" onClick={this.showAll}>Show All</button>
             <Sort val={this.state.val} onChooseSort={this.sortItems} />
             <Price priceRange={this.state.priceRange} filterPriceRange={this.filterPriceRange} />
           </div>

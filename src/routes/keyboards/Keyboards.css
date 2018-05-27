@@ -1,10 +1,31 @@
+.section-title {
+  text-align: center;
+  margin: 0;
+  padding: 3rem 0 3rem 0;
+  font-size: 2.5em;
+}
+
 .items-menu {
   display: flex;
   justify-content: space-around;
+  max-width: 95%;
+  margin: auto;
 }
 
-.active-button {
+/* .active-button {
   font-size: 1.2em;
+} */
+
+/* Sort Menu =================================*/
+
+.sort-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.btn-show-all {
+  align-self: center;
 }
 
 .items-sort {
@@ -16,10 +37,14 @@
   border: 1px black solid;
 }
 
+/* Products ==================================*/
+
 .items-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1em;
+  min-width: 1146.55px;
+  min-height: 405.66px;
 }
 
 .items {

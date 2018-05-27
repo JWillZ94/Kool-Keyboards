@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import myCart from './myCart';
+import './Cart.css'
 
 class Cart extends Component {
   constructor(props) {
@@ -12,8 +13,10 @@ class Cart extends Component {
 
   render() {
     return (
-      <p>the cart</p>
-    )
+      <div className="cart">
+        <p>the cart</p>
+      </div>
+    );
   }
 
 

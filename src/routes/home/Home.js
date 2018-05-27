@@ -37,7 +37,7 @@ class Home extends Component {
           </div>
         </Slider>
         <div className="featured">
-          <p>Featured</p>
+          <p className="featured-title">Featured</p>
           <Slider {...settings}>
             <div className="featured-products">
               <div className="featured-product-info">
