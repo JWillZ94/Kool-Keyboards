@@ -41,25 +41,39 @@ class Home extends Component {
           <Slider {...settings}>
             <div className="featured-products">
               <div className="featured-product-info">
-                <img src="https://img2.owcnow.com/imgs/ndesc/Apple/APLMC184LLAx/GradeA/Excellent_hero.jpg" width="300" alt="" />
-                <p>gaming keyboards</p>
+                <div className="featured-product-img">
+                  <img src="https://img2.owcnow.com/imgs/ndesc/Apple/APLMC184LLAx/GradeA/Excellent_hero.jpg" width="300" alt="" />
+                </div>
+                <p className="featured-info">Macbook Pro Keyboard 2.0</p>
+                <p className="featured-info">Rating: 3.4 / 5 (78)</p>
+                <p className="featured-info">$ 78.99</p>
               </div>
               <div className="featured-product-info">
-                <img src="https://img2.owcnow.com/imgs/ndesc/Apple/APLMC184LLAx/GradeA/Excellent_hero.jpg" width="300" alt="" />
+                <div className="featured-product-img">
+                  <img src="https://img2.owcnow.com/imgs/ndesc/Apple/APLMC184LLAx/GradeA/Excellent_hero.jpg" width="300" alt="" />
+                </div>
               </div>
               <div className="featured-product-info">
-                <img src="https://img2.owcnow.com/imgs/ndesc/Apple/APLMC184LLAx/GradeA/Excellent_hero.jpg" width="300" alt="" />
+                <div className="featured-product-img">
+                  <img src="https://img2.owcnow.com/imgs/ndesc/Apple/APLMC184LLAx/GradeA/Excellent_hero.jpg" width="300" alt="" />
+                </div>
               </div>
             </div>
             <div className="featured-products">
               <div className="featured-product-info">
-                <img src="https://img2.owcnow.com/imgs/ndesc/Apple/APLMC184LLAx/GradeA/Excellent_hero.jpg" width="300" alt="" />
+                <div className="featured-product-img">
+                  <img src="https://img2.owcnow.com/imgs/ndesc/Apple/APLMC184LLAx/GradeA/Excellent_hero.jpg" width="300" alt="" />
+                </div>
               </div>
               <div className="featured-product-info">
-                <img src="https://img2.owcnow.com/imgs/ndesc/Apple/APLMC184LLAx/GradeA/Excellent_hero.jpg" width="300" alt="" />
+                <div className="featured-product-img">
+                  <img src="https://img2.owcnow.com/imgs/ndesc/Apple/APLMC184LLAx/GradeA/Excellent_hero.jpg" width="300" alt="" />
+                </div>
               </div>
               <div className="featured-product-info">
-                <img src="https://img2.owcnow.com/imgs/ndesc/Apple/APLMC184LLAx/GradeA/Excellent_hero.jpg" width="300" alt="" />
+                <div className="featured-product-img">
+                  <img src="https://img2.owcnow.com/imgs/ndesc/Apple/APLMC184LLAx/GradeA/Excellent_hero.jpg" width="300" alt="" />
+                </div>
               </div>
             </div>
           </Slider>

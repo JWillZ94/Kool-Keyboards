@@ -27,7 +27,7 @@ class Price extends Component {
     );
 
     return (
-      <div className="sort-section">
+      <div className="sort-section sort-menu-item">
         Price Ranges:
         <ul>
           {priceRangeOption}

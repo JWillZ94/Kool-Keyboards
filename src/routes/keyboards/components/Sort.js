@@ -13,7 +13,7 @@ class Sort extends Component {
 
   render() {
     return (
-      <div className="items-sort">
+      <div className="items-sort sort-menu-item">
         <p>Sort By:
           <select onChange={this.sortItems} value={this.props.val}>
             <option value=""></option>

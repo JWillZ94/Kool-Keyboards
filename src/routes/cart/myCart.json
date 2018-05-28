@@ -1,6 +1,6 @@
 [
   {
-    "id": "10",
+    "_id": "10",
     "img": "https://assets.logitech.com/assets/55167/k800-us-gallery.png",
     "condition": "new",
     "feature": "cordless",
@@ -10,5 +10,17 @@
     "name": "keyboard Anon",
     "price": "0",
     "rating": 0
+  },
+  {
+    "_id": "11",
+    "img": "https://assets.logitech.com/assets/55167/k800-us-gallery.png",
+    "condition": "used",
+    "feature": "cordless",
+    "type": ["gaming", "spill-resistant"],
+    "interface": ["USB", "PS/2", "Infrared"],
+    "brand": "dbsjhdbs",
+    "name": "keyboard Anon",
+    "price": "0",
+    "rating": 2.5
   }
 ]

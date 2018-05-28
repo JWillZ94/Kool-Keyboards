@@ -31,8 +31,8 @@ class Items extends Component {
     this.props.handleShowModal(id);
   }
 
-  addToCart(id) {
-    this.props.addToCart(id);
+  addToCart(kb) {
+    this.props.addToCart(kb);
   }
 
   render() {
@@ -51,7 +51,10 @@ class Items extends Component {
         <p className="kb-name" onClick={() => this.handleShowModal(kb._id)}>{kb.name}</p>
         <p>Price: ${kb.price}</p>
         <p>Rating: {kb.rating}/5</p>
-        <button onClick={() => this.addToCart(kb._id)}>Add to Cart</button>
+        <p>Quantity:
+          <input type="number" value="0" />
+        </p>
+        <button onClick={() => this.addToCart(kb)}>Add to Cart</button>
       </li>
     );
 
@@ -60,7 +63,6 @@ class Items extends Component {
         <ul className="items-list">
           {items}
         </ul>
-        <Cart />
       </div>
     );
   }

@@ -59,7 +59,6 @@ class Keyboards extends Component {
   }
 
   sortItems(val) {
-    const data = this.state.data;
 
     this.setState({
       val: val
@@ -67,45 +66,53 @@ class Keyboards extends Component {
 
     switch (val) {
       case '':
-        this.setState({
-          data: data.sort((a, b) => {
-            return a.id - b.id;
-          })
-        });
+        this.getKbs()
+          .then(data => this.setState({
+            data: data.kbs.sort((a, b) => {
+              return a.id - b.id;
+            })
+          }))
+          .catch(err => console.log(err));
         break;
       case 'asc-price':
-        this.setState({
-          data: data.sort((a, b) => {
-            return a.price - b.price;
-          })
-        });
+        this.getKbs()
+          .then(data => this.setState({
+            data: data.kbs.sort((a, b) => {
+              return a.price - b.price;
+            })
+          }))
+          .catch(err => console.log(err));
         break;
       case 'des-price':
-        this.setState({
-          data: data.sort((a, b) => {
-            return a.price + b.price;
-          })
-        });
+        this.getKbs()
+          .then(data => this.setState({
+            data: data.kbs.sort((a, b) => {
+              return b.price - a.price;
+            })
+          }))
+          .catch(err => console.log(err));
         break;
       case 'rating':
-        this.setState({
-          data: data.sort((a, b) => {
-            return a.rating - b.rating;
-          })
-        });
+        this.getKbs()
+          .then(data => this.setState({
+            data: data.kbs.sort((a, b) => {
+              return b.rating - a.rating;
+            })
+          }))
+          .catch(err => console.log(err));
         break;
       default:
-        this.setState({
-          data: data.sort((a, b) => {
-            return a.id - b.id;
-          })
-        });
+        this.getKbs()
+          .then(data => this.setState({
+            data: data.kbs.sort((a, b) => {
+              return a.id - b.id;
+            })
+          }))
+          .catch(err => console.log(err));
     }
   }
 
   filterPriceRange(priceRange) {
-
-    const data = this.state.data;
 
     this.setState({
       priceRange: priceRange
@@ -188,16 +195,19 @@ class Keyboards extends Component {
   showAll() {
     this.getKbs()
       .then(data => this.setState({
-        data: data.kbs
+        data: data.kbs,
+        priceRange: 'Any Price',
+        val: ''
       }))
       .catch(err => console.log(err));
   }
 
-  addToCart(id) {
-    this.setState({
-      addToCart: id
-    });
-    return myCart.push(id);
+  addToCart(kb) {
+    // this.setState({
+    //   addToCart: kb
+    // });
+    myCart.push(kb);
+    console.log(myCart);
   }
 
   // filterConditions(condition) {
@@ -348,9 +358,9 @@ class Keyboards extends Component {
         <p className="section-title">Keyboards</p>
         <div className="items-menu">
           <div className="sort-menu">
-            <button className="btn btn-show-all" onClick={this.showAll}>Show All</button>
-            <Sort val={this.state.val} onChooseSort={this.sortItems} />
-            <Price priceRange={this.state.priceRange} filterPriceRange={this.filterPriceRange} />
+            <button className="btn sort-menu-item btn-show-all" onClick={this.showAll}>Show All</button>
+            <Sort className="sort-menu-item" val={this.state.val} onChooseSort={this.sortItems} />
+            <Price className="sort-menu-item" priceRange={this.state.priceRange} filterPriceRange={this.filterPriceRange} />
           </div>
           <Items
             data={this.state.data}

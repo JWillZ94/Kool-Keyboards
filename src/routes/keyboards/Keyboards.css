@@ -21,7 +21,10 @@
 .sort-menu {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+}
+
+.sort-menu-item {
+  margin: 0 0 2rem 0 !important; 
 }
 
 .btn-show-all {
@@ -58,6 +61,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   cursor: pointer;
+  width: 369.52px;
+  height: 300px;
 }
 
 .kb-name {
