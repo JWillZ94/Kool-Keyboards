@@ -24,7 +24,7 @@
 }
 
 .sort-menu-item {
-  margin: 0 0 2rem 0 !important; 
+  margin: 0 0 2rem 0 !important;
 }
 
 .btn-show-all {
@@ -77,6 +77,20 @@
 
 .fa-angle-left:hover, .fa-angle-right:hover {
   color: black;
+}
+
+.quantity-input {
+  margin: 0 0 0 0.5rem;
+  width: 50px;
+  text-align: center;
+  border: white;
+}
+
+.quantity-symbols {
+  text-align: center;
+  cursor: pointer;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 #modal {

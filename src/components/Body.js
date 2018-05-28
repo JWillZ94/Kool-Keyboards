@@ -7,13 +7,18 @@ import Cart from '../routes/cart/Cart';
 import { HashRouter, Route, NavLink } from 'react-router-dom';
 
 class Body extends Component {
-  // constructor(props) {
-  //   super(props);
-  //
-  //   this.changeUser = this.changeUser.bind(this);
-  //   this.handleLogin = this.handleLogin.bind(this);
-  // }
-  //
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      totalQuantity: 0,
+      totalCost: 0
+    }
+
+    // this.changeUser = this.changeUser.bind(this);
+    // this.handleLogin = this.handleLogin.bind(this);
+  }
+
   // changeUser(props, user) {
   //   this.props.changeUser(user);
   // }

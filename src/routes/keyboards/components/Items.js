@@ -6,13 +6,17 @@ class Items extends Component {
     super(props);
 
     this.state = {
-      showArrows: null
+      showArrows: null,
+      quantity: 0
     }
 
     this.hideArrows = this.hideArrows.bind(this);
 
     this.handleShowModal = this.handleShowModal.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.handleChangeQuantity = this.handleChangeQuantity.bind(this);
+    this.handleDecrement = this.handleDecrement.bind(this);
+    this.handleIncrement = this.handleIncrement.bind(this);
   }
 
   showArrows(props, kb) {
@@ -35,6 +39,24 @@ class Items extends Component {
     this.props.addToCart(kb);
   }
 
+  handleChangeQuantity() {
+
+  }
+
+  handleDecrement() {
+    if (this.state.quantity > 0) {
+      this.setState({
+        quantity: this.state.quantity - 1
+      });
+    }
+  }
+
+  handleIncrement() {
+    this.setState({
+      quantity: this.state.quantity + 1
+    });
+  }
+
   render() {
     const items = this.props.data.map(kb =>
       <li key={kb._id} className="items">
@@ -52,7 +74,18 @@ class Items extends Component {
         <p>Price: ${kb.price}</p>
         <p>Rating: {kb.rating}/5</p>
         <p>Quantity:
-          <input type="number" value="0" />
+          <input
+            className="quantity-input"
+            type="text"
+            pattern="[0-9]*"
+            value={this.state.quantity}
+            onChange={this.handleChangeQuantity}
+            placeholder="0"
+          />
+          <span className="quantity-symbols">
+            <span onClick={this.handleIncrement}>+</span>
+            <span onClick={this.handleDecrement}>-</span>
+          </span>
         </p>
         <button onClick={() => this.addToCart(kb)}>Add to Cart</button>
       </li>
