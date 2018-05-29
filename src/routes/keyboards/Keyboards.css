@@ -80,7 +80,7 @@
 }
 
 .quantity-input {
-  margin: 0 0 0 0.5rem;
+  margin: 0 0.1rem 0 0.1rem;
   width: 50px;
   text-align: center;
   border: white;
@@ -88,9 +88,11 @@
 
 .quantity-symbols {
   text-align: center;
+}
+
+.sym {
   cursor: pointer;
-  /* display: flex;
-  flex-direction: column; */
+  margin: 0 0.7rem 0 0;
 }
 
 #modal {

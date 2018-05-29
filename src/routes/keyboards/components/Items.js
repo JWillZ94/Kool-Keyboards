@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Cart from '../../cart/Cart';
+import Quantity from './Quantity';
 
 class Items extends Component {
   constructor(props) {
@@ -14,9 +15,7 @@ class Items extends Component {
 
     this.handleShowModal = this.handleShowModal.bind(this);
     this.addToCart = this.addToCart.bind(this);
-    this.handleChangeQuantity = this.handleChangeQuantity.bind(this);
-    this.handleDecrement = this.handleDecrement.bind(this);
-    this.handleIncrement = this.handleIncrement.bind(this);
+
   }
 
   showArrows(props, kb) {
@@ -39,19 +38,16 @@ class Items extends Component {
     this.props.addToCart(kb);
   }
 
-  handleChangeQuantity() {
-
-  }
-
-  handleDecrement() {
+  handleDecrement(e, id) {
     if (this.state.quantity > 0) {
       this.setState({
         quantity: this.state.quantity - 1
       });
     }
+    console.log(id);
   }
 
-  handleIncrement() {
+  handleIncrement(id) {
     this.setState({
       quantity: this.state.quantity + 1
     });
@@ -79,12 +75,11 @@ class Items extends Component {
             type="text"
             pattern="[0-9]*"
             value={this.state.quantity}
-            onChange={this.handleChangeQuantity}
             placeholder="0"
           />
           <span className="quantity-symbols">
-            <span onClick={this.handleIncrement}>+</span>
-            <span onClick={this.handleDecrement}>-</span>
+            <button className="sym decrement" onClick={this.handleDecrement.bind(this, kb)}>-</button>
+            <button className="sym increment" onClick={this.handleIncrement.bind(this, kb)}>+</button>
           </span>
         </p>
         <button onClick={() => this.addToCart(kb)}>Add to Cart</button>
