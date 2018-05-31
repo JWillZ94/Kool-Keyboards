@@ -17,6 +17,9 @@ class Keyboards extends Component {
 
     this.state = {
       data: [],
+      reorder: {
+
+      },
       priceRange: 'Any Price',
       val: '',
       showModal: null,
@@ -30,6 +33,7 @@ class Keyboards extends Component {
     }
 
     this.getKbs = this.getKbs.bind(this);
+    this.getKbs2 = this.getKbs2.bind(this);
 
     this.handleShowModal = this.handleShowModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -58,6 +62,20 @@ class Keyboards extends Component {
       .then(res => res.json())
   }
 
+  getKbs2() {
+    return fetch('http://localhost:5000/kbs')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ data: data.kbs });
+        console.log(data.kbs.name);
+      })
+      .catch(err => console.log(err))
+  }
+
+  componentWillUpdate() {
+
+  }
+
   sortItems(val) {
 
     this.setState({
@@ -75,22 +93,33 @@ class Keyboards extends Component {
           .catch(err => console.log(err));
         break;
       case 'asc-price':
-        this.getKbs()
-          .then(data => this.setState({
-            data: data.kbs.sort((a, b) => {
-              return a.price - b.price;
-            })
-          }))
-          .catch(err => console.log(err));
+        // this.getKbs()
+        //   .then(data => this.setState({
+        //     data: data.kbs.sort((a, b) => {
+        //       return a.price - b.price;
+        //     })
+        //   }))
+        //   .catch(err => console.log(err));
+        // this.state.data.sort((a, b) => {
+        //   return a.price - b.price;
+        // });
+        this.setState(prevState => ({
+          data: prevState.data.sort((a, b) => {
+            return a.price - b.price;
+          })
+        }));
         break;
       case 'des-price':
-        this.getKbs()
-          .then(data => this.setState({
-            data: data.kbs.sort((a, b) => {
-              return b.price - a.price;
-            })
-          }))
-          .catch(err => console.log(err));
+        // this.getKbs()
+        //   .then(data => this.setState({
+        //     data: data.kbs.sort((a, b) => {
+        //       return b.price - a.price;
+        //     })
+        //   }))
+        //   .catch(err => console.log(err));
+        this.state.data.sort((a, b) => {
+          return b.price - a.price;
+        });
         break;
       case 'rating':
         this.getKbs()
@@ -147,29 +176,39 @@ class Keyboards extends Component {
           .catch(err => console.log(err));
         break;
       case '$100 to $200':
-        this.getKbs()
-          .then(data => this.setState({
-            data: data.kbs.filter(i => {
-              return i.price >= 100 && i.price <= 200;
-            })
-          }))
-          .catch(err => console.log(err));
+        // this.getKbs()
+        //   .then(data => this.setState({
+        //     data: data.kbs.filter(i => {
+        //       return i.price >= 100 && i.price <= 200;
+        //     })
+        //   }))
+        //   .catch(err => console.log(err));
+        // console.log(this.state.data.filter(i => {
+        //   return i.price >= 100 && i.price <= 200;
+        // }));
+        console.log(this.state.data);
         break;
       case '$200 & Above':
-        this.getKbs()
-          .then(data => this.setState({
-            data: data.kbs.filter(i => {
-              return i.price >= 200 && i.price <= Infinity;
-            })
-          }))
-          .catch(err => console.log(err));
+        // this.getKbs()
+        //   .then(data => this.setState({
+        //     data: data.kbs.filter(i => {
+        //       return i.price >= 200 && i.price <= Infinity;
+        //     })
+        //   }))
+        //   .catch(err => console.log(err));
+        this.state.data.filter(i => {
+          return i.price >= 200 && i.price <= Infinity;
+        });
         break;
       case 'Any Price':
-        this.getKbs()
-          .then(data => this.setState({
-            data: data.kbs
-          }))
-          .catch(err => console.log(err));
+        // this.getKbs()
+        //   .then(data => this.setState({
+        //     data: data.kbs
+        //   }))
+        //   .catch(err => console.log(err));
+        this.setState(prevState => ({
+          data: prevState.data
+        }));
         break;
       default:
         this.getKbs()
@@ -200,6 +239,15 @@ class Keyboards extends Component {
         val: ''
       }))
       .catch(err => console.log(err));
+
+    console.log(this.state.data
+      .sort((a, b) => {
+        return b.price - a.price;
+      })
+      .filter(i => {
+        return i.price < 100;
+      })
+    );
   }
 
   addToCart(kb) {
