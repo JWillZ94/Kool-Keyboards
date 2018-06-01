@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Title from './components/Title';
 import Body from './components/Body';
 import './App.css';
-import { Provider } from 'react-redux';
+
 
 class App extends Component {
   // constructor(props) {

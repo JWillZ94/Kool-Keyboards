@@ -10,6 +10,8 @@ import Sort from './components/Sort';
 import Price from './components/Price';
 import Items from './components/Items';
 import Modal from './components/Modal';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
 class Keyboards extends Component {
   constructor(props) {
