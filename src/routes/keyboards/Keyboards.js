@@ -10,8 +10,26 @@ import Sort from './components/Sort';
 import Price from './components/Price';
 import Items from './components/Items';
 import Modal from './components/Modal';
-import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+function sorts(state = [], action) {
+  switch (action.type) {
+    case "Bottom-top":
+      return state.concat([action.text]);
+    default:
+      return state;
+  }
+}
+
+const store = createStore(sorts, ["Using redux"]);
+
+store.dispatch({
+  type: "Bottom-top",
+  text: "Nevermind"
+});
+
+console.log(store.getState());
 
 class Keyboards extends Component {
   constructor(props) {
