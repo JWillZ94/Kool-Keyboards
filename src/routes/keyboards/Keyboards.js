@@ -10,26 +10,6 @@ import Sort from './components/Sort';
 import Price from './components/Price';
 import Items from './components/Items';
 import Modal from './components/Modal';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-
-function sorts(state = [], action) {
-  switch (action.type) {
-    case "Bottom-top":
-      return state.concat([action.text]);
-    default:
-      return state;
-  }
-}
-
-const store = createStore(sorts, ["Using redux"]);
-
-store.dispatch({
-  type: "Bottom-top",
-  text: "Nevermind"
-});
-
-console.log(store.getState());
 
 class Keyboards extends Component {
   constructor(props) {
@@ -37,9 +17,6 @@ class Keyboards extends Component {
 
     this.state = {
       data: [],
-      reorder: {
-
-      },
       priceRange: 'Any Price',
       val: '',
       showModal: null,
@@ -53,7 +30,6 @@ class Keyboards extends Component {
     }
 
     this.getKbs = this.getKbs.bind(this);
-    this.getKbs2 = this.getKbs2.bind(this);
 
     this.handleShowModal = this.handleShowModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -61,6 +37,7 @@ class Keyboards extends Component {
     this.showAll = this.showAll.bind(this);
 
     this.sortItems = this.sortItems.bind(this);
+
     this.filterPriceRange = this.filterPriceRange.bind(this);
 
     this.addToCart = this.addToCart.bind(this);
@@ -82,20 +59,6 @@ class Keyboards extends Component {
       .then(res => res.json())
   }
 
-  getKbs2() {
-    return fetch('http://localhost:5000/kbs')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ data: data.kbs });
-        console.log(data.kbs.name);
-      })
-      .catch(err => console.log(err))
-  }
-
-  componentWillUpdate() {
-
-  }
-
   sortItems(val) {
 
     this.setState({
@@ -106,28 +69,16 @@ class Keyboards extends Component {
       case '':
         this.getKbs()
           .then(data => this.setState({
-            data: data.kbs.sort((a, b) => {
-              return a.id - b.id;
-            })
+            data: data.kbs.sort((a, b) => a.id - b.id)
           }))
           .catch(err => console.log(err));
         break;
       case 'asc-price':
-        // this.getKbs()
-        //   .then(data => this.setState({
-        //     data: data.kbs.sort((a, b) => {
-        //       return a.price - b.price;
-        //     })
-        //   }))
-        //   .catch(err => console.log(err));
-        // this.state.data.sort((a, b) => {
-        //   return a.price - b.price;
-        // });
-        this.setState(prevState => ({
-          data: prevState.data.sort((a, b) => {
-            return a.price - b.price;
-          })
-        }));
+        this.getKbs()
+          .then(data => this.setState({
+            data: data.kbs.sort((a, b) => a.price - b.price)
+          }))
+          .catch(err => console.log(err));
         break;
       case 'des-price':
         // this.getKbs()
@@ -137,9 +88,7 @@ class Keyboards extends Component {
         //     })
         //   }))
         //   .catch(err => console.log(err));
-        this.state.data.sort((a, b) => {
-          return b.price - a.price;
-        });
+        this.state.data.sort((a, b) => b.price - a.price);
         break;
       case 'rating':
         this.getKbs()
