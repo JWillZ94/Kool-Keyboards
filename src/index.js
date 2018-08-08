@@ -3,14 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/app/App';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { Provider, connect } from 'react-redux';
+import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers';
+import rootReducer from './reducers/rootReducer';
 import registerServiceWorker from './registerServiceWorker';
 
-const initialState = {};
 const middleware = [thunk];
-const store = createStore(rootReducer, initialState, applyMiddleware(...middleware));
+const store = createStore(rootReducer, applyMiddleware(...middleware));
 
 console.log(store.getState());
 

@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import priceRangeReducer from '../reducers/priceRangeReducer';
+
+const mapStateToProps = state => {
+  return {
+    priceRange: priceRangeReducer(state.filterByPriceRange)
+  };
+}
 
 class Price extends Component {
   constructor(props) {

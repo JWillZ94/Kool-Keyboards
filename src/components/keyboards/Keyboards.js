@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Keyboards.css';
 // import myCart from '../cart/myCart';
-// import SortMenu from '../../containers/SortMenu';
+import SortMenu from '../../containers/SortMenu';
 // // import Condition from './Condition';
 // // import Feature from './Feature';
 // // import Type from './Type';
@@ -10,7 +10,6 @@ import './Keyboards.css';
 // import Items from './Items';
 // import Modal from './Modal';
 
-// <SortMenu />
 // <Items />
 // <Modal />
 
@@ -20,7 +19,7 @@ function Keyboards() {
     <div>
       <p className="section-title">Keyboards</p>
       <div className="items-menu">
-
+        <SortMenu />
       </div>
     </div>
   );

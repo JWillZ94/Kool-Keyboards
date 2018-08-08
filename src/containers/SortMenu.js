@@ -1,16 +1,33 @@
-import React, { Component } from 'react';
-import Sort from '../components/keyboards/Sort';
-import Price from '../components/keyboards/Price';
+import React from 'react';
+// import Sort from '../components/keyboards/Sort';
+// import Price from '../components/keyboards/Price';
 
-class SortMenu extends Component {
-  render() {
-    return (
-      <div>
-        <Sort />
-        <Price  />
-      </div>
-    );
-  }
+// <Sort />
+// <Price  />
+
+// const mapStateToProps = state => {
+//   return {
+//     priceRangeReducer: state.priceRangeReducer(),
+//     sortReducer: state.sortReducer
+//   };
+// }
+//
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     showAll: dispatch()
+//   };
+// }
+//
+// function showAll() {
+//
+// }
+
+function SortMenu() {
+  return (
+    <div>
+      <button>Show All</button>
+    </div>
+  );
 }
 
 export default SortMenu;
