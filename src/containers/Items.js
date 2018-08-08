@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchKbs } from '../../../actions/keyboardActions';
-import Cart from '../../cart/Cart';
+import { fetchKbs } from '../../../../actions';
+import Cart from '../components/cart/Cart';
 import Quantity from './Quantity';
 
 class Items extends Component {

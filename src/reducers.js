@@ -1,6 +1,6 @@
-import { Component } from 'react';
 import { combineReducers } from 'redux';
-import { FETCH_KEYBOARDS_BEGIN, FETCH_KEYBOARDS_SUCCESS, FETCH_KEYBOARDS_FAILURE } from './actions/keyboardActions';
+import { fetchKeyboardsBegin, fetchKeyboardsSuccess, fetchKeyboardsError } from './actions';
+import KbSorts from './actions';
 
 const initialState = {
   items: [],
@@ -10,25 +10,34 @@ const initialState = {
 
 const kbsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_KEYBOARDS_BEGIN:
+    case 'FETCH_KEYBOARDS_BEGIN':
       return {
         ...state,
         loading: true,
         error: null
       };
-    case FETCH_KEYBOARDS_SUCCESS:
+    case 'FETCH_KEYBOARDS_SUCCESS':
       return {
         ...state,
         loading: false,
         items: action.payload.keyboards
       };
-    case FETCH_KEYBOARDS_FAILURE:
+    case 'FETCH_KEYBOARDS_FAILURE':
       return {
         ...state,
         loading: false,
         error: action.payload.error,
         items: []
       };
+    default:
+      return state;
+  }
+}
+
+const kbSorts = (state = {}, action) => {
+  switch (action.type) {
+    case 'SORT_KBS':
+      return state.sort;
     default:
       return state;
   }
@@ -43,6 +52,7 @@ const login = (state = initialState, action) => {
 
 const rootReducer = combineReducers({
   kbsReducer,
+  kbSorts,
   login
 });
 

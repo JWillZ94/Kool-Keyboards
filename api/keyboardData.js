@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-Kb = require('../model/keyboardData');
+Kb = require('../model/keyboardModel');
 
 router.get('/', (req, res) => {
   Kb.find((err, kbs) => {

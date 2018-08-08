@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-User = require('../model/User');
+User = require('../model/UserModel');
 
 router.get('/', (req, res) => {
   User.find((err, users) => {

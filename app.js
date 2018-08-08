@@ -25,12 +25,12 @@ db.once('open', () => {
   console.log('database up');
 });
 
-// Routes ==============================
+// API ==============================
 
-const kbs = require('./routes/keyboardDataRoute');
-app.use('/kbs', kbs);
-const users = require('./routes/userRoute');
-app.use('/users', users);
+const kbs = require('./api/keyboardData');
+app.use('/api/kbs', kbs);
+const users = require('./api/userData');
+app.use('/api/users', users);
 
 // Server ==============================
 

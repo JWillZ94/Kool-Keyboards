@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import KeyboardDetail from '../../keyboard-detail/KeyboardDetail';
+import KeyboardDetail from '.keyboard-detail/KeyboardDetail';
 
 class Modal extends Component {
   constructor(props) {
