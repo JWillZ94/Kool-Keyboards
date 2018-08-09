@@ -1,4 +1,4 @@
-export const sortKbs = sort => ({
+export const sortAction = sort => ({
   type: 'SORT_KBS',
   sort
 });

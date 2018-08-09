@@ -1,13 +1,27 @@
-export const fetchKeyboardsBegin = () => ({
+export const fetchKeyboardsBeginAction = {
   type: 'FETCH_KEYBOARDS_BEGIN'
-});
+};
 
-export const fetchKeyboardsSuccess = keyboards => ({
-  type: 'FETCH_KEYBOARDS_SUCCESS',
-  payload: { keyboards }
-});
 
-export const fetchKeyboardsError = error => ({
-  type: 'FETCH_KEYBOARDS_FAILURE',
-  payload: { error }
-});
+export const fetchKeyboardsSuccessAction = kbs => {
+  return {
+    type: 'FETCH_KEYBOARDS_SUCCESS',
+    items: kbs
+  };
+}
+
+export const fetchKeyboardsErrorAction = {
+  type: 'FETCH_KEYBOARDS_FAILURE'
+};
+
+export function fetchKeyboards() {
+  return dispatch => {
+    dispatch(fetchKeyboardsBeginAction);
+    return fetch('http://localhost:5000/api/kbs')
+      .then(
+        res => res.json(),
+        err => console.log('An error occurred: ', err)
+      )
+      .then(data => dispatch(fetchKeyboardsSuccessAction(data)));
+  }
+}

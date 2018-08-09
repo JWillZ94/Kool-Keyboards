@@ -1,4 +1,4 @@
-export const filterByPriceRange = filter => ({
+export const filterByPriceRangeAction = filter => ({
   type: 'FILTER_BY_PRICE_RANGE',
   filter
 });
