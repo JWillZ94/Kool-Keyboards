@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchKbs } from '../../../../actions';
 import Cart from '../components/cart/Cart';
 import Quantity from './Quantity';
 

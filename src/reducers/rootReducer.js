@@ -1,4 +1,4 @@
-import { filterByPriceRangeAction, PriceRangeFilters } from '../actions/priceRangeActions';
+import { PriceRangeFilters } from '../actions/priceRangeActions';
 
 const initialState = {
   items: [],

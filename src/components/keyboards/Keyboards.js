@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Keyboards.css';
 // import myCart from '../cart/myCart';
 import SortMenu from '../../containers/SortMenu';

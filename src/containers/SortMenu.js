@@ -1,33 +1,38 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { store } from '../index';
+import { filterByPriceRangeAction, PriceRangeFilters } from '../actions/priceRangeActions';
 // import Sort from '../components/keyboards/Sort';
-// import Price from '../components/keyboards/Price';
+import Price from './Price';
 
 // <Sort />
-// <Price  />
 
-// const mapStateToProps = state => {
-//   return {
-//     priceRangeReducer: state.priceRangeReducer(),
-//     sortReducer: state.sortReducer
-//   };
-// }
-//
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     showAll: dispatch()
-//   };
-// }
-//
-// function showAll() {
-//
-// }
 
-function SortMenu() {
+const mapStateToProps = state => {
+  return {
+    priceRange: state.priceRange
+  };
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    showAllItems: () => {
+      dispatch(filterByPriceRangeAction(PriceRangeFilters.ANY_PRICE));
+      console.log(store.getState());
+    }
+  };
+}
+
+function SortMenu({ showAllItems }) {
   return (
     <div>
-      <button>Show All</button>
+      <button onClick={showAllItems}>Show All</button>
+      <Price  />
     </div>
   );
 }
 
-export default SortMenu;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SortMenu);

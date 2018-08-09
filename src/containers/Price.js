@@ -1,48 +1,56 @@
 import React, { Component } from 'react';
-import priceRangeReducer from '../reducers/priceRangeReducer';
+import { connect } from 'react-redux';
+import { store } from '../index';
+import { filterByPriceRangeAction, PriceRangeFilters } from '../actions/priceRangeActions';
 
 const mapStateToProps = state => {
   return {
-    priceRange: priceRangeReducer(state.filterByPriceRange)
+    priceRange: state.priceRange
   };
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    handleFilterPriceRange: () => {
+      dispatch(filterByPriceRangeAction(PriceRangeFilters.PRICE_200_AND_UP));
+      console.log(store.getState());
+    }
+  };
+}
+
+  // className={this.state.active === range ? 'active-button range' : 'range'}
+  // key={range}
 
 class Price extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      active: 'Any Price'
-    }
-  }
+      active: 'inactive'
+    };
 
-  filterPriceRange(props, range) {
-    this.setState({
-      active: range
-    });
-    this.props.filterPriceRange(range);
   }
 
   render() {
+
     const priceRanges = ['Under $25', '$25 to $50', '$50 to $100', '$100 to $200', '$200 & Above', 'Any Price'];
 
-    const priceRangeOption = priceRanges.map(range =>
-      <li
-        className={this.state.active === range ? 'active-button range' : 'range'}
-        key={range} onClick={this.filterPriceRange.bind(this, 'Any Price', range)}
-      >{range}</li>
+    const priceRangeOption = priceRanges.map((range, { handleFilterPriceRange }) =>
+      <li onClick={handleFilterPriceRange} key={range}>{range}</li>
     );
-
     return (
       <div className="sort-section sort-menu-item">
         Price Ranges:
         <ul>
           {priceRangeOption}
         </ul>
-        {this.props.priceRange}
       </div>
     );
   }
+
 }
 
-export default Price;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Price);
