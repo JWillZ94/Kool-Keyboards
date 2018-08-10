@@ -1,6 +1,6 @@
 import React from 'react';
-import PriceRangeOptionFilter from './PriceRangeOptionFilter';
-import { PriceRangeFilters } from '../actions/priceRangeActions';
+import PriceRangeOptionFilter from '../../containers/PriceRangeOptionFilter';
+import { PriceRangeFilters } from '../../actions/priceRangeActions';
 
 function Price() {
   return (

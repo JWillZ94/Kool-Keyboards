@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { store } from '../index';
 import { filterByPriceRangeAction, PriceRangeFilters } from '../actions/priceRangeActions';
 // import Sort from '../components/keyboards/Sort';
-import Price from './Price';
+import Price from '../components/keyboards/Price';
 
 // <Sort />
 
@@ -27,7 +27,7 @@ function SortMenu({ showAllItems }) {
   return (
     <div>
       <button onClick={showAllItems}>Show All</button>
-      <Price  />
+      <Price />
     </div>
   );
 }
