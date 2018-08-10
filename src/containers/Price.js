@@ -1,56 +1,19 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { store } from '../index';
-import { filterByPriceRangeAction, PriceRangeFilters } from '../actions/priceRangeActions';
+import React from 'react';
+import PriceRangeOptionFilter from './PriceRangeOptionFilter';
+import { PriceRangeFilters } from '../actions/priceRangeActions';
 
-const mapStateToProps = state => {
-  return {
-    priceRange: state.priceRange
-  };
+function Price() {
+  return (
+    <div className="sort-section sort-menu-item">
+      Price Ranges:
+      <PriceRangeOptionFilter filter={PriceRangeFilters.PRICE_UNDER_25}>Under $25</PriceRangeOptionFilter>
+      <PriceRangeOptionFilter filter={PriceRangeFilters.PRICE_25_TO_50}>$25 to $50</PriceRangeOptionFilter>
+      <PriceRangeOptionFilter filter={PriceRangeFilters.PRICE_50_TO_100}>$50 to $100</PriceRangeOptionFilter>
+      <PriceRangeOptionFilter filter={PriceRangeFilters.PRICE_100_TO_200}>$100 to $200</PriceRangeOptionFilter>
+      <PriceRangeOptionFilter filter={PriceRangeFilters.PRICE_200_AND_UP}>$200 & Above</PriceRangeOptionFilter>
+      <PriceRangeOptionFilter filter={PriceRangeFilters.ANY_PRICE}>Any Price</PriceRangeOptionFilter>
+    </div>
+  );
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    handleFilterPriceRange: () => {
-      dispatch(filterByPriceRangeAction(PriceRangeFilters.PRICE_200_AND_UP));
-      console.log(store.getState());
-    }
-  };
-}
-
-  // className={this.state.active === range ? 'active-button range' : 'range'}
-  // key={range}
-
-class Price extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      active: 'inactive'
-    };
-
-  }
-
-  render() {
-
-    const priceRanges = ['Under $25', '$25 to $50', '$50 to $100', '$100 to $200', '$200 & Above', 'Any Price'];
-
-    const priceRangeOption = priceRanges.map((range, { handleFilterPriceRange }) =>
-      <li onClick={handleFilterPriceRange} key={range}>{range}</li>
-    );
-    return (
-      <div className="sort-section sort-menu-item">
-        Price Ranges:
-        <ul>
-          {priceRangeOption}
-        </ul>
-      </div>
-    );
-  }
-
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Price);
+export default Price;
