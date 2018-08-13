@@ -7,10 +7,9 @@ import SortMenu from '../../containers/SortMenu';
 // // import Type from './Type';
 // // import KbInterface from './KbInterface';
 // // import Brand from './Brand';
-// import Items from './Items';
+import Items from '../../containers/Items';
 // import Modal from './Modal';
 
-// <Items />
 // <Modal />
 
 
@@ -21,6 +20,7 @@ function Keyboards() {
       <div className="items-menu">
         <SortMenu />
       </div>
+      <Items />
     </div>
   );
 }

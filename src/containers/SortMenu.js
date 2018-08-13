@@ -1,12 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { store } from '../index';
 import { filterByPriceRangeAction, PriceRangeFilters } from '../actions/priceRangeActions';
 // import Sort from '../components/keyboards/Sort';
 import Price from '../components/keyboards/Price';
 
 // <Sort />
-
 
 const mapStateToProps = state => {
   return {
@@ -16,10 +14,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    showAllItems: () => {
-      dispatch(filterByPriceRangeAction(PriceRangeFilters.ANY_PRICE));
-      console.log(store.getState());
-    }
+    showAllItems: () => dispatch(filterByPriceRangeAction(PriceRangeFilters.ANY_PRICE))
   };
 }
 

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PriceRangeOption from '../components/keyboards/PriceRangeOption';
-import { filterByPriceRangeAction, PriceRangeFilters } from '../actions/priceRangeActions';
+import { filterByPriceRangeAction } from '../actions/priceRangeActions';
 // Container
 
 const mapStateToProps = (state, ownProps) => ({
