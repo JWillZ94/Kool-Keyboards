@@ -7,7 +7,7 @@ import SortMenu from '../../containers/SortMenu';
 // // import Type from './Type';
 // // import KbInterface from './KbInterface';
 // // import Brand from './Brand';
-import Items from '../../containers/Items';
+import Items from './Items';
 // import Modal from './Modal';
 
 // <Modal />
