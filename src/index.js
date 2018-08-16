@@ -14,9 +14,7 @@ import registerServiceWorker from './registerServiceWorker';
 const middleware = [thunk, logger];
 export const store = createStore(rootReducer, applyMiddleware(...middleware));
 
-// store.dispatch(fetchKeyboards());
-
-store.dispatch(filterByPriceRangeAction(PriceRangeFilters.PRICE_50_TO_100));
+store.dispatch(fetchKeyboards());
 
 ReactDOM.render(
   <Provider store = {store}>

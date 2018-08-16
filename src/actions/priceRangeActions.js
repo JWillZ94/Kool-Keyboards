@@ -4,22 +4,30 @@ export const filterByPriceRangeAction = filter => ({
 });
 
 export const PriceRangeFilters = {
-  PRICE_UNDER_25: 'UNDER_25',
-  PRICE_25_TO_50: 'PRICE_25_TO_50',
-  PRICE_50_TO_100: 'PRICE_50_TO_100',
-  PRICE_100_TO_200: 'PRICE_100_TO_200',
-  PRICE_200_AND_UP: 'PRICE_200_AND_UP',
-  ANY_PRICE: 'ANY_PRICE'
+  PRICE_UNDER_25: {
+    label: 'UNDER_25',
+    filterMethod: arr => arr.filter(i => i.price < 25)
+  },
+  PRICE_25_TO_50: {
+    label: 'PRICE_25_TO_50',
+    filterMethod: arr => arr.filter(i => i.price >= 25 && i.price <= 50)
+  },
+  PRICE_50_TO_100: {
+    label: 'PRICE_50_TO_100',
+    filterMethod: arr => arr.filter(i => i.price >= 50 && i.price <= 100)
+  },
+  PRICE_100_TO_200: {
+    label: 'PRICE_100_TO_200',
+    filterMethod: arr => arr.filter(i => i.price >= 100 && i.price <= 200)
+  },
+  PRICE_200_AND_UP: {
+    label: 'PRICE_200_AND_UP',
+    filterMethod: arr => arr.filter(i => i.price >= 200)
+  },
+  ANY_PRICE: {
+    label: 'ANY_PRICE',
+    filterMethod: arr => arr
+  }
 };
 
-// export const PriceRangeFilters = {
-//   PRICE_UNDER_25: {
-//     label: 'UNDER_25',
-//     filterMethod: arr => arr.filter(i => i.price < 25)
-//   },
-//   PRICE_25_TO_50: 'PRICE_25_TO_50',
-//   PRICE_50_TO_100: 'PRICE_50_TO_100',
-//   PRICE_100_TO_200: 'PRICE_100_TO_200',
-//   PRICE_200_AND_UP: 'PRICE_200_AND_UP',
-//   ANY_PRICE: 'ANY_PRICE'
-// };
+// items: action.filter.filterMethod(this.items) // a way to sort/filter items based on action
