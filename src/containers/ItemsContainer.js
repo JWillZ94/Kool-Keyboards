@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ItemsComponent from '../components/keyboards/ItemsComponent';
 import { fetchKeyboards } from '../actions/itemActions';
+import '../components/keyboards/Keyboards.css';
 // Container
 
 const mapStateToProps = state => {
@@ -16,23 +16,22 @@ class ItemsContainer extends Component {
   }
 
   render() {
-    const { error, loading, items } = this.props;
 
-    console.log(items);
+    return this.props.items.length === 0
+      ? <p>Empty!</p>
+      : (
+          <ul className="items-list">
+            {
+              this.props.items.kbs.map(kb =>
+                <li key={kb._id} className="items">
+                  <img src={kb.img} className="image" />
+                  <p className="kb-name">{kb.name}</p>
+                </li>
+              )
+            }
+          </ul>
+        );
 
-    if (error) {
-      return <div>Error! {error.message}</div>;
-    }
-
-    if (loading) {
-      return <div>Loading...</div>;
-    }
-
-    return (
-      <ul>
-        {items.kbs.map(kb => <li key={kb._id}>{kb.name}</li>)}
-      </ul>
-    );
   }
 }
 
