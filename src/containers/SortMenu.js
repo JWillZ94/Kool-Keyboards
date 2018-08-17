@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { filterByPriceRangeAction, PriceRangeFilters } from '../actions/priceRangeActions';
+import '../components/keyboards/Keyboards.css';
 // import Sort from '../components/keyboards/Sort';
 import Price from '../components/keyboards/Price';
 
@@ -20,7 +21,7 @@ const mapDispatchToProps = dispatch => {
 
 function SortMenu({ showAllItems }) {
   return (
-    <div>
+    <div className="sort-menu">
       <button onClick={showAllItems}>Show All</button>
       <Price />
     </div>
