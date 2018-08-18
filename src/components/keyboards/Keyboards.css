@@ -18,6 +18,10 @@
 
 /* Sort Menu =================================*/
 
+.active-choice {
+  text-decoration: underline;  
+}
+
 .sort-menu {
   display: flex;
   flex-direction: column;

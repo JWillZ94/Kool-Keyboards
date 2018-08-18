@@ -18,7 +18,7 @@ function Keyboards() {
     <div>
       <p className="section-title">Keyboards</p>
       <div className="items-menu">
-        <SortMenu className="sort-menu" />
+        <SortMenu />
       </div>
       <Items />
     </div>
