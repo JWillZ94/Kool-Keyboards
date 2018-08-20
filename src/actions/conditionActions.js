@@ -6,7 +6,7 @@ export const filterByConditionAction = filter => ({
 export const ConditionFilters = {
   ANY_CONDITION: {
     label: 'ANY_CONDITION',
-    filterMethod: arr => arr.filter(i => i.condition === "new")
+    filterMethod: arr => arr
   },
   NEW: {
     label: 'NEW',
@@ -21,5 +21,3 @@ export const ConditionFilters = {
     filterMethod: arr => arr.filter(i => i.condition === "refurbished")
   }
 };
-
-// ("new" || "used" || "refurbished")

@@ -8,37 +8,6 @@ const conditionSelector = state => state.condition;
 export const changeDisplayItems = createSelector(
   [itemSelector, sortSelector, priceRangeSelector, conditionSelector],
   (items, sort, priceRange, condition) => {
-    function keepCommonItems(arr, args) {
-      let count = 1;
-      let kept = [];
-      let seen = []
-      for (let i = 0; i < arr.length; i++) {
-        if (seen.includes(arr[i])) {
-          i++;
-        }
-        for (let j = i + 1; j < arr.length; j++) {
-          arr[i] === arr[j]
-            ? count++
-            : count = 1;
-          if (count === args.length) {
-            kept.push(arr[i]);
-          }
-        }
-        seen.push(arr[i]);
-      }
-      return kept;
-    }
-
-    function filterArr() {
-      let args = Array.prototype.slice.call(arguments);
-      let arr = [];
-      for (let i = 0; i < args.length; i++) {
-        arr = keepCommonItems(arr.concat(args[i]), args);
-      }
-      return arr;
-    }
-
-    console.log(filterArr([1, 2], [1, 4]));
     // switch (sort) {
     //   case 'SORT_PRICE_LOW_TO_HIGH':
     //     return items.kbs.sort((a, b) => a.price - b.price);
@@ -49,29 +18,66 @@ export const changeDisplayItems = createSelector(
     //   default:
     //     return items.kbs;
     // }
-    // switch (priceRange) {
-    //   case 'UNDER_25':
-    //     return items.kbs.filter(i => i.price < 25);
-    //   case 'PRICE_25_TO_50':
-    //     return items.kbs.filter(i => i.price >= 25 && i.price <= 50);
-    //   case 'PRICE_50_TO_100':
-    //     return items.kbs.filter(i => i.price >= 50 && i.price <= 100);
-    //   case 'PRICE_100_TO_200':
-    //     return items.kbs.filter(i => i.price >= 100 && i.price <= 200);
-    //   case 'PRICE_200_AND_UP':
-    //     return items.kbs.filter(i => i.price >= 200);
-    //   default:
-    //     return items.kbs;
-    // }
-    // switch (condition) {
-    //   case 'NEW':
-    //     return items.kbs.filter(i => i.condition === "new");
-    //   case 'USED':
-    //     return items.kbs.filter(i => i.condition === "used");
-    //   case 'REFURBISHED':
-    //     return items.kbs.filter(i => i.condition === "refurbished");
-    //   default:
-    //     return items.kbs;
-    // }
+    function findpr() {
+      let priceRangeArr;
+      switch (priceRange) {
+        case 'UNDER_25':
+          return priceRangeArr = items.kbs.filter(i => i.price < 25);
+          break;
+        case 'PRICE_25_TO_50':
+          return priceRangeArr = items.kbs.filter(i => i.price >= 25 && i.price <= 50);
+          break;
+        case 'PRICE_50_TO_100':
+          return priceRangeArr = items.kbs.filter(i => i.price >= 50 && i.price <= 100);
+          break;
+        case 'PRICE_100_TO_200':
+          return priceRangeArr = items.kbs.filter(i => i.price >= 100 && i.price <= 200);
+          break;
+        case 'PRICE_200_AND_UP':
+          return priceRangeArr = items.kbs.filter(i => i.price >= 200);
+          break;
+        default:
+          return priceRangeArr = items.kbs;
+      }
+    }
+
+
+    let conditionArr = items.kbs;
+    switch (condition) {
+      case 'NEW':
+        conditionArr = items.kbs.filter(i => i.condition === "new");
+        break;
+      case 'USED':
+        conditionArr = items.kbs.filter(i => i.condition === "used");
+        break;
+      case 'REFURBISHED':
+        conditionArr = items.kbs.filter(i => i.condition === "refurbished");
+        break;
+      default:
+        conditionArr = items.kbs;
+    }
+
+    function keepCommonItems(arr, args) {
+      let count = 1;
+      let kept = [];
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+          if (arr[i] === arr[j]) count++;
+        }
+        if (count === args.length) {
+          kept.push(arr[i]);
+        }
+        count = 1;
+      }
+      return kept;
+    }
+
+    function filterArr() {
+      let args = Array.prototype.slice.call(arguments);
+      return keepCommonItems([].concat.apply([], args), args);
+    }
+
+    console.log(filterArr(findpr()));
+
   }
 );

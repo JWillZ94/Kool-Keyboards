@@ -6,7 +6,8 @@ import { changeDisplayItems } from '../selectors/displayDataSelector';
 // Container
 
 const mapStateToProps = state => ({
-  items: changeDisplayItems(state)
+  // items: changeDisplayItems(state)
+  items: state.items
 });
 
 class ItemsContainer extends Component {
@@ -15,12 +16,12 @@ class ItemsContainer extends Component {
   }
 
   render() {
-    return this.props.items === undefined
+    return this.props.items.kbs === undefined
       ? <p>No products!</p>
       : (
           <ul className="items-list">
             {
-              this.props.items.map(kb =>
+              this.props.items.kbs.map(kb =>
                 <li key={kb._id} className="items">
                   <img src={kb.img} className="image" />
                   <p className="kb-name">{kb.name}</p>
