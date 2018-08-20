@@ -1,4 +1,4 @@
-import SortButton from '../components/keyboards/SortButton';
+import SortOption from '../components/keyboards/SortOption';
 import { connect } from 'react-redux';
 import { sortAction } from '../actions/sortActions';
 
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SortButton);
+)(SortOption);

@@ -4,11 +4,9 @@ import { fetchKeyboards } from '../actions/itemActions';
 import '../components/keyboards/Keyboards.css';
 // Container
 
-const mapStateToProps = state => {
-  return {
-    items: state.items
-  };
-}
+const mapStateToProps = state => ({
+  items: state.items
+});
 
 class ItemsContainer extends Component {
   componentDidMount() {

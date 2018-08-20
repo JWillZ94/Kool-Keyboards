@@ -4,18 +4,15 @@ import { filterByPriceRangeAction, PriceRangeFilters } from '../actions/priceRan
 import '../components/keyboards/Keyboards.css';
 import Sort from '../components/keyboards/Sort';
 import Price from '../components/keyboards/Price';
+import Condition from '../components/keyboards/Condition';
 
-const mapStateToProps = state => {
-  return {
-    priceRange: state.priceRange
-  };
-}
+const mapStateToProps = state => ({
+  priceRange: state.priceRange
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    showAllItems: () => dispatch(filterByPriceRangeAction(PriceRangeFilters.ANY_PRICE))
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  showAllItems: () => dispatch(filterByPriceRangeAction(PriceRangeFilters.ANY_PRICE))
+});
 
 function SortMenu({ showAllItems }) {
   return (
@@ -23,6 +20,7 @@ function SortMenu({ showAllItems }) {
       <button onClick={showAllItems}>Show All</button>
       <Sort />
       <Price />
+      <Condition />
     </div>
   );
 }

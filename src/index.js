@@ -7,14 +7,10 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer';
-import { fetchKeyboards } from './actions/itemActions';
-import { filterByPriceRangeAction, PriceRangeFilters } from './actions/priceRangeActions';
 import registerServiceWorker from './registerServiceWorker';
 
 const middleware = [thunk, logger];
 export const store = createStore(rootReducer, applyMiddleware(...middleware));
-
-// store.dispatch(fetchKeyboards());
 
 ReactDOM.render(
   <Provider store = {store}>
