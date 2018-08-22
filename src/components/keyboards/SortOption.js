@@ -3,7 +3,7 @@ import './Keyboards.css';
 
 function SortOption({ active, children, handleSort }) {
   return (
-    <p onClick={handleSort} className={ active ? "active-choice" : "" }>{ children }</p>
+    <p onClick={handleSort} className={ active ? "active-choice" : "" }>{children}</p>
   );
 }
 

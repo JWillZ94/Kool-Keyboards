@@ -1,13 +1,24 @@
+import { AvailabilityFilters } from '../actions/availabilityActions';
+import { BrandFilters } from '../actions/brandActions';
+import { ConditionFilters } from '../actions/conditionActions';
+import { FeatureFilters } from '../actions/featureActions';
+import { InterfaceFilters } from '../actions/interfaceActions';
 import { PriceRangeFilters } from '../actions/priceRangeActions';
 import { ItemSorts } from '../actions/sortActions';
-import { ConditionFilters } from '../actions/conditionActions';
+import { TypeFilters } from '../actions/typeActions';
+
 
 const initialState = {
   items: [],
   fetchedItems: [],
+  availability: AvailabilityFilters.ANY_AVAILABILITY.label,
+  brand: BrandFilters.ANY_BRAND.label,
+  condition: ConditionFilters.ANY_CONDITION.label,
+  feature: FeatureFilters.ANY_FEATURE.label,
+  interface: InterfaceFilters.ANY_INTERFACE.label,
   priceRange: PriceRangeFilters.ANY_PRICE.label,
   sort: ItemSorts.SORT_POPULARITY.label,
-  condition: ConditionFilters.ANY_CONDITION.label
+  type: TypeFilters.ANY_TYPE.label
 };
 
 function rootReducer(state = initialState, action) {
@@ -19,26 +30,108 @@ function rootReducer(state = initialState, action) {
       });
     case 'SORT_ITEMS':
       return Object.assign({}, state, {
-        sort: action.sort.label,
         items: Object.assign({}, state.items, {
           kbs: action.sort.sortMethod(state.items.kbs)
-        })
+        }),
+        sort: action.sort.label
       });
-    case 'FILTER_BY_PRICE_RANGE':
+    case 'FILTER_BY_AVAILABILITY':
       return Object.assign({}, state, {
-        priceRange: action.filter.label,
         items: Object.assign({}, state.items, {
           kbs: action.filter.filterMethod(state.fetchedItems.kbs)
         }),
-        condition: ConditionFilters.ANY_CONDITION.label
+        availability: action.type.label,
+        brand: BrandFilters.ANY_BRAND.label,
+        condition: ConditionFilters.ANY_CONDITION.label,
+        feature: FeatureFilters.ANY_FEATURE.label,
+        interface: InterfaceFilters.ANY_INTERFACE.label,
+        priceRange: PriceRangeFilters.ANY_PRICE.label,
+        sort: ItemSorts.SORT_POPULARITY.label,
+        type: TypeFilters.ANY_TYPE.label
+      });
+    case 'FILTER_BY_BRAND':
+      return Object.assign({}, state, {
+        items: Object.assign({}, state.items, {
+          kbs: action.filter.filterMethod(state.fetchedItems.kbs)
+        }),
+        availability: AvailabilityFilters.ANY_AVAILABILITY.label,
+        brand: action.type.label,
+        condition: ConditionFilters.ANY_CONDITION.label,
+        feature: FeatureFilters.ANY_FEATURE.label,
+        interface: InterfaceFilters.ANY_INTERFACE.label,
+        priceRange: PriceRangeFilters.ANY_PRICE.label,
+        sort: ItemSorts.SORT_POPULARITY.label,
+        type: TypeFilters.ANY_TYPE.label
       });
     case 'FILTER_BY_CONDITION':
       return Object.assign({}, state, {
-        condition: action.filter.label,
         items: Object.assign({}, state.items, {
           kbs: action.filter.filterMethod(state.fetchedItems.kbs)
         }),
-        priceRange: PriceRangeFilters.ANY_PRICE.label
+        availability: AvailabilityFilters.ANY_AVAILABILITY.label,
+        brand: BrandFilters.ANY_BRAND.label,
+        condition: action.type.label,
+        feature: FeatureFilters.ANY_FEATURE.label,
+        interface: InterfaceFilters.ANY_INTERFACE.label,
+        priceRange: PriceRangeFilters.ANY_PRICE.label,
+        sort: ItemSorts.SORT_POPULARITY.label,
+        type: TypeFilters.ANY_TYPE.label
+      });
+    case 'FILTER_BY_FEATURE':
+      return Object.assign({}, state, {
+        items: Object.assign({}, state.items, {
+          kbs: action.filter.filterMethod(state.fetchedItems.kbs)
+        }),
+        availability: AvailabilityFilters.ANY_AVAILABILITY.label,
+        brand: BrandFilters.ANY_BRAND.label,
+        condition: ConditionFilters.ANY_CONDITION.label,
+        feature: action.type.label,
+        interface: InterfaceFilters.ANY_INTERFACE.label,
+        priceRange: PriceRangeFilters.ANY_PRICE.label,
+        sort: ItemSorts.SORT_POPULARITY.label,
+        type: TypeFilters.ANY_TYPE.label
+      });
+    case 'FILTER_BY_INTERFACE':
+      return Object.assign({}, state, {
+        items: Object.assign({}, state.items, {
+          kbs: action.filter.filterMethod(state.fetchedItems.kbs)
+        }),
+        availability: AvailabilityFilters.ANY_AVAILABILITY.label,
+        brand: BrandFilters.ANY_BRAND.label,
+        condition: ConditionFilters.ANY_CONDITION.label,
+        feature: FeatureFilters.ANY_FEATURE.label,
+        interface: action.type.label,
+        priceRange: PriceRangeFilters.ANY_PRICE.label,
+        sort: ItemSorts.SORT_POPULARITY.label,
+        type: TypeFilters.ANY_TYPE.label
+      });
+    case 'FILTER_BY_PRICE_RANGE':
+      return Object.assign({}, state, {
+        items: Object.assign({}, state.items, {
+          kbs: action.filter.filterMethod(state.fetchedItems.kbs)
+        }),
+        availability: AvailabilityFilters.ANY_AVAILABILITY.label,
+        brand: BrandFilters.ANY_BRAND.label,
+        condition: ConditionFilters.ANY_CONDITION.label,
+        feature: FeatureFilters.ANY_FEATURE.label,
+        interface: InterfaceFilters.ANY_INTERFACE.label,
+        priceRange: action.type.label,
+        sort: ItemSorts.SORT_POPULARITY.label,
+        type: TypeFilters.ANY_TYPE.label
+      });
+    case 'FILTER_BY_TYPE':
+      return Object.assign({}, state, {
+        items: Object.assign({}, state.items, {
+          kbs: action.filter.filterMethod(state.fetchedItems.kbs)
+        }),
+        availability: AvailabilityFilters.ANY_AVAILABILITY.label,
+        brand: BrandFilters.ANY_BRAND.label,
+        condition: ConditionFilters.ANY_CONDITION.label,
+        feature: FeatureFilters.ANY_FEATURE.label,
+        interface: InterfaceFilters.ANY_INTERFACE.label,
+        priceRange: PriceRangeFilters.ANY_PRICE.label,
+        sort: ItemSorts.SORT_POPULARITY.label,
+        type: action.type.label
       });
     default:
       return state;

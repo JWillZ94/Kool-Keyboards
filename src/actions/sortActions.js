@@ -21,7 +21,7 @@ export const sortAction = sort => ({
 export const ItemSorts = {
   SORT_POPULARITY: {
     label: 'POPULARITY',
-    sortMethod: arr => arr
+    sortMethod: arr => arr.sort((a, b) => a.name.localeCompare(b.name))
   },
   SORT_PRICE_LOW_TO_HIGH: {
     label: 'SORT_PRICE_LOW_TO_HIGH',

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchKeyboards } from '../actions/itemActions';
 import '../components/keyboards/Keyboards.css';
-import { changeDisplayItems } from '../selectors/displayDataSelector';
+// import { changeDisplayItems } from '../selectors/displayDataSelector';
 // Container
 
 const mapStateToProps = state => ({
@@ -23,7 +23,7 @@ class ItemsContainer extends Component {
             {
               this.props.items.kbs.map(kb =>
                 <li key={kb._id} className="items">
-                  <img src={kb.img} className="image" />
+                  <img src={kb.img} alt="pic" className="image" />
                   <p className="kb-name">{kb.name}</p>
                   <p>{kb.price}</p>
                   <p>{kb.condition}</p>

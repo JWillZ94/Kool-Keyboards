@@ -10,14 +10,14 @@ export const ConditionFilters = {
   },
   NEW: {
     label: 'NEW',
-    filterMethod: arr => arr.filter(i => i.condition === "new")
+    filterMethod: arr => arr.filter(i => i.condition === "New")
   },
   USED: {
     label: 'USED',
-    filterMethod: arr => arr.filter(i => i.condition === "used")
+    filterMethod: arr => arr.filter(i => i.condition === "Used")
   },
   REFURBISHED: {
     label: 'REFURBISHED',
-    filterMethod: arr => arr.filter(i => i.condition === "refurbished")
+    filterMethod: arr => arr.filter(i => i.condition === "Refurbished")
   }
 };

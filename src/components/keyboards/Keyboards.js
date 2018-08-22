@@ -17,10 +17,12 @@ function Keyboards() {
   return (
     <div>
       <p className="section-title">Keyboards</p>
-      <div className="items-menu">
-        <SortMenu />
+      <div className="keyboards-content">
+        <div className="items-menu">
+          <SortMenu />
+        </div>
+        <Items />
       </div>
-      <Items />
     </div>
   );
 }
