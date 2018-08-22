@@ -40,7 +40,7 @@ function rootReducer(state = initialState, action) {
         items: Object.assign({}, state.items, {
           kbs: action.filter.filterMethod(state.fetchedItems.kbs)
         }),
-        availability: action.type.label,
+        availability: action.filter.label,
         brand: BrandFilters.ANY_BRAND.label,
         condition: ConditionFilters.ANY_CONDITION.label,
         feature: FeatureFilters.ANY_FEATURE.label,
@@ -55,7 +55,7 @@ function rootReducer(state = initialState, action) {
           kbs: action.filter.filterMethod(state.fetchedItems.kbs)
         }),
         availability: AvailabilityFilters.ANY_AVAILABILITY.label,
-        brand: action.type.label,
+        brand: action.filter.label,
         condition: ConditionFilters.ANY_CONDITION.label,
         feature: FeatureFilters.ANY_FEATURE.label,
         interface: InterfaceFilters.ANY_INTERFACE.label,
@@ -70,7 +70,7 @@ function rootReducer(state = initialState, action) {
         }),
         availability: AvailabilityFilters.ANY_AVAILABILITY.label,
         brand: BrandFilters.ANY_BRAND.label,
-        condition: action.type.label,
+        condition: action.filter.label,
         feature: FeatureFilters.ANY_FEATURE.label,
         interface: InterfaceFilters.ANY_INTERFACE.label,
         priceRange: PriceRangeFilters.ANY_PRICE.label,
@@ -85,7 +85,7 @@ function rootReducer(state = initialState, action) {
         availability: AvailabilityFilters.ANY_AVAILABILITY.label,
         brand: BrandFilters.ANY_BRAND.label,
         condition: ConditionFilters.ANY_CONDITION.label,
-        feature: action.type.label,
+        feature: action.filter.label,
         interface: InterfaceFilters.ANY_INTERFACE.label,
         priceRange: PriceRangeFilters.ANY_PRICE.label,
         sort: ItemSorts.SORT_POPULARITY.label,
@@ -100,7 +100,7 @@ function rootReducer(state = initialState, action) {
         brand: BrandFilters.ANY_BRAND.label,
         condition: ConditionFilters.ANY_CONDITION.label,
         feature: FeatureFilters.ANY_FEATURE.label,
-        interface: action.type.label,
+        interface: action.filter.label,
         priceRange: PriceRangeFilters.ANY_PRICE.label,
         sort: ItemSorts.SORT_POPULARITY.label,
         type: TypeFilters.ANY_TYPE.label
@@ -115,7 +115,7 @@ function rootReducer(state = initialState, action) {
         condition: ConditionFilters.ANY_CONDITION.label,
         feature: FeatureFilters.ANY_FEATURE.label,
         interface: InterfaceFilters.ANY_INTERFACE.label,
-        priceRange: action.type.label,
+        priceRange: action.filter.label,
         sort: ItemSorts.SORT_POPULARITY.label,
         type: TypeFilters.ANY_TYPE.label
       });
@@ -131,7 +131,7 @@ function rootReducer(state = initialState, action) {
         interface: InterfaceFilters.ANY_INTERFACE.label,
         priceRange: PriceRangeFilters.ANY_PRICE.label,
         sort: ItemSorts.SORT_POPULARITY.label,
-        type: action.type.label
+        type: action.filter.label
       });
     default:
       return state;

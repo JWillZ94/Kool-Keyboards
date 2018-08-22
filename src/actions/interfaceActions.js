@@ -44,14 +44,6 @@ export const InterfaceFilters = {
       }
     })
   },
-  WIRELESS: {
-    label: 'WIRELESS',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.interface.length; j++) {
-        return i.interface[j] === "Wireless";
-      }
-    })
-  },
   INFRARED: {
     label: 'INFRARED',
     filterMethod: arr => arr.filter(i => {

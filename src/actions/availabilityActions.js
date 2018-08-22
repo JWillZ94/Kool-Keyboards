@@ -11,9 +11,5 @@ export const AvailabilityFilters = {
   IN_STOCK: {
     label: 'IN_STOCK',
     filterMethod: arr => arr.filter(i => i.availability === "In Stock")
-  },
-  OUT_OF_STOCK: {
-    label: 'OUT_OF_STOCK',
-    filterMethod: arr => arr.filter(i => i.availability === "Out of Stock")
   }
 };
