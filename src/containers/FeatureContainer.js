@@ -4,7 +4,7 @@ import { filterByFeatureAction } from '../actions/featureActions';
 // Container
 
 const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.filter.label === state.feature
+  active: ownProps.filter.label === state.itemsReducer.feature
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

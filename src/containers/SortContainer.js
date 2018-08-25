@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { sortAction } from '../actions/sortActions';
 
 const mapStateToProps = (state, ownProps, active) => ({
-  active: ownProps.sort.label === state.sort,
+  active: ownProps.sort.label === state.itemsReducer.sort,
   sort: ownProps.sort
 });
 

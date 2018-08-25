@@ -18,13 +18,13 @@ import Sort from '../components/keyboards/Sort';
 import Type from '../components/keyboards/Type';
 
 const mapStateToProps = state => ({
-  availability: state.availability,
-  brand: state.brand,
-  condition: state.condition,
-  feature: state.feature,
-  interface: state.interface,
-  priceRange: state.priceRange,
-  type: state.type
+  availability: state.itemsReducer.availability,
+  brand: state.itemsReducer.brand,
+  condition: state.itemsReducer.condition,
+  feature: state.itemsReducer.feature,
+  interface: state.itemsReducer.interface,
+  priceRange: state.itemsReducer.priceRange,
+  type: state.itemsReducer.type
 });
 
 const mapDispatchToProps = dispatch => ({

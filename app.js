@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const http = require('http');
 const cors = require('cors');
+const configurePassport = require('./config/passport');
+const users = require('./controllers/users');
 
 const app = express();
 
@@ -29,17 +31,18 @@ db.once('open', () => {
 
 const kbs = require('./api/keyboardData');
 app.use('/api/kbs', kbs);
-const users = require('./api/userData');
-app.use('/api/users', users);
+const storedUsers = require('./api/userData');
+app.use('/api/users', storedUsers);
+configurePassport(app, passport);
 
 // Server ==============================
 
 const port = process.env.PORT || 5000;
 
-app.get('/', (req, res) => {
-  res.send({ hey: 'test' });
-});
+app.get('/', (req, res) => res.send({ hey: 'test' }));
 
-app.listen(port, () => {
-  console.log('server up');
-});
+app.post("/api/login", users.login);
+app.get("/api/logout", users.logout);
+app.post("/api/register", users.register);
+
+app.listen(port, () => console.log('server up'));

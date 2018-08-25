@@ -1,24 +1,27 @@
-export const fetchUserBeginAction = {
-  type: 'FETCH_USER_BEGIN'
+export const loginUserBeginAction = {
+  type: 'LOGIN_USER_BEGIN'
 };
 
-export const fetchUserSuccessAction = user => ({
-  type: 'FETCH_USER_SUCCESS',
+export const loginUserSuccessAction = user => ({
+  type: 'LOGIN_USER_SUCCESS',
   user: user
 });
 
-export const fetchUserErrorAction = {
-  type: 'FETCH_USER_FAILURE'
+export const loginUserErrorAction = {
+  type: 'LOGIN_USER_FAILURE'
 };
 
-export function fetchUser() {
+export function loginUser() {
   return dispatch => {
-    dispatch(fetchUserBeginAction);
-    return fetch('http://localhost:5000/api/users')
+    dispatch(loginUserBeginAction);
+    return fetch('http://localhost:5000/api/login', { method: "POST" })
       .then(
         res => res.json(),
         err => console.log("An error occurred: ", err)
       )
-      .then(user => dispatch(fetchUserSuccessAction(user)));
+      .then(user => {
+        dispatch(loginUserSuccessAction(user))
+        console.log(user);
+      });
   }
 }

@@ -7,7 +7,7 @@ import '../components/keyboards/Keyboards.css';
 
 const mapStateToProps = state => ({
   // items: changeDisplayItems(state)
-  items: state.items
+  items: state.itemsReducer.items
 });
 
 class ItemsContainer extends Component {

@@ -4,7 +4,7 @@ import { filterByTypeAction } from '../actions/typeActions';
 // Container
 
 const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.filter.label === state.type
+  active: ownProps.filter.label === state.itemsReducer.type
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

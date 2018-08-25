@@ -4,7 +4,7 @@ import { filterByConditionAction } from '../actions/conditionActions';
 // Container
 
 const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.filter.label === state.condition
+  active: ownProps.filter.label === state.itemsReducer.condition
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

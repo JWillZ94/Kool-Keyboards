@@ -4,7 +4,7 @@ import { filterByBrandAction } from '../actions/brandActions';
 // Container
 
 const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.filter.label === state.brand
+  active: ownProps.filter.label === state.itemsReducer.brand
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

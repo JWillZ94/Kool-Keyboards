@@ -4,7 +4,7 @@ import { filterByAvailabilityAction } from '../actions/availabilityActions';
 // Container
 
 const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.filter.label === state.availability
+  active: ownProps.filter.label === state.itemsReducer.availability
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

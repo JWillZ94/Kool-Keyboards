@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
 User = require('../model/UserModel');
 
 router.get('/', (req, res) => {
@@ -19,33 +17,4 @@ router.get('/:id', (req, res) => {
   });
 });
 
-// Passport ============================
-
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({ username: username }, function(err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
-  }
-));
-
-router.post('/login',
-  passport.authenticate('local', {
-    successRedirect: '/#/',
-    failureRedirect: '/#/register-login'
-  })
-);
-
-router.get('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/');
-});
-
-module.exports = router, passport;
+module.exports = router;

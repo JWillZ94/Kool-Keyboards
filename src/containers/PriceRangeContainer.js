@@ -4,7 +4,7 @@ import { filterByPriceRangeAction } from '../actions/priceRangeActions';
 // Container
 
 const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.filter.label === state.priceRange
+  active: ownProps.filter.label === state.itemsReducer.priceRange
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
