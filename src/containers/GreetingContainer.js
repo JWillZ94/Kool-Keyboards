@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
   user: state.authReducer.user
 });
 
-const GreetingContainer = () => {
-  return this.props.user === undefined
-    ? <div>
-        <p>Greetings, guest!</p>
-      </div>
-    : <div>
-        <p>Greetings, {this.props.user.username}</p>
-      </div>;
+class GreetingContainer extends Component {
+  render() {
+    return this.props.user === ''
+      ? <div>
+          <p>Greetings, guest!</p>
+        </div>
+      : <div>
+          <p>Greetings, {this.props.user.first_name}</p>
+        </div>;
+  }
 }
 
 export default connect(

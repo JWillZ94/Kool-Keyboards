@@ -1,16 +1,25 @@
 const initialState = {
-  user: null,
+  isWaiting: false,
+  authenticated: false,
+  user: '',
   cart: [],
   boughtItems: []
 };
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'LOGIN_USER_BEGIN':
+      return Object.assign({}, state, { isWaiting: true });
     case 'LOGIN_USER_SUCCESS':
-      Object.assign({}, state, {
-        user: action.user,
-        cart: action.user,
-        boughtItems: action.user
+      return Object.assign({}, state, {
+        isWaiting: false,
+        authenticated: true,
+        user: action.user
+      });
+    case 'LOGIN_USER_FAILURE':
+      return Object.assign({}, state, {
+        isWaiting: false,
+        authenticated: false
       });
     default:
       return state;
