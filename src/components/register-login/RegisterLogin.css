@@ -2,3 +2,17 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+.center-text {
+  text-align: center;
+}
+
+#register-login {
+  background: #fff;
+}
+
+#register-login-content {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 0;
+}

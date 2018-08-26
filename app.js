@@ -6,6 +6,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const http = require('http');
 const cors = require('cors');
+const session = require('express-session');
 
 const app = express();
 
@@ -13,6 +14,12 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({
+  secret: 'pst',
+  cookie: { secure: true },
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors());
@@ -69,7 +76,12 @@ app.post("/api/login", passport.authenticate('local'), (req, res) => {
 
 app.get("/api/logout", (req, res) => {
   req.logout();
-  res.redirect('/');
+  req.session.destroy(err => {
+    return err
+      ? console.log("Trouble logging out of session")
+      : console.log("Logged out of session successfully");
+  });
+  res.json({ success: 'Successfully logged out!' });
 });
 
 app.post("/api/register", (req, res) => {
@@ -88,13 +100,11 @@ app.post("/api/register", (req, res) => {
                   console.error(err)
                   // res.json({ success: false })
                 )
-              : res.json({ success: true });
+              : res.json(user);
           })
         );
   });
 });
-
-app.get('/');
 
 // Server ==============================
 
