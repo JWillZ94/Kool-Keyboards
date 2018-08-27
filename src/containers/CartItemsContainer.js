@@ -7,16 +7,16 @@ const mapStateToProps = state => ({
 
 class CartItemsContainer extends Component {
   render() {
-    return this.props.cart === []
+    return this.props.cart.kb === undefined
       ? <div>
           <p>Nothing in cart!</p>
         </div>
       : <ul>
           {
-            this.props.cart.kbs.map(kb => {
+            this.props.cart.map(kb => {
               <li key={kb._id}>
                 <img src={kb.img} />
-                <p>{kb.name}</p>
+                <p>{kb.kb.name}</p>
               </li>
             })
           }

@@ -17,4 +17,11 @@ router.get('/:id', (req, res) => {
   });
 });
 
+router.post('/:id', (req, res) => {
+  User.findByIdAndUpdate(req.params.id, req.body, (err, user) => {
+    if (err) throw err;
+    res.json({ user: user });
+  });
+});
+
 module.exports = router;

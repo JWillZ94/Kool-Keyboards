@@ -47,6 +47,13 @@ const authReducer = (state = initialState, action) => {
       });
     case 'REGISTER_USER_FAILURE':
       return Object.assign({}, state, { isWaiting: false });
+    case 'ADD_TO_CART':
+      return Object.assign({}, state, {
+        cart: Object.assign([], state.cart, {
+          ...state.cart,
+          kb: action.item
+        })
+      });
     default:
       return state;
   }

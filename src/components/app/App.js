@@ -1,6 +1,6 @@
 import React from 'react';
 import Title from './Title';
-import Body from '../../containers/Body';
+import Body from './Body';
 import './App.css';
 
 function App() {
