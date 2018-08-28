@@ -14,74 +14,38 @@ export const TypeFilters = {
   },
   WINDOWS: {
     label: 'WINDOWS',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.type.length; j++) {
-        return i.type[j] === "Windows";
-      }
-    })
+    filterMethod: arr => arr.filter(i => i.type.includes("Windows"))
   },
   APPLE: {
     label: 'APPLE',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.type.length; j++) {
-        return i.type[j] === "Apple";
-      }
-    })
+    filterMethod: arr => arr.filter(i => i.type.includes("Apple"))
   },
   SPILL_RESISTANT: {
     label: 'SPILL_RESISTANT',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.type.length; j++) {
-        return i.type[j] === "Spill-Resistant";
-      }
-    })
+    filterMethod: arr => arr.filter(i => i.type.includes("Spill-Resistant"))
   },
   ULTRA_THIN: {
     label: 'ULTRA_THIN',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.type.length; j++) {
-        return i.type[j] === "Ultra Thin";
-      }
-    })
+    filterMethod: arr => arr.filter(i => i.type.includes("Ultra Thin"))
   },
   FULL_SIZE: {
     label: 'FULL_SIZE',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.type.length; j++) {
-        return i.type[j] === "Full-Size";
-      }
-    })
+    filterMethod: arr => arr.filter(i => i.type.includes("Full-Size"))
   },
   BACKLIT: {
     label: 'BACKLIT',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.type.length; j++) {
-        return i.type[j] === "Backlit";
-      }
-    })
+    filterMethod: arr => arr.filter(i => i.type.includes("Backlit"))
   },
   GAMING: {
     label: 'GAMING',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.type.length; j++) {
-        return i.type[j] === "Gaming";
-      }
-    })
+    filterMethod: arr => arr.filter(i => i.type.includes("Gaming"))
   },
   MECHANICAL: {
     label: 'MECHANICAL',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.type.length; j++) {
-        return i.type[j] === "Mechanical";
-      }
-    })
+    filterMethod: arr => arr.filter(i => i.type.includes("Mechanical"))
   },
   LARGE_PRINT: {
     label: 'LARGE_PRINT',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.type.length; j++) {
-        return i.type[j] === "Large Print";
-      }
-    })
+    filterMethod: arr => arr.filter(i => i.type.includes("Large Print"))
   }
 };

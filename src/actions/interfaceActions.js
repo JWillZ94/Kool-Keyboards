@@ -14,42 +14,22 @@ export const InterfaceFilters = {
   },
   WIRELESS: {
     label: 'WIRELESS',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.interface.length; j++) {
-        return i.interface[j] === "Wireless";
-      }
-    })
+    filterMethod: arr => arr.filter(i => i.interface.includes("Wireless"))
   },
   PS_2: {
     label: 'PS_2',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.interface.length; j++) {
-        return i.interface[j] === "PS/2";
-      }
-    })
+    filterMethod: arr => arr.filter(i => i.interface.includes("PS/2"))
   },
   USB: {
     label: 'USB',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.interface.length; j++) {
-        return i.interface[j] === "USB";
-      }
-    })
+    filterMethod: arr => arr.filter(i => i.interface.includes("USB"))
   },
   BLUETOOTH: {
     label: 'BLUETOOTH',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.interface.length; j++) {
-        return i.interface[j] === "Bluetooth";
-      }
-    })
+    filterMethod: arr => arr.filter(i => i.interface.includes("Bluetooth"))
   },
   INFRARED: {
     label: 'INFRARED',
-    filterMethod: arr => arr.filter(i => {
-      for (let j = 0; j < i.type.length; j++) {
-        return i.type[j] === "Infrared";
-      }
-    })
+    filterMethod: arr => arr.filter(i => i.interface.includes("Infrared"))
   }
 };

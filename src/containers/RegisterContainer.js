@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import RegisterForm from '../components/register-login/RegisterForm';
 import { registerUser } from '../actions/registerAction';

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchKeyboards } from '../actions/itemActions';
 import { addToCartAction } from '../actions/cartActions';
 import '../components/keyboards/Keyboards.css';
+import Quantity from '../components/keyboards/Quantity';
 // import { changeDisplayItems } from '../selectors/displayDataSelector';
 // Container
 
@@ -15,15 +16,10 @@ class ItemsContainer extends Component {
   constructor (props) {
     super(props);
 
-    this.addToCart = this.addToCart.bind(this);
   }
 
   componentDidMount() {
     this.props.dispatch(fetchKeyboards());
-  }
-
-  addToCart(kb) {
-    this.props.dispatch(addToCartAction(kb))
   }
 
   render() {
@@ -36,9 +32,10 @@ class ItemsContainer extends Component {
                 <li key={kb._id} className="items">
                   <img src={kb.img} alt="pic" className="image" />
                   <p className="kb-name">{kb.name}</p>
-                  <p>{kb.price}</p>
-                  <p>{kb.condition}</p>
-                  <p onClick={this.addToCart(kb)}>Add to Cart</p>
+                  <p>Price: {kb.price}</p>
+                  <p>Condition: {kb.condition}</p>
+                  <p>Amount: {kb.amount_in_stock}</p>
+                  <Quantity kb={kb} amt={kb.amount_in_stock} />
                 </li>
               )
             }

@@ -2,7 +2,12 @@ const initialState = {
   isWaiting: false,
   authenticated: false,
   user: '',
-  cart: [],
+  cart: [
+    item: {
+      kb: {},
+      amt: 0
+    }
+  ],
   boughtItems: []
 };
 
@@ -49,11 +54,34 @@ const authReducer = (state = initialState, action) => {
       return Object.assign({}, state, { isWaiting: false });
     case 'ADD_TO_CART':
       return Object.assign({}, state, {
-        cart: Object.assign([], state.cart, {
-          ...state.cart,
-          kb: action.item
-        })
+        cart: () => {
+          return Object.assign([], state.cart, () => {
+            for (let i = 0; i < state.cart.length; i++) {
+              if (state.cart[i].kb === action.actionItem.actionKb) {
+                return Object.assign({}, state.cart.item, {
+                  amt: action.actionItem.actionAmt
+                })
+              }
+            }
+          })
+          if (state.cart.item.includes(state.cart.item.kb)) {
+            return Object.assign({}, state.cart.item, {
+
+            })
+          } else {
+            return Object.assign([], state.cart, {
+              cart.item: {
+                kb: action.item.kb,
+                amt: action.item.amt
+              }
+            })
+          }
+        }
       });
+    case 'REMOVE_FROM_CART':
+      return Object.assign({}, state, {
+        cart: state.cart.filter(i => i === action.item)
+      })
     default:
       return state;
   }

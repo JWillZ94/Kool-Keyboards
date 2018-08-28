@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Home from '../home/Home';
 import Keyboards from '../keyboards/Keyboards';
 import KeyboardDetail from '../keyboards/KeyboardDetail';
