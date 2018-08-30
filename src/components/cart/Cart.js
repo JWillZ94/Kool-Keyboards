@@ -1,13 +1,13 @@
 import React from 'react';
 import './Cart.css';
 import '../keyboards/Keyboards.css';
-import CartItemsContainer from '../../containers/CartItemsContainer';
+import CartContainer from '../../containers/CartContainer';
 
 const Cart = () => (
   <div className="cart">
     <p className="section-title">Cart</p>
     <div className="cart-section">
-      <CartItemsContainer />
+      <CartContainer />
     </div>
   </div>
 );

@@ -52,8 +52,11 @@ const authReducer = (state = initialState, action) => {
       return Object.assign({}, state, { isWaiting: false });
     case 'ADD_TO_CART':
       return Object.assign({}, state, {
-        cart: [ ...state.cart, action.actionItem ],
-        amt: action.actionAmt
+        cart: [ ...state.cart, {
+          item: action.actionItem,
+          itemAmt: action.actionAmt
+        }]
+        // amt: state.amt += action.actionAmt
       });
     case 'REMOVE_FROM_CART':
       return Object.assign({}, state, {

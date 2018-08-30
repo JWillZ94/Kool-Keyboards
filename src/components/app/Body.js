@@ -5,6 +5,7 @@ import KeyboardDetail from '../keyboards/KeyboardDetail';
 import Cart from '../cart/Cart';
 import Profile from '../profile/Profile';
 import RegisterLogin from '../register-login/RegisterLogin';
+import Checkout from '../checkout/Checkout';
 import { HashRouter, Route, NavLink } from 'react-router-dom';
 import AuthLinkContainer from '../../containers/AuthLinkContainer';
 
@@ -32,6 +33,7 @@ const Body = () => (
         <Route path="/profile" component={Profile} />
         <Route path="/keyboard-detail" component={KeyboardDetail} />
         <Route path="/cart" component={Cart} />
+        <Route path="/checkout" component={Checkout} />
       </div>
 
     </div>
