@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { removeFromCartAction } from '../actions/cartActions';
 
 const mapStateToProps = state => ({
-  cart: state.authReducer.cart
+  cart: state.authReducer.cart,
+  amt: state.authReducer.amt
 });
 
 class CartItemsContainer extends Component {
@@ -32,6 +33,7 @@ class CartItemsContainer extends Component {
                 <p className="kb-name">{kb.name}</p>
                 <p>{kb.price}</p>
                 <p>{kb.condition}</p>
+                <p>{this.props.amt}</p>
                 <p id={kb._id} onClick={this.removeFromCart}>Remove from Cart</p>
               </li>
             )

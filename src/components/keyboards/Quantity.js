@@ -34,7 +34,7 @@ class Quantity extends Component {
   addToCart(e) {
     if (e.target.id === this.props.kb._id) {
       this.props.dispatch(
-        addToCartAction({}, this.props.kb, this.state.quantity)
+        addToCartAction(this.props.kb, this.state.quantity)
       );
     }
   }

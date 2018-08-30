@@ -1,9 +1,7 @@
-export const addToCartAction = (actionItem, actionKb, actionAmt) => ({
+export const addToCartAction = (actionItem, actionAmt) => ({
   type: 'ADD_TO_CART',
-  actionItem: {
-    actionKb,
-    actionAmt
-  }
+  actionItem,
+  actionAmt
 });
 
 export const removeFromCartAction = item => ({
