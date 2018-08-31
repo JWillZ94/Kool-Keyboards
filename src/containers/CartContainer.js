@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { removeFromCartAction } from '../actions/cartActions';
 import CartItems from './CartItems';
 import CartCheckout from './CartCheckout';
-import { Redirect, NavLink } from 'react-router-dom';
+import { withRouter, Redirect, NavLink } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   cart: state.authReducer.cart,
@@ -17,7 +17,6 @@ class CartContainer extends Component {
     this.filterCart = this.filterCart.bind(this);
     this.totalCost = this.totalCost.bind(this);
     this.removeFromCart = this.removeFromCart.bind(this);
-    this.checkout = this.checkout.bind(this);
   }
 
   filterCart(modCart) {
@@ -48,13 +47,6 @@ class CartContainer extends Component {
     }
   }
 
-  checkout(total) {
-    return <li className="nav-item">
-      <NavLink to="/checkout" className="nav-link"></NavLink>
-      <Redirect to="/checkout" />
-    </li>;
-  }
-
   render() {
     return this.props.cart.length === 0
       ? <div>
@@ -65,7 +57,7 @@ class CartContainer extends Component {
           <div>
             <CartCheckout checkoutBox={this.filterCart(this.props.cart)}/>
             <p>Total: {this.totalCost(this.filterCart(this.props.cart))}</p>
-            <button onClick={this.checkout(this.totalCost(this.filterCart(this.props.cart)))}>Checkout</button>
+            <button><NavLink to="/checkout">Checkout</NavLink></button>
           </div>
         </div>;
   }
