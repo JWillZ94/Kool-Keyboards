@@ -7,7 +7,8 @@ import { withRouter, Redirect, NavLink } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   cart: state.authReducer.cart,
-  amt: state.authReducer.amt
+  amt: state.authReducer.amt,
+  total: state.authReducer.total
 });
 
 class CartContainer extends Component {

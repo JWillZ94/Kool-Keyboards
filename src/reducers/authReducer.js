@@ -6,7 +6,8 @@ const initialState = {
   cartItem: {},
   kb: {},
   amt: 0,
-  boughtItems: []
+  boughtItems: [],
+  total: 0
 };
 
 const authReducer = (state = initialState, action) => {

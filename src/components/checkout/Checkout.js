@@ -1,9 +1,11 @@
 import React from 'react';
-import CheckoutContainer from '../../containers/CheckoutContainer';
+import CheckoutContainerItems from '../../containers/CheckoutContainerItems';
+import CheckoutContainerSP from '../../containers/CheckoutContainerSP';
 
 const Checkout = () => (
   <div>
-    <p>Checkout heaaa</p>
+    <CheckoutContainerItems />
+    <CheckoutContainerSP />
   </div>
 );
 
