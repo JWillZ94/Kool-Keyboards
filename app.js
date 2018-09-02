@@ -26,7 +26,7 @@ app.use(cors());
 
 // Database ============================
 
-mongoose.connect('mongodb://localhost/kool-keyboards');
+mongoose.connect('mongodb://JWillZ94:104280Jw@ds239692.mlab.com:39692/kool-keyboards');
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'database connection error: '));
 db.once('open', () => {

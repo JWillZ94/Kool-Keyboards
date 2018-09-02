@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import './Home.css';
 
 function Home() {
-  
+
   const settings = {
     dots: true,
     infinite: true,
@@ -51,13 +51,13 @@ function Home() {
             </div>
             <div className="featured-product-info">
               <div className="featured-product-img">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/81w4WENhwYL._SL1500_.jpg" width="300" alt="" />
+                <img src="https://images-na.ssl-images-amazon.com/images/I/81SrklHte1L._SL1500_.jpg" width="300" alt="" />
               </div>
               <p className="featured-info">Gaming Keyboards</p>
             </div>
             <div className="featured-product-info">
               <div className="featured-product-img">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/71FX6zzMvkL._SL1500_.jpg" width="300" alt="" />
+                <img src="https://images-na.ssl-images-amazon.com/images/I/81SrklHte1L._SL1500_.jpg" width="300" alt="" />
               </div>
               <p className="featured-info">Wireless Keyboards</p>
             </div>
