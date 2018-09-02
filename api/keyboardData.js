@@ -17,11 +17,12 @@ router.get('/:id', (req, res) => {
   });
 });
 
-router.put('/:id', (req, res) => {
-  Kb.updateMany(req.params.id, req.body, (err, kb) => {
-    if (err) throw err;
-    res.json({ kb: kb });
-  });
+router.put('/', (req, res) => {
+  console.log(req.body);
+  // Kb.updateMany({ name: req.body.item.name }, { $set: { amount_in_stock: req.body.newAmt }}, (err, kbs) => {
+  //   if (err) throw err;
+  //   res.json({ kbs: kbs });
+  // });
 });
 
 module.exports = router;

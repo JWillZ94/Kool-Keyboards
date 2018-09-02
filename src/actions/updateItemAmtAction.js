@@ -11,17 +11,28 @@ export const updateItemAmtErrorAction = {
 };
 
 export function updateKeyboardAmt(cart) {
-  console.log(cart);
-  return dispatch => {
-    dispatch(updateItemAmtBeginAction);
-    return fetch('http://localhost:5000/api/kbs', {
-      method: "PUT",
-      data: JSON.stringify(cart)
-    })
-      .then(
-        res => res.json(),
-        err => console.log('An error occurred: ', err)
-      )
-      .then(data => dispatch(updateItemAmtSuccessAction));
-  }
+  // let info = [];
+  // let item, newAmt;
+  // for (let i of cart) {
+  //   item = i.item;
+  //   newAmt = i.item.amount_in_stock - i.itemAmt;
+  //   info.push({ item, newAmt });
+  // }
+  // return dispatch => {
+  //   dispatch(updateItemAmtBeginAction);
+  //   return fetch('http://localhost:5000/api/kbs', {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     data: JSON.stringify(info)
+  //   })
+  //     .then(
+  //       res => res.json(),
+  //       err => {
+  //         console.log('An error occurred: ', err);
+  //       }
+  //     )
+  //     .then(data => dispatch(updateItemAmtSuccessAction));
+  // }
 }

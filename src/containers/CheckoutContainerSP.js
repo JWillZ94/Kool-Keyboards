@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { updateKeyboardAmt } from '../actions/updateItemAmtAction';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   cart: state.authReducer.cart
@@ -73,7 +74,7 @@ class CheckoutContainerSP extends Component {
             <input type="date" />
           </div>
           <div>
-            <input type="submit" value="Place Order" />
+            <NavLink to="/order-complete"><input type="submit" value="Place Order" /></NavLink>
           </div>
         </form>
       </div>
