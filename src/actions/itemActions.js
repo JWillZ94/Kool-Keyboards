@@ -2,7 +2,6 @@ export const fetchKeyboardsBeginAction = {
   type: 'FETCH_KEYBOARDS_BEGIN'
 };
 
-
 export const fetchKeyboardsSuccessAction = kbs => {
   return {
     type: 'FETCH_KEYBOARDS_SUCCESS',

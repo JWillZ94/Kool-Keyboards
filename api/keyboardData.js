@@ -17,4 +17,11 @@ router.get('/:id', (req, res) => {
   });
 });
 
+router.put('/:id', (req, res) => {
+  Kb.updateMany(req.params.id, req.body, (err, kb) => {
+    if (err) throw err;
+    res.json({ kb: kb });
+  });
+});
+
 module.exports = router;

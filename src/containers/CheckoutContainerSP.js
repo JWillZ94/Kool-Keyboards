@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
+import { updateKeyboardAmt } from '../actions/updateItemAmtAction';
 import { connect } from 'react-redux';
+
+const mapStateToProps = state => ({
+  cart: state.authReducer.cart
+});
 
 class CheckoutContainerSP extends Component {
   constructor(props) {
     super(props);
 
+    this.submitInfo = this.submitInfo.bind(this);
+  }
+
+  submitInfo(e) {
+    e.preventDefault();
+    this.props.dispatch(updateKeyboardAmt(this.props.cart));
   }
 
   render() {
@@ -12,7 +23,7 @@ class CheckoutContainerSP extends Component {
       <div>
         <p>Attention: This is not a real website, this is only for practice. Do not enter your actual private information. It does not go anywhere anyway :)</p>
         <p>Shipping and Payment</p>
-        <form>
+        <form onSubmit={this.submitInfo}>
           <div>
             <input type="text" placeholder="Country..." />
           </div>
@@ -30,13 +41,16 @@ class CheckoutContainerSP extends Component {
           </div>
           <p>Shipping Method</p>
           <div>
-            <input type="radio" name="ship" value="economy" placeholder="Economy..." />
+            <input type="radio" name="ship" value="economy" />
+            <span>Economy</span>
           </div>
           <div>
-            <input type="radio" name="ship" value="standard" placeholder="Standard..." />
+            <input type="radio" name="ship" value="standard" />
+            <span>Standard</span>
           </div>
           <div>
-            <input type="radio" name="ship" value="express" placeholder="Express..." />
+            <input type="radio" name="ship" value="express" />
+            <span>Express</span>
           </div>
           <p>Payment</p>
           <select>
@@ -70,4 +84,6 @@ class CheckoutContainerSP extends Component {
 // Adds items to boughtItems array in backend if using user
 // Takes away amount of items in backend
 
-export default CheckoutContainerSP;
+export default connect(
+  mapStateToProps
+)(CheckoutContainerSP);

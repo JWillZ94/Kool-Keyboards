@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 
+
 class CartItems extends Component {
   constructor(props) {
     super(props);
 
+    this.removeFromCart = this.removeFromCart.bind(this);
+  }
+
+  removeFromCart(e) {
+    this.props.removeFromCart(e);
   }
 
   render() {

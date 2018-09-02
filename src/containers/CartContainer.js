@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { removeFromCartAction } from '../actions/cartActions';
 import CartItems from './CartItems';
+import { removeFromCartAction } from '../actions/cartActions';
 import CartCheckout from './CartCheckout';
 import { withRouter, Redirect, NavLink } from 'react-router-dom';
 
@@ -44,7 +44,7 @@ class CartContainer extends Component {
 
   removeFromCart(e) {
     for (let i = 0; i < this.props.cart.length; i++) {
-      if (e.target.id === this.props.cart[i]._id) this.props.dispatch(removeFromCartAction(this.props.cart[i]));
+      if (e.target.id === this.props.cart[i].item._id) this.props.dispatch(removeFromCartAction(this.props.cart[i]));
     }
   }
 
@@ -54,7 +54,7 @@ class CartContainer extends Component {
           <p>Nothing in cart!</p>
         </div>
       : <div>
-          <CartItems cart={this.filterCart(this.props.cart)} />
+          <CartItems removeFromCart={this.removeFromCart} cart={this.filterCart(this.props.cart)} />
           <div>
             <CartCheckout checkoutBox={this.filterCart(this.props.cart)}/>
             <p>Total: {this.totalCost(this.filterCart(this.props.cart))}</p>

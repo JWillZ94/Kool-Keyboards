@@ -4,9 +4,21 @@ export const addToCartAction = (actionItem, actionAmt) => ({
   actionAmt
 });
 
-export const removeFromCartAction = item => ({
+export const removeFromCartAction = actionItem => ({
   type: 'REMOVE_FROM_CART',
-  item
+  actionItem
+});
+
+export const increaseAmtAction = (actionItem, actionAmt) => ({
+  type: 'INCREASE_AMT',
+  actionItem,
+  actionAmt
+});
+
+export const decreaseAmtAction = (actionItem, actionAmt) => ({
+  type: 'DECREASE_AMT', 
+  actionItem,
+  actionAmt
 });
 
 export function addToDbCart(item, userId) {

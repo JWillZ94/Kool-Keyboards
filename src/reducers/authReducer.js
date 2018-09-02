@@ -61,8 +61,8 @@ const authReducer = (state = initialState, action) => {
       });
     case 'REMOVE_FROM_CART':
       return Object.assign({}, state, {
-        cart: state.cart.filter(i => i === action.item)
-      })
+        cart: [ ...state.cart ].filter(cartItem => cartItem !== action.actionItem)
+      });
     default:
       return state;
   }
