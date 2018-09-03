@@ -10,14 +10,12 @@ const LoginForm = ({ handleLogin, isLoggingIn }) => {
     : (
         <form onSubmit={handleLogin}>
           <div>
-            <label>Username: </label>
-            <input type="text" name="username" placeholder="Username..." />
+            <input type="text" className="input-box" name="username" placeholder="Username..." />
           </div>
           <div>
-            <label>Password: </label>
-            <input type="password" name="password" placeholder="Password..." />
+            <input type="password" className="input-box" name="password" placeholder="Password..." />
           </div>
-          <input type="submit" value="Submit" />
+          <input type="submit" className="btn" value="Submit" />
         </form>
       );
 }

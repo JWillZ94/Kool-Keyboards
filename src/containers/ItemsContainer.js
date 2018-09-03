@@ -30,11 +30,14 @@ class ItemsContainer extends Component {
             {
               this.props.items.kbs.map(kb =>
                 <li key={kb._id} className="items">
-                  <img src={kb.img} alt="pic" className="image" />
+                  <div className="image-container">
+                    <img src={kb.img} alt="pic" className="image" />
+                  </div>
                   <p className="kb-name">{kb.name}</p>
-                  <p>Price: {kb.price}</p>
+                  <p>${kb.price}</p>
+                  <p>Rating: {kb.rating} / 5</p>
                   <p>Condition: {kb.condition}</p>
-                  <p>Amount: {kb.amount_in_stock}</p>
+                  <p>Amount in stock: {kb.amount_in_stock}</p>
                   <Quantity kb={kb} amt={kb.amount_in_stock} />
                 </li>
               )

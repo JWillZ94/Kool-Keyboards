@@ -48,7 +48,7 @@ const kbSchema = mongoose.Schema({
 });
 
 const Kb = module.exports = mongoose.model('Kb', kbSchema);
-
+ 
 // All possible characteristics:
 //
 // Amount in stock: various

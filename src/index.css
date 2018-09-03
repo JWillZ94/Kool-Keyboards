@@ -4,3 +4,30 @@ body {
   margin: 0;
   color: #0d0d0d;
 }
+
+.btn {
+  margin: 1rem auto 1rem auto;
+  width: 75px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  padding: 0.5rem;
+  background: #cc5200;
+  color: #fff;
+  font-size: 0.8em;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #cc5200;
+  border: 1px solid #cc5200;
+}
+
+.input-box {
+  width: 300px;
+  font-size: 1.2em;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px lightgray solid;
+  margin: 0.5rem;
+}

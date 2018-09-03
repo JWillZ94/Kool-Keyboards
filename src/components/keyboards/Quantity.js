@@ -32,10 +32,12 @@ class Quantity extends Component {
   }
 
   addToCart(e) {
-    if (e.target.id === this.props.kb._id) {
-      this.props.dispatch(
-        addToCartAction(this.props.kb, this.state.quantity)
-      );
+    if (this.state.quantity > 0) {
+      if (e.target.id === this.props.kb._id) {
+        this.props.dispatch(
+          addToCartAction(this.props.kb, this.state.quantity)
+        );
+      }
     }
   }
 
@@ -59,7 +61,7 @@ class Quantity extends Component {
           handleIncrement={this.handleIncrement}
           quantity={this.state.quantity}
         />
-        <p id={this.props.kb._id} onClick={this.addToCart}>Add to Cart</p>
+        <p id={this.props.kb._id} className="btn" onClick={this.addToCart}>Add to Cart</p>
       </div>
     );
   }

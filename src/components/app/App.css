@@ -1,13 +1,35 @@
-.title {
-  text-align: center;
-  padding: 6rem 0 6rem 0;
-  font-size: 3em;
-  margin: 0;
+#title-section {
+  background: linear-gradient(rgba(204, 82, 0, 0.6), rgba(204, 82, 0, 0.6)), url("https://images.pexels.com/photos/163130/keyboard-black-notebook-input-163130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") center;
+  padding-bottom: 1rem;
 }
 
-/* .user-greeting {
+.title {
+  text-align: center;
+  padding: 4rem 0 4rem 0;
+  font-size: 3em;
+  margin: 0;
+  color: #fff;
+}
+
+#greeting {
   margin-left: 80%;
-} */
+  color: #fff;
+  font-size: 1.4em;
+}
+
+#logout-btn {
+  margin-left: 80%;
+  text-align: center;
+  background: #fff;
+  color: #cc5200;
+  border: 1px solid #cc5200;
+}
+
+#logout-btn:hover {
+  background: #cc5200;
+  color: #fff;
+  border: 1px solid #fff;
+}
 
 .navbar {
   display: flex;

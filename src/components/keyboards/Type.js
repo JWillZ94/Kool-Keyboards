@@ -4,7 +4,7 @@ import { TypeFilters } from '../../actions/typeActions';
 
 const Type = () => (
   <div>
-    <span>Types: </span>
+    <span className="sort-section-title">Types</span>
     <TypeContainer filter={TypeFilters.NO_TYPE}>None</TypeContainer>
     <TypeContainer filter={TypeFilters.WINDOWS}>Windows</TypeContainer>
     <TypeContainer filter={TypeFilters.APPLE}>Apple</TypeContainer>

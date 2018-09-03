@@ -21,7 +21,7 @@ class LogoutContainer extends Component {
     return this.props.user === ''
       ? <div></div>
       : <div>
-          <button onClick={this.handleLogout}>Logout</button>
+          <p id="logout-btn" className="btn" onClick={this.handleLogout}>Logout</p>
         </div>;
   }
 }

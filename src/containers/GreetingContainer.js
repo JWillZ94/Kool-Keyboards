@@ -8,11 +8,11 @@ const mapStateToProps = state => ({
 class GreetingContainer extends Component {
   render() {
     return this.props.user === ''
-      ? <div>
+      ? <div id="greeting">
           <p>Greetings, guest!</p>
         </div>
-      : <div>
-          <p>Greetings, {this.props.user.first_name}</p>
+      : <div id="greeting">
+          <p>Greetings, {this.props.user.first_name}!</p>
         </div>;
   }
 }

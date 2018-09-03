@@ -11,6 +11,16 @@
   background: #fff;
 }
 
+.register-login-title {
+  font-size: 2rem;
+  color: #cc5200;
+  margin-bottom: 0;
+}
+
+.required-note {
+  color: darkgray;
+}
+
 #register-login-content {
   display: flex;
   justify-content: space-around;

@@ -1,6 +1,6 @@
 .keyboards-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 3fr;
   margin: 0 2rem;
 }
 
@@ -9,13 +9,11 @@
   margin: 0;
   padding: 3rem 0 3rem 0;
   font-size: 2.5em;
+  color: #cc5200;
 }
 
 .items-menu {
-  display: flex;
-  justify-content: space-around;
-  max-width: 95%;
-  margin: auto;
+  width: 150px;
 }
 
 /* .active-button {
@@ -31,6 +29,7 @@
 .sort-menu {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .sort-menu-item {
@@ -39,6 +38,20 @@
 
 .btn-show-all {
   align-self: center;
+}
+
+.line {
+  width: 100%;
+}
+
+.sort-section-title {
+  font-size: 1.2em;
+}
+
+.sort-section-choice {
+  cursor: pointer;
+  font-size: 0.8em;
+  margin: 0.5rem;
 }
 
 .items-sort {
@@ -56,8 +69,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1em;
-  min-width: 1146.55px;
-  min-height: 405.66px;
+  align-items: center;
+  width: 977.96px;
 }
 
 .items {
@@ -66,17 +79,15 @@
   border: 1px solid black;
 }
 
-.image {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+.image-container {
+  width: 300px;
+  height: 300px;
+  display: flex;
   align-items: center;
-  cursor: pointer;
-  max-width: 369.52px;
-  max-height: 300px;
 }
 
-.kb-name {
-  cursor: pointer;
+.image {
+  width: 100%;
 }
 
 .fa-angle-left, .fa-angle-right {
@@ -102,7 +113,7 @@
 
 .sym {
   cursor: pointer;
-  margin: 0 0.7rem 0 0;
+  margin: 0 0.7rem 0 0.7rem;
 }
 
 #modal {

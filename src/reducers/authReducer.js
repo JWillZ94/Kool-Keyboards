@@ -45,9 +45,7 @@ const authReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         isWaiting: false,
         authenticated: true,
-        user: action.user,
-        cart: action.user.cart,
-        boughtItems: action.user.boughtItems
+        user: action.user
       });
     case 'REGISTER_USER_FAILURE':
       return Object.assign({}, state, { isWaiting: false });

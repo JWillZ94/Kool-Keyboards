@@ -1,9 +1,9 @@
 import React from 'react';
 
 const PriceRangeOption = ({ active, children, handleFilterPriceRange }) => (
-  <button onClick={handleFilterPriceRange} disabled={active}>
+  <p onClick={handleFilterPriceRange} className={ active ? "active-choice sort-section-choice" : "sort-section-choice" }>
     {children}
-  </button>
+  </p>
 );
 
 export default PriceRangeOption;

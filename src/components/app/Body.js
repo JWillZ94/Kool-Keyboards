@@ -7,7 +7,6 @@ import Profile from '../profile/Profile';
 import RegisterLogin from '../register-login/RegisterLogin';
 import Checkout from '../checkout/Checkout';
 import OrderComplete from '../checkout/OrderComplete';
-import Admin from './Admin';
 import { HashRouter, Route, NavLink } from 'react-router-dom';
 import AuthLinkContainer from '../../containers/AuthLinkContainer';
 
@@ -26,9 +25,6 @@ const Body = () => (
         <li className="nav-item">
           <NavLink to="/cart" className="nav-link">My Cart</NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink to="/admin" className="nav-link">Admin</NavLink>
-        </li>
       </ul>
 
       <div className="route-page">
@@ -40,7 +36,6 @@ const Body = () => (
         <Route path="/cart" component={Cart} />
         <Route path="/checkout" component={Checkout} />
         <Route path="/order-complete" component={OrderComplete} />
-        <Route path="/admin" component={Admin} />
       </div>
 
     </div>

@@ -4,7 +4,7 @@ import { ConditionFilters } from '../../actions/conditionActions';
 
 const Condition = () => (
   <div>
-    <span>Conditions: </span>
+    <span className="sort-section-title">Conditions</span>
     <ConditionContainer filter={ConditionFilters.NEW}>New</ConditionContainer>
     <ConditionContainer filter={ConditionFilters.USED}>Used</ConditionContainer>
     <ConditionContainer filter={ConditionFilters.REFURBISHED}>Refurbished</ConditionContainer>

@@ -8,11 +8,13 @@ const RegisterLogin = () => (
   <div id="register-login">
     <div id="register-login-content">
       <div id="register" className="center-text">
-        <p>Sign Up</p>
+        <p className="register-login-title">Sign Up</p>
+        <small className="required-note">(All fields required)</small>
         <RegisterContainer />
       </div>
       <div id="login" className="center-text">
-        <p>Log In</p>
+        <p className="register-login-title">Log In</p>
+        <small className="required-note">(All fields required)</small>
         <LoginContainer />
       </div>
     </div>

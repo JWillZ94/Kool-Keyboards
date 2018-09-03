@@ -5,7 +5,7 @@ import SortContainer from '../../containers/SortContainer';
 function Sort() {
   return (
     <div>
-      <span>Sort By:</span>
+      <span className="sort-section-title">Sort By</span>
       <div>
         <SortContainer sort={ItemSorts.SORT_POPULARITY}>Popularity</SortContainer>
         <SortContainer sort={ItemSorts.SORT_PRICE_LOW_TO_HIGH}>Price: Low to High</SortContainer>

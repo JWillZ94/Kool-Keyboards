@@ -4,7 +4,7 @@ import { BrandFilters } from '../../actions/brandActions';
 
 const Brand = () => (
   <div>
-    <span>Brands: </span>
+    <span className="sort-section-title">Brands</span>
     <BrandContainer filter={BrandFilters.BOX_WAVE}>BoxWave</BrandContainer>
     <BrandContainer filter={BrandFilters.IBM}>IBM</BrandContainer>
     <BrandContainer filter={BrandFilters.SOLID_TEK}>SolidTek</BrandContainer>

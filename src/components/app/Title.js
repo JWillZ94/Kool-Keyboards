@@ -5,10 +5,12 @@ import LogoutContainer from '../../containers/LogoutContainer';
 // <LogoutContainer />
 
 const Title = () => (
-  <div>
+  <div id="title-section">
     <p className="title">Kool Keyboards</p>
-    <GreetingContainer />
-    <LogoutContainer />
+    <div id="title-user-status">
+      <GreetingContainer />
+      <LogoutContainer />
+    </div>
   </div>
 );
 

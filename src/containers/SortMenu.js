@@ -34,14 +34,22 @@ const mapDispatchToProps = dispatch => ({
 function SortMenu({ showAllItems }) {
   return (
     <div className="sort-menu">
-      <button onClick={showAllItems}>Show All</button>
+      <p className="btn" onClick={showAllItems}>Show All</p>
+      <hr className="line" />
       <Sort />
+      <hr className="line" />
       <Availability />
+      <hr className="line" />
       <Brand />
+      <hr className="line" />
       <Condition />
+      <hr className="line" />
       <Feature />
+      <hr className="line" />
       <Interface />
+      <hr className="line" />
       <Price />
+      <hr className="line" />
       <Type />
     </div>
   );

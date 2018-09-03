@@ -10,26 +10,21 @@ const RegisterForm = ({ handleRegister, isRegistering }) => {
     : (
         <form onSubmit={handleRegister}>
           <div>
-            <label>Username: </label>
-            <input type="text" name="username" placeholder="Username..." />
+            <input type="text" className="input-box" name="username" placeholder="Username..." />
           </div>
           <div>
-            <label>Password: </label>
-            <input type="password" name="password" placeholder="Password..." />
+            <input type="password" className="input-box" name="password" placeholder="Password..." />
           </div>
           <div>
-            <label>First Name: </label>
-            <input type="text" name="first_name" placeholder="First name..." />
+            <input type="text" className="input-box" name="first_name" placeholder="First name..." />
           </div>
           <div>
-            <label>Last Name: </label>
-            <input type="text" name="last_name" placeholder="Last name..." />
+            <input type="text" className="input-box" name="last_name" placeholder="Last name..." />
           </div>
           <div>
-            <label>Email: </label>
-            <input type="email" name="email" placeholder="Email..." />
+            <input type="email" className="input-box" name="email" placeholder="Email..." />
           </div>
-          <input type="submit" value="Submit" />
+          <input type="submit" className="btn" value="Submit" />
         </form>
       );
 }
