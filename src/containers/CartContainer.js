@@ -4,6 +4,7 @@ import CartItems from './CartItems';
 import { removeFromCartAction } from '../actions/cartActions';
 import CartCheckout from './CartCheckout';
 import { withRouter, Redirect, NavLink } from 'react-router-dom';
+import '../components/cart/Cart.css';
 
 const mapStateToProps = state => ({
   cart: state.authReducer.cart,
@@ -51,14 +52,14 @@ class CartContainer extends Component {
   render() {
     return this.props.cart.length === 0
       ? <div>
-          <p>Nothing in cart!</p>
+          <p>Your cart is empty.</p>
         </div>
       : <div>
           <CartItems removeFromCart={this.removeFromCart} cart={this.filterCart(this.props.cart)} />
           <div>
             <CartCheckout checkoutBox={this.filterCart(this.props.cart)}/>
-            <p>Total: {this.totalCost(this.filterCart(this.props.cart))}</p>
-            <button><NavLink to="/checkout">Checkout</NavLink></button>
+            <p id="total">Total: ${this.totalCost(this.filterCart(this.props.cart))}</p>
+            <NavLink to="/checkout" className="checkout"><p className="btn">Checkout</p></NavLink>
           </div>
         </div>;
   }

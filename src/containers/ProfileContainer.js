@@ -15,11 +15,14 @@ class ProfileContainer extends Component {
   render() {
 
     return (
-      <div>
-        <p>This is your profile {this.props.user.first_name} {this.props.user.last_name}</p>
+      <div id="profile-info">
+        <p className="section-title">Welcome to your profile,  {this.props.user.first_name}!</p>
         <div>
-          <p>Recently Bought Items</p>
-          <BoughtItemsContainer />
+          <p id="info">Information</p>
+          <p>First name: {this.props.user.first_name}</p>
+          <p>Last name: {this.props.user.last_name}</p>
+          <p>Username: {this.props.user.username}</p>
+          <p>Email: {this.props.user.email}</p>
         </div>
       </div>
     );

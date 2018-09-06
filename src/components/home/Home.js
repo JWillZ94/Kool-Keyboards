@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import './Home.css';
+import '../keyboards/Keyboards.css';
 
 function Home() {
 
@@ -10,7 +11,7 @@ function Home() {
     speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 10000,
     arrows: false
   };
@@ -22,7 +23,7 @@ function Home() {
         <div className="home-cover-1">
           <div className="home-cover-text">
             <p className="home-cover-title">We Have Top Brands</p>
-            <p>Purchase keyboards from our wide array of the best brands including Apple, Logitech, Corsair, and more!</p>
+            <p>Purchase keyboards from our wide array of the best brands including IBM, Ducky, BoxWave, and more!</p>
           </div>
         </div>
         <div className="home-cover-2">
@@ -40,44 +41,44 @@ function Home() {
       </Slider>
 
       <div className="featured">
-        <p className="featured-title">Featured</p>
+        <p className="featured-title section-title">Featured</p>
         <Slider {...settings}>
           <div className="featured-products">
             <div className="featured-product-info">
-              <div className="featured-product-img">
-                <img src="https://img2.owcnow.com/imgs/ndesc/Apple/APLMC184LLAx/GradeA/Excellent_hero.jpg" width="300" alt="" />
+              <div className="featured-product-img image-container">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/61sXklbgkXL._SL1000_.jpg" className="image" alt="" />
               </div>
-              <p className="featured-info">Apple Keyboards</p>
+              <p className="featured-info">Filco Keyboards</p>
             </div>
             <div className="featured-product-info">
-              <div className="featured-product-img">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/81SrklHte1L._SL1500_.jpg" width="300" alt="" />
+              <div className="featured-product-img image-container">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/41QpRJgjDhL.jpg" className="image" alt="" />
               </div>
               <p className="featured-info">Gaming Keyboards</p>
             </div>
             <div className="featured-product-info">
-              <div className="featured-product-img">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/81SrklHte1L._SL1500_.jpg" width="300" alt="" />
+              <div className="featured-product-img image-container">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/41j-LikqSuL.jpg" className="image" alt="" />
               </div>
               <p className="featured-info">Wireless Keyboards</p>
             </div>
           </div>
           <div className="featured-products">
             <div className="featured-product-info">
-              <div className="featured-product-img">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/81d5RHlqJQL._SL1500_.jpg" width="300" alt="" />
+              <div className="featured-product-img image-container">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/41W0OwHWdCL.jpg" className="image" alt="" />
               </div>
-              <p className="featured-info">Corsair Keyboards</p>
+              <p className="featured-info">IBM Keyboards</p>
             </div>
             <div className="featured-product-info">
-              <div className="featured-product-img">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/61tiBTdU2qL._SL1500_.jpg" width="300" alt="" />
+              <div className="featured-product-img image-container">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/71cE1j3kqVL._SL1500_.jpg" className="image" alt="" />
               </div>
               <p className="featured-info">Refurbished Keyboards</p>
             </div>
             <div className="featured-product-info">
-              <div className="featured-product-img">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/71t-MZrdWwL._SL1500_.jpg" width="300" alt="" />
+              <div className="featured-product-img image-container">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/71t-MZrdWwL._SL1500_.jpg" className="image" alt="" />
               </div>
               <p className="featured-info">Keyboards Under $25</p>
             </div>

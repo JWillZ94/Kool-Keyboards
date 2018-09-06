@@ -1,10 +1,11 @@
 import React from 'react';
 import CheckoutContainerItems from '../../containers/CheckoutContainerItems';
 import CheckoutContainerSP from '../../containers/CheckoutContainerSP';
+import './Checkout.css';
+// <CheckoutContainerItems />
 
 const Checkout = () => (
-  <div>
-    <CheckoutContainerItems />
+  <div id="checkout-content">
     <CheckoutContainerSP />
   </div>
 );

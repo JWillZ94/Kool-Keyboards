@@ -100,7 +100,7 @@ app.post("/api/register", (req, res) => {
                   console.error(err)
                   // res.json({ success: false })
                 )
-              : res.json(user);
+              : res.json(req.body);
           })
         );
   });
@@ -113,3 +113,11 @@ const port = process.env.PORT || 5000;
 app.get('/', (req, res) => res.send({ hey: 'test' }));
 
 app.listen(port, () => console.log('server up'));
+
+/*
+  App todos:
+  - reduxform library for register/login forms
+  - add the cart and total to payment section through state
+  - make user go to error page if signed in with wrong username or password on login
+  - fix home page
+*/

@@ -43,6 +43,10 @@
   font-size: 2rem;
 }
 
+.featured {
+  padding-bottom: 5rem;
+}
+
 .featured-products {
   display: flex !important;
   justify-content: space-around !important;

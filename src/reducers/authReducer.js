@@ -40,7 +40,9 @@ const authReducer = (state = initialState, action) => {
     case 'LOGOUT_USER_FAILURE':
       return Object.assign({}, state, { isWaiting: false });
     case 'REGISTER_USER_BEGIN':
-      return Object.assign({}, state, { isWaiting: true });
+      return Object.assign({}, state, {
+        isWaiting: true 
+      });
     case 'REGISTER_USER_SUCCESS':
       return Object.assign({}, state, {
         isWaiting: false,

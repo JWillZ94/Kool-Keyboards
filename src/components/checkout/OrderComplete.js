@@ -1,7 +1,7 @@
 import React from 'react';
 
 const OrderComplete = () => (
-  <div>
+  <div id="order-complete-content">
     <p>Thank you for your order!</p>
   </div>
 );

@@ -5,4 +5,19 @@
 
 .cart-section {
   display: flex;
+  padding-bottom: 3rem;
+  justify-content: center;
+}
+
+.checkout {
+  text-align: center;
+  text-decoration: none;
+}
+
+#total {
+  text-align: center;
+}
+
+.checkout-item {
+  margin-bottom: 1rem;
 }

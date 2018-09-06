@@ -55,12 +55,10 @@
 }
 
 .items-sort {
-  border: 1px black solid;
   /* width: 400px; */
 }
 
 .sort-section {
-  border: 1px black solid;
 }
 
 /* Products ==================================*/
@@ -76,7 +74,7 @@
 .items {
   list-style-type: none;
   text-align: center;
-  border: 1px solid black;
+  margin-bottom: 2rem;
 }
 
 .image-container {

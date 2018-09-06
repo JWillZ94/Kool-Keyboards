@@ -11,8 +11,8 @@ class CartCheckout extends Component {
       <ul>
         {
           this.props.checkoutBox.map(kb =>
-            <li key={kb.item._id} className="items">
-              <span className="kb-name">{kb.item.name} {kb.item.price} x {kb.itemAmt} = {Math.imul(kb.item.price, kb.itemAmt)}</span>
+            <li key={kb.item._id} className="items checkout-item">
+              <span className="kb-name">{kb.item.name} ${kb.item.price} x {kb.itemAmt} = ${Math.imul(kb.item.price, kb.itemAmt)}</span>
             </li>
           )
         }

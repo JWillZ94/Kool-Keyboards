@@ -18,7 +18,9 @@
 }
 
 .required-note {
+  display: block;
   color: darkgray;
+  padding-bottom: 1rem;
 }
 
 #register-login-content {

@@ -4,7 +4,7 @@ export const registerUserBeginAction = {
 
 export const registerUserSuccessAction = user => ({
   type: 'REGISTER_USER_SUCCESS',
-  user
+  user: user
 });
 
 export const registerUserErrorAction = {
@@ -26,8 +26,6 @@ export function registerUser(newUser) {
         res => res.json(),
         err => console.log("An error occurred: ", err)
       )
-      .then(user => {
-        dispatch(registerUserSuccessAction(user))
-      });
+      .then(user => dispatch(registerUserSuccessAction(user)));
   }
 }
