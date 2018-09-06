@@ -116,14 +116,6 @@ const port = process.env.PORT || 5000;
 
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'build', 'index.html')));
 
-Kb = require('./model/keyboardModel');
-app.get('/api/kbs', (req, res) => {
-  Kb.find((err, kbs) => {
-    if (err) throw err;
-    res.json({ kbs: kbs });
-  });
-});
-
 app.listen(port, () => console.log('server up'));
 
 /*
