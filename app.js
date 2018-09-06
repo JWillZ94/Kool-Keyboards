@@ -12,6 +12,10 @@ const app = express();
 
 // Middleware ==========================
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('/build'));
+}
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
@@ -119,5 +123,4 @@ app.listen(port, () => console.log('server up'));
   - reduxform library for register/login forms
   - add the cart and total to payment section through state
   - make user go to error page if signed in with wrong username or password on login
-  - fix home page
 */
