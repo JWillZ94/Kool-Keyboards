@@ -20,7 +20,7 @@ export function updateKeyboardAmt(cart) {
   // }
   // return dispatch => {
   //   dispatch(updateItemAmtBeginAction);
-  //   return fetch('http://localhost:5000/api/kbs', {
+  //   return fetch('/api/kbs', {
   //     method: "PUT",
   //     headers: {
   //       "Content-Type": "application/json"

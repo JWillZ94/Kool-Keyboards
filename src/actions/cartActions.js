@@ -16,14 +16,14 @@ export const increaseAmtAction = (actionItem, actionAmt) => ({
 });
 
 export const decreaseAmtAction = (actionItem, actionAmt) => ({
-  type: 'DECREASE_AMT', 
+  type: 'DECREASE_AMT',
   actionItem,
   actionAmt
 });
 
 export function addToDbCart(item, userId) {
   return dispatch => {
-    return fetch(`http://localhost:5000/api/users/${userId}`, {
+    return fetch(`/api/users/${userId}`, {
       method: "POST",
       data: JSON.stringify(item)
     })

@@ -14,7 +14,7 @@ export const registerUserErrorAction = {
 export function registerUser(newUser) {
   return dispatch => {
     dispatch(registerUserBeginAction);
-    return fetch('http://localhost:5000/api/register', {
+    return fetch('/api/register', {
       method: "POST",
       mode: "cors",
       headers: {

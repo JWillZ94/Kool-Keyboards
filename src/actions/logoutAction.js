@@ -13,7 +13,7 @@ export const logoutUserErrorAction = {
 export function logoutUser() {
   return dispatch => {
     dispatch(logoutUserBeginAction);
-    return fetch('http://localhost:5000/api/logout')
+    return fetch('/api/logout')
       .then(
         res => res.json(),
         err => console.log("An error occurred: ", err)

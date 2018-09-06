@@ -14,7 +14,7 @@ export const loginUserErrorAction = {
 export function loginUser(username, password) {
   return dispatch => {
     dispatch(loginUserBeginAction);
-    return fetch('http://localhost:5000/api/login', {
+    return fetch('/api/login', {
       method: "POST",
       mode: "cors",
       headers: {
