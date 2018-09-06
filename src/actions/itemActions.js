@@ -16,7 +16,7 @@ export const fetchKeyboardsErrorAction = {
 export function fetchKeyboards() {
   return dispatch => {
     dispatch(fetchKeyboardsBeginAction);
-    return fetch('/api/kbs')
+    return fetch('https://kool-keyboards.herokuapp.com/api/kbs')
       .then(
         res => res.json(),
         err => console.log('An error occurred: ', err)
