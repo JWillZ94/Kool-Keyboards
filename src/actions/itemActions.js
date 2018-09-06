@@ -16,7 +16,7 @@ export const fetchKeyboardsErrorAction = {
 export function fetchKeyboards() {
   return dispatch => {
     dispatch(fetchKeyboardsBeginAction);
-    return fetch('http://localhost:5000/api/kbs')
+    return fetch('/api/kbs')
       .then(
         res => res.json(),
         err => console.log('An error occurred: ', err)
