@@ -35,14 +35,15 @@
   display: flex;
   margin: auto;
   background: #0d0d0d;
+  -webkit-padding-start: 0px;
 }
 
 .nav-item {
   text-align: center;
   list-style: none;
-  padding: 0 0 0 3rem;
+  padding: 0 1.5rem;
   font-size: 1.1em;
-  margin: 1rem 0 1rem 0;
+  margin: 1rem 0;
 }
 
 .nav-link {
@@ -58,4 +59,36 @@
 
 .route-page {
   background: #fff;
+}
+
+/* Responsiveness ==========================*/
+
+@media (max-width: 900px) {
+  #greeting {
+    margin: 0;
+    text-align: center;
+  }
+
+  .navbar {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 700px) {
+  .nav-item {
+    padding: 0 0.8em;
+  }
+}
+
+@media (max-width: 575px) {
+  .nav-item {
+    padding: 0;
+  }
+}
+
+@media (max-width: 460px) {
+  .navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }

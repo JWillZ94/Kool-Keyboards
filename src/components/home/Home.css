@@ -66,3 +66,15 @@
 .featured-info {
   margin: 0 0 0.5rem 0;
 }
+
+/* Responsiveness ==========================*/
+
+@media (max-width: 950px) {
+  .featured-products {
+    flex-direction: column;
+  }
+
+  .featured-info {
+    margin-bottom: 1rem;
+  }
+}

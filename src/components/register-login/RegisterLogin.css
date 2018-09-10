@@ -28,3 +28,17 @@
   justify-content: space-around;
   padding: 2rem 0;
 }
+
+/* Responsiveness =========================*/
+
+@media (max-width: 700px) {
+  #register-login-content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 375px) {
+  .input-box {
+    width: 275px;
+  }
+}
