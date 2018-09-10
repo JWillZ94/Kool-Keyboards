@@ -8,7 +8,7 @@ class CartCheckout extends Component {
 
   render() {
     return (
-      <ul>
+      <ul id="cart-items-price">
         {
           this.props.checkoutBox.map(kb =>
             <li key={kb.item._id} className="items checkout-item">

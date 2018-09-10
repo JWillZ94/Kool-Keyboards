@@ -53,3 +53,11 @@
   text-align: center;
   height: 300px;
 }
+
+/* Responsiveness ======================= */
+
+@media (max-width: 550px) {
+  #ship-pay {
+    margin: auto;
+  }
+}
